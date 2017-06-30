@@ -1,13 +1,22 @@
 package com.clivern.racter;
 
 import java.io.IOException;
+
 import com.fasterxml.jackson.jr.ob.*;
+
+import com.mashape.unirest.http.*;
+import com.mashape.unirest.http.async.Callback;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import com.mashape.unirest.http.options.Options;
+import com.mashape.unirest.request.GetRequest;
+import com.mashape.unirest.request.HttpRequest;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException, UnirestException
     {
         testJsonBuilder();
+        testRequests();
     }
 
     public static void testJsonBuilder() throws IOException
@@ -43,5 +52,17 @@ public class Main {
             .end()
             .finish();
         System.out.println(json);
+    }
+
+    public static void testRequests() throws UnirestException {
+        HttpResponse<String> response = Unirest.post("http://mockbin.com/request?foo=bar&foo=baz")
+          .header("cookie", "foo=bar; bar=baz")
+          .header("accept", "application/json")
+          .header("content-type", "application/json")
+          .header("x-pretty-print", "2")
+          .body("{\"foo\": \"bar\"}")
+          .asString();
+
+        System.out.println(response.getStatusText());
     }
 }
