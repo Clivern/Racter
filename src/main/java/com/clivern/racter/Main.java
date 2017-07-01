@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2017 Clivern. <https://clivern.com>
+ */
 package com.clivern.racter;
 
 import java.io.IOException;
@@ -10,7 +13,6 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.options.Options;
 import com.mashape.unirest.request.GetRequest;
 import com.mashape.unirest.request.HttpRequest;
-
 
 public class Main {
     public static void main(String[] args) throws IOException, UnirestException
