@@ -3,6 +3,8 @@
  */
 package com.clivern.racter;
 
+import static spark.Spark.*;
+
 import java.io.IOException;
 
 import com.fasterxml.jackson.jr.ob.*;
@@ -15,13 +17,16 @@ import com.mashape.unirest.request.GetRequest;
 import com.mashape.unirest.request.HttpRequest;
 
 public class Main {
+
     public static void main(String[] args) throws IOException, UnirestException
     {
-        testJsonBuilder();
-        testRequests();
+        get("/", (request, response) -> {
+            return testRequests() + "\n\n" + testJsonBuilder();
+            //testRequests();
+        });
     }
 
-    public static void testJsonBuilder() throws IOException
+    public static String testJsonBuilder() throws IOException
     {
         String json = JSON.std
             .with(JSON.Feature.PRETTY_PRINT_OUTPUT)
@@ -53,18 +58,19 @@ public class Main {
                 .end()
             .end()
             .finish();
-        System.out.println(json);
+        return json;
     }
 
-    public static void testRequests() throws UnirestException {
-        HttpResponse<String> response = Unirest.post("http://mockbin.com/request?foo=bar&foo=baz")
-          .header("cookie", "foo=bar; bar=baz")
-          .header("accept", "application/json")
-          .header("content-type", "application/json")
-          .header("x-pretty-print", "2")
-          .body("{\"foo\": \"bar\"}")
-          .asString();
+    public static String testRequests() throws UnirestException {
 
-        System.out.println(response.getStatusText());
+        HttpResponse<String> response = Unirest.post("http://mockbin.com/request?foo=bar&foo=baz")
+            .header("cookie", "foo=bar; bar=baz")
+            .header("accept", "application/json")
+            .header("content-type", "application/json")
+            .header("x-pretty-print", "2")
+            .body("{\"foo\": \"bar\"}")
+            .asString();
+
+        return response.getStatusText();
     }
 }

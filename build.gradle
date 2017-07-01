@@ -8,7 +8,7 @@
 
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
-apply plugin:'application'
+apply plugin: 'application'
 
 
 archivesBaseName = "racter"
@@ -26,6 +26,11 @@ repositories {
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     //api 'org.apache.commons:commons-math3:3.6.1'
+
+    // For Development Only
+    compile 'com.sparkjava:spark-core:2.6.0'
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile 'org.slf4j:slf4j-simple:1.7.13'
 
     implementation 'com.fasterxml.jackson.jr:jackson-jr-objects:2.8.5'
     implementation 'com.mashape.unirest:unirest-java:1.4.9'
