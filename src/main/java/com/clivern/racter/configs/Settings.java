@@ -15,8 +15,6 @@ import java.io.InputStream;
 
 /**
  * Chat Bot Settings
- *
- * @author Clivern
  */
 public class Settings {
 

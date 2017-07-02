@@ -5,8 +5,6 @@ package com.clivern.racter.utils;
 
 /**
  * Perform cURL Requests
- *
- * @since 1.0.0
  */
 public class Requests {
 

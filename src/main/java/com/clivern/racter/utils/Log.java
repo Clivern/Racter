@@ -12,8 +12,6 @@ import java.util.logging.Logger;
 
 /**
  * Logger Utils Class
- *
- * @author Clivern
  */
 public class Log {
 
