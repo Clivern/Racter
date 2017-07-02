@@ -6,6 +6,8 @@
 ~ Build
 ----------------
 -> ./gradlew build
+-> ./gradlew run
+-> Then Go To http://localhost:4567
 
 ~ Acknowledgements
 ------------------
