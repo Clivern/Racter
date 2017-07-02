@@ -16,6 +16,16 @@ import java.io.InputStream;
 /**
  * Chat Bot Settings
  *
+ * <code>
+ * 	import com.clivern.racter.configs.Settings;
+ *
+ *  Settings settingsObj = new Settings();
+ *  settingsObj.loadPropertiesFile("src/main/java/resources/config.properties");
+ *  settingsObj.setPageAccessToken("256633ffgs");
+ *  settingsObj.storePropertiesFile("src/main/java/resources/config.properties");
+ *  settingsObj.getAppId("app_id");
+ * </code>
+ *
  * @since 1.0.0
  */
 public class Settings {
@@ -28,7 +38,7 @@ public class Settings {
 	 * @param path
 	 * @throws IOException
 	 */
-	public void loadPropertiesFile(String path) throws IOException
+	public Boolean loadPropertiesFile(String path) throws IOException
 	{
 		Properties prop = new Properties();
 		InputStream input = null;
@@ -89,7 +99,7 @@ public class Settings {
 	public String getAppId(String app_id)
 	{
 		if( settings.containsKey("app_id") ){
-			return settings.get("app_id")
+			return settings.get("app_id");
 		}
 
 		return "";
@@ -104,7 +114,7 @@ public class Settings {
 	public String getVerifyToken(String verify_token)
 	{
 		if( settings.containsKey("verify_token") ){
-			return settings.get("verify_token")
+			return settings.get("verify_token");
 		}
 
 		return "";
@@ -119,7 +129,7 @@ public class Settings {
 	public String getPageAccessToken(String page_access_token)
 	{
 		if( settings.containsKey("page_access_token") ){
-			return settings.get("page_access_token")
+			return settings.get("page_access_token");
 		}
 
 		return "";
