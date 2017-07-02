@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Log {
 
-	private static final Logger LOGGER = Logger.getLogger("com.clivern.racter");
+	private static final Logger LOGGER = Logger.getLogger(Log.class.getName());
 	private static Log instance = null;
 	private static Handler consoleHandler = null;
 	private static Handler fileHandler = null;
