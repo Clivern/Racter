@@ -51,6 +51,7 @@ public class Settings {
 			settings.put("app_id", prop.getProperty("app_id"));
 			settings.put("verify_token", prop.getProperty("verify_token"));
 			settings.put("page_access_token", prop.getProperty("page_access_token"));
+			settings.put("log_level", prop.getProperty("log_level"));
 
 			return true;
 		} catch (IOException ex) {
@@ -88,6 +89,16 @@ public class Settings {
 	public void setPageAccessToken(String page_access_token)
 	{
 		settings.put("page_access_token", page_access_token);
+	}
+
+	/**
+	 * Set Log Level
+	 *
+	 * @param log_level
+	 */
+	public void setLogLevel(String log_level)
+	{
+		settings.put("log_level", log_level);
 	}
 
 	/**
@@ -136,6 +147,21 @@ public class Settings {
 	}
 
 	/**
+	 * Get Log Level
+	 *
+	 * @param log_level
+	 * @return String
+	 */
+	public String getLogLevel(String log_level)
+	{
+		if( settings.containsKey("log_level") ){
+			return settings.get("log_level");
+		}
+
+		return "";
+	}
+
+	/**
 	 * Store Settings in Properties File
 	 *
 	 * @param path
@@ -154,6 +180,7 @@ public class Settings {
             prop.setProperty("app_id", settings.get("app_id"));
             prop.setProperty("page_access_token", settings.get("page_access_token"));
             prop.setProperty("verify_token", settings.get("verify_token"));
+            prop.setProperty("log_level", settings.get("log_level"));
             prop.store(output, null);
 
             return true;
