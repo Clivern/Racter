@@ -32,8 +32,16 @@ public class Log {
 	private static Handler consoleHandler = null;
 	private static Handler fileHandler = null;
 
+	/**
+	 * Constructor
+	 */
 	protected Log() { }
 
+	/**
+	 * Get Instance
+	 *
+	 * @return Log
+	 */
 	public static Log getInstance() {
 	    if(instance == null) {
 	        instance = new Log();
@@ -41,6 +49,17 @@ public class Log {
 	    return instance;
 	}
 
+	/**
+	 * Config Logger
+	 *
+	 * @param  console_handler_status
+	 * @param  console_handler_level
+	 * @param  file_handler_status
+	 * @param  file_handler_level
+	 * @param  file_path
+	 * @return Log
+	 * @throws IOException
+	 */
 	public static Log config(Boolean console_handler_status, Level console_handler_level, Boolean file_handler_status, Level file_handler_level, String file_path) throws IOException
 	{
 		if( console_handler_status ){
@@ -58,11 +77,19 @@ public class Log {
 		return instance;
 	}
 
+	/**
+	 * Get Logger
+	 *
+	 * @return Logger
+	 */
 	public static Logger getLogger()
 	{
 		return LOGGER;
 	}
 
+	/**
+	 * Close File Handler
+	 */
 	public static void close()
 	{
 		if( fileHandler != null ){
