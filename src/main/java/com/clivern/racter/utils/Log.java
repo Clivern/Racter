@@ -13,17 +13,7 @@ import java.util.logging.Logger;
 /**
  * Logger Utils Class
  *
- * <code>
- * import com.clivern.racter.utils.Log;
- * import java.util.logging.Level;
- *
- * Log log_handle = Log.getInstance();
- * log_handle.config(true, Level.ALL, true, Level.ALL, "src/main/java/resources/app.log");
- * log_handle.getLogger().warning("warning MSG");
- * log_handle.getLogger().severe("severe MSG");
- * log_handle.close();
- * </code>
- * @since 1.0.0
+ * @author Clivern
  */
 public class Log {
 

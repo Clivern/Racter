@@ -16,17 +16,7 @@ import java.io.InputStream;
 /**
  * Chat Bot Settings
  *
- * <code>
- * 	import com.clivern.racter.configs.Settings;
- *
- *  Settings settingsObj = new Settings();
- *  settingsObj.loadPropertiesFile("src/main/java/resources/config.properties");
- *  settingsObj.setPageAccessToken("256633ffgs");
- *  settingsObj.storePropertiesFile("src/main/java/resources/config.properties");
- *  settingsObj.getAppId("app_id");
- * </code>
- *
- * @since 1.0.0
+ * @author Clivern
  */
 public class Settings {
 
