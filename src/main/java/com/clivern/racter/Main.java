@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) throws IOException, UnirestException
     {
         get("/", (request, response) -> {
-            return "Hello World";
+            return testJsonBuilder();
         });
     }
 
