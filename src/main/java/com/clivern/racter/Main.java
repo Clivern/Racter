@@ -16,12 +16,18 @@ import com.mashape.unirest.http.options.Options;
 import com.mashape.unirest.request.GetRequest;
 import com.mashape.unirest.request.HttpRequest;
 
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Properties;
+
 public class Main {
 
     public static void main(String[] args) throws IOException, UnirestException
     {
         get("/", (request, response) -> {
-            return testRequests() + "\n\n" + testJsonBuilder();
+            return properties();
             //testRequests();
         });
     }
@@ -72,5 +78,30 @@ public class Main {
             .asString();
 
         return response.getStatusText();
+    }
+
+    public static String properties() throws IOException
+    {
+
+        Properties prop = new Properties();
+        OutputStream output = null;
+
+        try {
+
+            output = new FileOutputStream("src/main/java/resources/config.properties");
+
+            // set the properties value
+            prop.setProperty("app_id", "24367772873");
+            prop.setProperty("page_access_token", "EAAEPZCEjpQGYkG9zZCND86AGzK9n8WqmnMysAjlY2XZCbEbqmuj93yoX3PyzORRH53JzAd7qAGVjMOU6bd08fZAgAnapJz8EBPN5pkpfRnjGul6mDf6FyYllZAvZCo8kYk7mgfGdobyCc8y4MkmdmOv3Nek");
+            prop.setProperty("verify_token", "djhwndgjxt");
+
+            // save properties to project root folder
+            prop.store(output, null);
+
+            return "Done";
+
+        } catch (IOException io) {
+            return "Not Done";
+        }
     }
 }
