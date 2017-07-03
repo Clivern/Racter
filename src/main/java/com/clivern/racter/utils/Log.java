@@ -3,6 +3,8 @@
  */
 package com.clivern.racter.utils;
 
+import com.clivern.racter.configs.Settings;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +25,7 @@ public class Log {
 	private static Log instance;
 	private static Handler consoleHandler;
 	private static Handler fileHandler;
+	private Settings settings;
 
 	/**
 	 * Constructor
@@ -47,8 +50,12 @@ public class Log {
 	 * @param  options
 	 * @return Log
 	 */
-	public static Log config(Map<String, String> options) throws IOException
+	public Log config(Settings settings) throws IOException
 	{
+		this.settings = settings;
+
+		Map<String, String> options = this.settings.getAllSettings();
+
 		if( Boolean.parseBoolean(options.get("log_console_status")) ){
 			consoleHandler = new ConsoleHandler();
 			log.addHandler(consoleHandler);

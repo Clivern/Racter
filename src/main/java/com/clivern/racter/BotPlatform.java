@@ -81,7 +81,7 @@ public class BotPlatform {
 	 */
 	public BotPlatform configDependencies() throws IOException
 	{
-		this.log = Log.getInstance().config(this.settings.getAllSettings());
+		this.log = Log.getInstance().config(this.settings);
 		this.play = Play.getInstance();
 		this.servlet = Servlet.getInstance();
 		this.spark = Spark.getInstance();
