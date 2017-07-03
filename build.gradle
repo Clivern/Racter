@@ -34,6 +34,7 @@ dependencies {
 
     implementation 'com.fasterxml.jackson.jr:jackson-jr-objects:2.8.5'
     implementation 'com.mashape.unirest:unirest-java:1.4.9'
+    implementation 'org.json:json:20170516'
 
     // Use TestNG framework, also requires calling test.useTestNG() below
     testImplementation 'org.testng:testng:6.10'
