@@ -75,31 +75,61 @@ public class Log {
 		return log;
 	}
 
+	/**
+	 * Log Fine Messages
+	 *
+	 * @param msg
+	 */
 	public static void fine(String msg)
 	{
 		log.fine(msg);
 	}
 
+	/**
+	 * Log Fine Messages
+	 *
+	 * @param msg
+	 */
 	public static void finer(String msg)
 	{
 		log.finer(msg);
 	}
 
+	/**
+	 * Log Finest Messages
+	 *
+	 * @param msg
+	 */
 	public static void finest(String msg)
 	{
 		log.finest(msg);
 	}
 
+	/**
+	 * Log Info Messages
+	 *
+	 * @param msg
+	 */
 	public static void info(String msg)
 	{
 		log.info(msg);
 	}
 
+	/**
+	 * Log Severe Messages
+	 *
+	 * @param msg
+	 */
 	public static void severe(String msg)
 	{
 		log.severe(msg);
 	}
 
+	/**
+	 * Log Warning Messages
+	 *
+	 * @param msg
+	 */
 	public static void warning(String msg)
 	{
 		log.warning(msg);
