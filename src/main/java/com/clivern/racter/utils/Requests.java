@@ -8,4 +8,23 @@ package com.clivern.racter.utils;
  */
 public class Requests {
 
+	private static Requests instance;
+
+	/**
+	 * Constructor
+	 */
+	protected Requests() { }
+
+	/**
+	 * Get Instance
+	 *
+	 * @return Requests
+	 */
+	public static Requests getInstance() {
+	    if(instance == null) {
+	        instance = new Requests();
+	    }
+	    return instance;
+	}
+
 }

@@ -8,4 +8,22 @@ package com.clivern.racter.parsers;
  */
 public class JsonBody {
 
+	private static JsonBody instance;
+
+	/**
+	 * Constructor
+	 */
+	protected JsonBody() { }
+
+	/**
+	 * Get Instance
+	 *
+	 * @return JsonBody
+	 */
+	public static JsonBody getInstance() {
+	    if(instance == null) {
+	        instance = new JsonBody();
+	    }
+	    return instance;
+	}
 }

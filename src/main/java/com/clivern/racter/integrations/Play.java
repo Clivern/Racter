@@ -9,4 +9,23 @@ package com.clivern.racter.integrations;
  */
 public class Play {
 
+	private static Play instance;
+
+	/**
+	 * Constructor
+	 */
+	protected Play() { }
+
+	/**
+	 * Get Instance
+	 *
+	 * @return Play
+	 */
+	public static Play getInstance() {
+	    if(instance == null) {
+	        instance = new Play();
+	    }
+	    return instance;
+	}
+
 }

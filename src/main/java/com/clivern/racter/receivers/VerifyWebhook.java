@@ -117,7 +117,7 @@ public class VerifyWebhook {
 	 */
 	public Boolean challenge()
 	{
-		if( (this.hub_mode.equals("subscribe")) && (this.hub_verify_token.equals(this.settings.getVerifyToken())) ){
+		if( (this.hub_mode.equals("subscribe")) && (this.hub_verify_token.equals(this.settings.get("verify_token", ""))) ){
 			this.log.fine("Verify token validated successfully.");
 			return true;
 		}

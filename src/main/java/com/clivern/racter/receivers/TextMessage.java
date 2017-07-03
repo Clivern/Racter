@@ -8,4 +8,23 @@ package com.clivern.racter.receivers;
  */
 public class TextMessage {
 
+	private static TextMessage instance;
+
+	/**
+	 * Constructor
+	 */
+	protected TextMessage() { }
+
+	/**
+	 * Get Instance
+	 *
+	 * @return TextMessage
+	 */
+	public static TextMessage getInstance() {
+	    if(instance == null) {
+	        instance = new TextMessage();
+	    }
+	    return instance;
+	}
+
 }

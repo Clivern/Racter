@@ -3,7 +3,11 @@
  */
 package com.clivern.racter.utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import java.io.IOException;
+import java.lang.*;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
@@ -40,42 +44,60 @@ public class Log {
 	/**
 	 * Config Logger
 	 *
-	 * @param  console_handler_status
-	 * @param  console_handler_level
-	 * @param  file_handler_status
-	 * @param  file_handler_level
-	 * @param  file_path
+	 * @param  options
 	 * @return Log
-	 * @throws IOException
 	 */
-	public static Log config(Boolean console_handler_status, Level console_handler_level, Boolean file_handler_status, Level file_handler_level, String file_path) throws IOException
+	public static Log config(Map<String, String> options) throws IOException
 	{
-		if( console_handler_status ){
+		if( Boolean.parseBoolean(options.get("log_console_status")) ){
 			consoleHandler = new ConsoleHandler();
 			log.addHandler(consoleHandler);
-			consoleHandler.setLevel(console_handler_level);
+			if( options.get("log_console_level").equals("ALL") ){
+				consoleHandler.setLevel(Level.ALL);
+			}else if( options.get("log_console_level").equals("CONFIG") ){
+				consoleHandler.setLevel(Level.CONFIG);
+			}else if( options.get("log_console_level").equals("FINE") ){
+				consoleHandler.setLevel(Level.FINE);
+			}else if( options.get("log_console_level").equals("FINER") ){
+				consoleHandler.setLevel(Level.FINER);
+			}else if( options.get("log_console_level").equals("FINEST") ){
+				consoleHandler.setLevel(Level.FINEST);
+			}else if( options.get("log_console_level").equals("INFO") ){
+				consoleHandler.setLevel(Level.INFO);
+			}else if( options.get("log_console_level").equals("OFF") ){
+				consoleHandler.setLevel(Level.OFF);
+			}else if( options.get("log_console_level").equals("SEVERE") ){
+				consoleHandler.setLevel(Level.SEVERE);
+			}else if( options.get("log_console_level").equals("WARNING") ){
+				consoleHandler.setLevel(Level.WARNING);
+			}
 		}
 
-		if( file_handler_status ){
-			fileHandler  = new FileHandler(file_path, 50000000, 1, true);
+		if( Boolean.parseBoolean(options.get("log_file_status")) ){
+			fileHandler  = new FileHandler(options.get("log_file_path"), Integer.parseInt(options.get("log_file_limit")), Integer.parseInt(options.get("log_file_count")), Boolean.parseBoolean(options.get("log_file_append")));
 			log.addHandler(fileHandler);
-			fileHandler.setLevel(file_handler_level);
+			if( options.get("log_file_level").equals("ALL") ){
+				fileHandler.setLevel(Level.ALL);
+			}else if( options.get("log_file_level").equals("CONFIG") ){
+				fileHandler.setLevel(Level.CONFIG);
+			}else if( options.get("log_file_level").equals("FINE") ){
+				fileHandler.setLevel(Level.FINE);
+			}else if( options.get("log_file_level").equals("FINER") ){
+				fileHandler.setLevel(Level.FINER);
+			}else if( options.get("log_file_level").equals("FINEST") ){
+				fileHandler.setLevel(Level.FINEST);
+			}else if( options.get("log_file_level").equals("INFO") ){
+				fileHandler.setLevel(Level.INFO);
+			}else if( options.get("log_file_level").equals("OFF") ){
+				fileHandler.setLevel(Level.OFF);
+			}else if( options.get("log_file_level").equals("SEVERE") ){
+				fileHandler.setLevel(Level.SEVERE);
+			}else if( options.get("log_file_level").equals("WARNING") ){
+				fileHandler.setLevel(Level.WARNING);
+			}
 		}
 
 		return instance;
-	}
-
-
-
-
-	/**
-	 * Get Logger
-	 *
-	 * @return Logger
-	 */
-	public static Logger getLogger()
-	{
-		return log;
 	}
 
 	/**

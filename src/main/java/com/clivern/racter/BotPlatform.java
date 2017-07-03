@@ -5,6 +5,7 @@ package com.clivern.racter;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.io.IOException;
 
 import com.clivern.racter.configs.Settings;
 import com.clivern.racter.utils.Log;
@@ -54,7 +55,7 @@ public class BotPlatform {
 	 *
 	 * @return BotPlatform
 	 */
-	public BotPlatform loadConfigs(String poperties_file_path)
+	public BotPlatform loadConfigs(String poperties_file_path) throws IOException
 	{
 		this.settings.loadPropertiesFile(poperties_file_path);
 		return instance;
@@ -73,18 +74,21 @@ public class BotPlatform {
 		return instance;
 	}
 
-	public BotPlatform configDependencies()
+	/**
+	 * Config Dependencies
+	 *
+	 * @return BotPlatform
+	 */
+	public BotPlatform configDependencies() throws IOException
 	{
-		/*
-		this.settings;
-		this.log = Log.getInstance();
-		this.play;
-		this.servlet;
-		this.spark;
-		this.spring;
-		this.text_message;
-		this.verify_webhook;
-		*/
+		this.log = Log.getInstance().config(this.settings.getAllSettings());
+		this.play = Play.getInstance();
+		this.servlet = Servlet.getInstance();
+		this.spark = Spark.getInstance();
+		this.spring = Spring.getInstance();
+		this.text_message = TextMessage.getInstance();
+		this.verify_webhook = VerifyWebhook.getInstance();
+
 		return instance;
 	}
 

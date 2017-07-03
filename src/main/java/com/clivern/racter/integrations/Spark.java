@@ -9,4 +9,23 @@ package com.clivern.racter.integrations;
  */
 public class Spark {
 
+	private static Spark instance;
+
+	/**
+	 * Constructor
+	 */
+	protected Spark() { }
+
+	/**
+	 * Get Instance
+	 *
+	 * @return Spark
+	 */
+	public static Spark getInstance() {
+	    if(instance == null) {
+	        instance = new Spark();
+	    }
+	    return instance;
+	}
+
 }

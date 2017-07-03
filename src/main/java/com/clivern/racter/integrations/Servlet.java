@@ -9,4 +9,23 @@ package com.clivern.racter.integrations;
  */
 public class Servlet {
 
+	private static Servlet instance;
+
+	/**
+	 * Constructor
+	 */
+	protected Servlet() { }
+
+	/**
+	 * Get Instance
+	 *
+	 * @return Servlet
+	 */
+	public static Servlet getInstance() {
+	    if(instance == null) {
+	        instance = new Servlet();
+	    }
+	    return instance;
+	}
+
 }

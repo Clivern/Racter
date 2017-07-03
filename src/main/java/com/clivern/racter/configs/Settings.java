@@ -119,4 +119,9 @@ public class Settings {
             return false;
         }
 	}
+
+	public Map<String, String> getAllSettings()
+	{
+		return settings;
+	}
 }

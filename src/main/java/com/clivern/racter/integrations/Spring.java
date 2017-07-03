@@ -9,4 +9,23 @@ package com.clivern.racter.integrations;
  */
 public class Spring {
 
+	private static Spring instance;
+
+	/**
+	 * Constructor
+	 */
+	protected Spring() { }
+
+	/**
+	 * Get Instance
+	 *
+	 * @return Spring
+	 */
+	public static Spring getInstance() {
+	    if(instance == null) {
+	        instance = new Spring();
+	    }
+	    return instance;
+	}
+
 }
