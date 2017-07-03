@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Log {
 
-	private static final Logger LOGGER = Logger.getLogger(Log.class.getName());
+	private static final Logger log = Logger.getLogger(Log.class.getName());
 	private static Log instance = null;
 	private static Handler consoleHandler = null;
 	private static Handler fileHandler = null;
@@ -52,13 +52,13 @@ public class Log {
 	{
 		if( console_handler_status ){
 			consoleHandler = new ConsoleHandler();
-			LOGGER.addHandler(consoleHandler);
+			log.addHandler(consoleHandler);
 			consoleHandler.setLevel(console_handler_level);
 		}
 
 		if( file_handler_status ){
 			fileHandler  = new FileHandler(file_path, 50000000, 1, true);
-			LOGGER.addHandler(fileHandler);
+			log.addHandler(fileHandler);
 			fileHandler.setLevel(file_handler_level);
 		}
 
@@ -72,7 +72,37 @@ public class Log {
 	 */
 	public static Logger getLogger()
 	{
-		return LOGGER;
+		return log;
+	}
+
+	public static void fine(String msg)
+	{
+		log.fine(msg);
+	}
+
+	public static void finer(String msg)
+	{
+		log.finer(msg);
+	}
+
+	public static void finest(String msg)
+	{
+		log.finest(msg);
+	}
+
+	public static void info(String msg)
+	{
+		log.info(msg);
+	}
+
+	public static void severe(String msg)
+	{
+		log.severe(msg);
+	}
+
+	public static void warning(String msg)
+	{
+		log.warning(msg);
 	}
 
 	/**

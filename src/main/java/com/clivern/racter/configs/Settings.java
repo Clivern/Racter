@@ -92,10 +92,9 @@ public class Settings {
 	/**
 	 * Get App Id
 	 *
-	 * @param app_id
 	 * @return String
 	 */
-	public String getAppId(String app_id)
+	public String getAppId()
 	{
 		if( settings.containsKey("app_id") ){
 			return settings.get("app_id");
@@ -107,10 +106,9 @@ public class Settings {
 	/**
 	 * Get Verify Token
 	 *
-	 * @param verify_token
 	 * @return String
 	 */
-	public String getVerifyToken(String verify_token)
+	public String getVerifyToken()
 	{
 		if( settings.containsKey("verify_token") ){
 			return settings.get("verify_token");
@@ -122,10 +120,9 @@ public class Settings {
 	/**
 	 * Get Page Access Token
 	 *
-	 * @param page_access_token
 	 * @return String
 	 */
-	public String getPageAccessToken(String page_access_token)
+	public String getPageAccessToken()
 	{
 		if( settings.containsKey("page_access_token") ){
 			return settings.get("page_access_token");
@@ -137,10 +134,9 @@ public class Settings {
 	/**
 	 * Get Log Level
 	 *
-	 * @param log_level
 	 * @return String
 	 */
-	public String getLogLevel(String log_level)
+	public String getLogLevel()
 	{
 		if( settings.containsKey("log_level") ){
 			return settings.get("log_level");
