@@ -81,6 +81,7 @@ public class BotPlatform {
 	 */
 	public BotPlatform configDependencies() throws IOException
 	{
+		this.settings = Settings.getInstance();
 		this.log = Log.getInstance().config(this.settings);
 		this.play = Play.getInstance();
 		this.servlet = Servlet.getInstance();
@@ -92,7 +93,17 @@ public class BotPlatform {
 		return instance;
 	}
 
+	public VerifyWebhook getVerifyWebhook()
+	{
+		return this.verify_webhook;
+	}
+
     public boolean someLibraryMethod() {
         return true;
+    }
+
+    public void finish()
+    {
+    	this.log.close();
     }
 }

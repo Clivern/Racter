@@ -20,6 +20,25 @@ public class Settings {
 
 	private Map<String, String> settings = new HashMap<String, String>();
 
+	private static Settings instance;
+
+	/**
+	 * Constructor
+	 */
+	protected Settings() { }
+
+	/**
+	 * Get Instance
+	 *
+	 * @return Settings
+	 */
+	public static Settings getInstance() {
+	    if(instance == null) {
+	        instance = new Settings();
+	    }
+	    return instance;
+	}
+
 	/**
 	 * Load Properties File
 	 *
