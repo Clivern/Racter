@@ -11,12 +11,12 @@ import com.clivern.racter.utils.Log;
  */
 public class VerifyWebhook {
 
-	private String hub_mode = null;
-	private String hub_verify_token = null;
-	private String hub_challenge = null;
-	private Settings settings = null;
-	private Log log = null;
-	private static VerifyWebhook instance = null;
+	private String hub_mode;
+	private String hub_verify_token;
+	private String hub_challenge;
+	private Settings settings;
+	private Log log;
+	private static VerifyWebhook instance;
 
 	/**
 	 * Constructor

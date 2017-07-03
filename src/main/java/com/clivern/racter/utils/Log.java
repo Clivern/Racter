@@ -16,9 +16,9 @@ import java.util.logging.Logger;
 public class Log {
 
 	private static final Logger log = Logger.getLogger(Log.class.getName());
-	private static Log instance = null;
-	private static Handler consoleHandler = null;
-	private static Handler fileHandler = null;
+	private static Log instance;
+	private static Handler consoleHandler;
+	private static Handler fileHandler;
 
 	/**
 	 * Constructor
