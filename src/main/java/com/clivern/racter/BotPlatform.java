@@ -87,7 +87,7 @@ public class BotPlatform {
 		this.spark = Spark.getInstance();
 		this.spring = Spring.getInstance();
 		this.text_message = TextMessage.getInstance();
-		this.verify_webhook = VerifyWebhook.getInstance();
+		this.verify_webhook = VerifyWebhook.getInstance().config(this.settings, this.log);
 
 		return instance;
 	}
