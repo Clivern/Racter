@@ -39,7 +39,14 @@ public class Settings {
 			settings.put("app_id", prop.getProperty("app_id"));
 			settings.put("verify_token", prop.getProperty("verify_token"));
 			settings.put("page_access_token", prop.getProperty("page_access_token"));
-			settings.put("log_level", prop.getProperty("log_level"));
+			settings.put("log_console_status", prop.getProperty("log_console_status"));
+			settings.put("log_console_level", prop.getProperty("log_console_level"));
+			settings.put("log_file_status", prop.getProperty("log_file_status"));
+			settings.put("log_file_level", prop.getProperty("log_file_level"));
+			settings.put("log_file_path", prop.getProperty("log_file_path"));
+			settings.put("log_file_limit", prop.getProperty("log_file_limit"));
+			settings.put("log_file_count", prop.getProperty("log_file_count"));
+			settings.put("log_file_append", prop.getProperty("log_file_append"));
 
 			return true;
 		} catch (IOException ex) {
@@ -50,99 +57,30 @@ public class Settings {
 	}
 
 	/**
-	 * Set App Id
+	 * Set an Option
 	 *
-	 * @param app_id
+	 * @param key
+	 * @param value
 	 */
-	public void setAppId(String app_id)
+	public void set(String key, String value)
 	{
-		settings.put("app_id", app_id);
+		settings.put(key, value);
 	}
 
 	/**
-	 * Set Verify Token
+	 * Get an Option
 	 *
-	 * @param verify_token
-	 */
-	public void setVerifyToken(String verify_token)
-	{
-		settings.put("verify_token", verify_token);
-	}
-
-	/**
-	 * Set Page Access Token
-	 *
-	 * @param page_access_token
-	 */
-	public void setPageAccessToken(String page_access_token)
-	{
-		settings.put("page_access_token", page_access_token);
-	}
-
-	/**
-	 * Set Log Level
-	 *
-	 * @param log_level
-	 */
-	public void setLogLevel(String log_level)
-	{
-		settings.put("log_level", log_level);
-	}
-
-	/**
-	 * Get App Id
-	 *
+	 * @param key
+	 * @param def_value
 	 * @return String
 	 */
-	public String getAppId()
+	public String get(String key, String def_value)
 	{
-		if( settings.containsKey("app_id") ){
-			return settings.get("app_id");
+		if( settings.containsKey(key) ){
+			return settings.get(key);
 		}
 
-		return "";
-	}
-
-	/**
-	 * Get Verify Token
-	 *
-	 * @return String
-	 */
-	public String getVerifyToken()
-	{
-		if( settings.containsKey("verify_token") ){
-			return settings.get("verify_token");
-		}
-
-		return "";
-	}
-
-	/**
-	 * Get Page Access Token
-	 *
-	 * @return String
-	 */
-	public String getPageAccessToken()
-	{
-		if( settings.containsKey("page_access_token") ){
-			return settings.get("page_access_token");
-		}
-
-		return "";
-	}
-
-	/**
-	 * Get Log Level
-	 *
-	 * @return String
-	 */
-	public String getLogLevel()
-	{
-		if( settings.containsKey("log_level") ){
-			return settings.get("log_level");
-		}
-
-		return "";
+		return def_value;
 	}
 
 	/**
@@ -160,11 +98,17 @@ public class Settings {
         try {
 
             output = new FileOutputStream(path);
-
-            prop.setProperty("app_id", settings.get("app_id"));
-            prop.setProperty("page_access_token", settings.get("page_access_token"));
-            prop.setProperty("verify_token", settings.get("verify_token"));
-            prop.setProperty("log_level", settings.get("log_level"));
+			prop.setProperty("app_id", settings.get("app_id"));
+			prop.setProperty("verify_token", settings.get("verify_token"));
+			prop.setProperty("page_access_token", settings.get("page_access_token"));
+			prop.setProperty("log_console_status", settings.get("log_console_status"));
+			prop.setProperty("log_console_level", settings.get("log_console_level"));
+			prop.setProperty("log_file_status", settings.get("log_file_status"));
+			prop.setProperty("log_file_level", settings.get("log_file_level"));
+			prop.setProperty("log_file_path", settings.get("log_file_path"));
+			prop.setProperty("log_file_limit", settings.get("log_file_limit"));
+			prop.setProperty("log_file_count", settings.get("log_file_count"));
+			prop.setProperty("log_file_append", settings.get("log_file_append"));
             prop.store(output, null);
 
             return true;

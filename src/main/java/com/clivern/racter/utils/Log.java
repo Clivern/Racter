@@ -65,6 +65,9 @@ public class Log {
 		return instance;
 	}
 
+
+
+
 	/**
 	 * Get Logger
 	 *
