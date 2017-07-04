@@ -3,11 +3,8 @@
  */
 package com.clivern.racter.receivers.parsers;
 
-import com.clivern.racter.configs.Settings;
-import com.clivern.racter.utils.Log;
-
 /**
- * Chat Text Message Receiver
+ * Text Message Parser
  */
 public class TextMessage {
 
