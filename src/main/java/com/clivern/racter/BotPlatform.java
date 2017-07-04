@@ -5,20 +5,12 @@ package com.clivern.racter;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import java.io.IOException;
-
 import com.clivern.racter.configs.Settings;
-
 import com.clivern.racter.utils.Log;
-
-import com.clivern.racter.integrations.Play;
-import com.clivern.racter.integrations.Servlet;
-import com.clivern.racter.integrations.Spark;
-import com.clivern.racter.integrations.Spring;
-
-import com.clivern.racter.receivers.TextMessage;
+import com.clivern.racter.receivers.BaseReceiver;
 import com.clivern.racter.receivers.VerifyWebhook;
+import com.clivern.racter.senders.BaseSender;
 
 /**
  * Bot Platform Base Class
@@ -26,13 +18,15 @@ import com.clivern.racter.receivers.VerifyWebhook;
 public class BotPlatform {
 
 	private Settings settings;
-	private Log log;
-	private Play play;
-	private Servlet servlet;
-	private Spark spark;
-	private Spring spring;
-	private TextMessage text_message;
+
 	private VerifyWebhook verify_webhook;
+
+	private BaseReceiver base_receiver;
+
+	private BaseSender base_sender;
+
+	private Log log;
+
 	private static BotPlatform instance;
 
 	/**
@@ -85,14 +79,16 @@ public class BotPlatform {
 	{
 		this.settings = Settings.getInstance();
 		this.log = Log.getInstance().config(this.settings);
-		this.play = Play.getInstance();
-		this.servlet = Servlet.getInstance();
-		this.spark = Spark.getInstance();
-		this.spring = Spring.getInstance();
-		this.text_message = TextMessage.getInstance();
+		this.base_receiver = BaseReceiver.getInstance();
+		this.base_sender = BaseSender.getInstance();
 		this.verify_webhook = VerifyWebhook.getInstance().config(this.settings, this.log);
 
 		return instance;
+	}
+
+	public Settings getSettings()
+	{
+		return this.settings;
 	}
 
 	public VerifyWebhook getVerifyWebhook()
@@ -100,7 +96,23 @@ public class BotPlatform {
 		return this.verify_webhook;
 	}
 
-    public boolean someLibraryMethod() {
+	public BaseReceiver getBaseReceiver()
+	{
+		return this.base_receiver;
+	}
+
+	public BaseSender getBaseSender()
+	{
+		return this.base_sender;
+	}
+
+	public Log getLogger()
+	{
+		return this.log;
+	}
+
+    public boolean someLibraryMethod()
+    {
         return true;
     }
 

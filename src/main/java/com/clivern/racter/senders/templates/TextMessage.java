@@ -1,10 +1,10 @@
 /*
  * Copyright (C) 2017 Clivern. <https://clivern.com>
  */
-package com.clivern.racter.senders;
+package com.clivern.racter.senders.templates;
 
 /**
- * Chat Text Message Sender
+ * Text Message Template
  */
 public class TextMessage {
 

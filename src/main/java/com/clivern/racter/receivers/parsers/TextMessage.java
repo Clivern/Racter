@@ -1,7 +1,10 @@
 /*
  * Copyright (C) 2017 Clivern. <https://clivern.com>
  */
-package com.clivern.racter.receivers;
+package com.clivern.racter.receivers.parsers;
+
+import com.clivern.racter.configs.Settings;
+import com.clivern.racter.utils.Log;
 
 /**
  * Chat Text Message Receiver
@@ -26,5 +29,4 @@ public class TextMessage {
 	    }
 	    return instance;
 	}
-
 }
