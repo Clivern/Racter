@@ -3,6 +3,9 @@
  */
 package com.clivern.racter.senders.templates;
 
+import org.json.JSONObject;
+import org.json.JSONArray;
+
 /**
  * Text Message Template
  */
