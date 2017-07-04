@@ -3,29 +3,31 @@
  */
 package com.clivern.racter.senders.templates;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
 import org.json.JSONArray;
 
 /**
  * Text Message Template
  */
-public class TextMessage {
+public class Message {
 
-	private static TextMessage instance;
+	private static Message instance;
 
 	/**
 	 * Constructor
 	 */
-	protected TextMessage() { }
+	protected Message() { }
 
 	/**
 	 * Get Instance
 	 *
-	 * @return TextMessage
+	 * @return Message
 	 */
-	public static TextMessage getInstance() {
+	public static Message getInstance() {
 	    if(instance == null) {
-	        instance = new TextMessage();
+	        instance = new Message();
 	    }
 	    return instance;
 	}
