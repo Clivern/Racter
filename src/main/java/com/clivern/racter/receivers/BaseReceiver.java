@@ -3,6 +3,7 @@
  */
 package com.clivern.racter.receivers;
 
+import com.clivern.racter.receivers.webhook.*;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -18,7 +19,6 @@ public class BaseReceiver {
 	private String message_string;
 	private JSONObject message_object;
 	private Map<String, String> data = new HashMap<String, String>();
-	private Boolean event_received = false;
 
 	/**
 	 * Constructor
@@ -164,11 +164,6 @@ public class BaseReceiver {
 		}
 
 		return instance;
-	}
-
-	public Boolean eventReceived()
-	{
-		return this.event_received;
 	}
 
 	public Map<String, String> get()

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2017 Clivern. <https://clivern.com>
  */
-package com.clivern.racter.receivers.parsers;
+package com.clivern.racter.receivers.webhook;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,25 +9,25 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 
 /**
- * New Message Parser
+ * Message Echo Webhook
  */
-public class NewMessage {
+public class MessageEcho {
 
-	private static NewMessage instance;
+	private static MessageEcho instance;
 
 	/**
 	 * Constructor
 	 */
-	protected NewMessage() { }
+	protected MessageEcho() { }
 
 	/**
 	 * Get Instance
 	 *
-	 * @return NewMessage
+	 * @return MessageEcho
 	 */
-	public static NewMessage getInstance() {
+	public static MessageEcho getInstance() {
 	    if(instance == null) {
-	        instance = new NewMessage();
+	        instance = new MessageEcho();
 	    }
 	    return instance;
 	}
