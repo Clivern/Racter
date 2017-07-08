@@ -4,7 +4,6 @@
 package com.clivern.racter;
 
 import static spark.Spark.*;
-
 import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.webhook.*;
 import java.util.HashMap;
@@ -45,12 +44,20 @@ public class Main {
             response.status(403);
             return "Verification token mismatch";
         });
+
+        // ---------------------------------
+        // Test Case
+        // curl -X POST -H "Content-Type: application/json" -d '{"object":"page","entry":[{"id":"pageid829292","time":1458692752478,"messaging":[{"sender":{"id":"userid83992"},"recipient":{"id":"pageid032"},"timestamp":1458692752478,"message":{"mid":"mid.1457764197618:41d102a3e1ae206a38","text":"hello, world!","attachments":[{"type":"image","payload":{"url":"http://clivern.com"}}]}}]}]}' "http://localhost:4567"
+        // ---------------------------------
         post("/", (request, response) -> {
             String body = request.body();
             BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
             platform.getBaseReceiver().set(body).parse();
             HashMap<String, Message> messages = (HashMap<String, Message>) platform.getBaseReceiver().getMessages();
-            return body;
+            for (Message message : messages.values()) {
+                return message.getMessageText();
+            }
+            return "bla";
         });
     }
 }

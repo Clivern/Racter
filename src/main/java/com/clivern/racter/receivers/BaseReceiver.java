@@ -37,6 +37,12 @@ public class BaseReceiver {
 	    return instance;
 	}
 
+	/**
+	 * Set Incoming webhook data
+	 *
+	 * @param  message_string
+	 * @return BaseReceiver
+	 */
 	public BaseReceiver set(String message_string)
 	{
 		this.message_string = message_string;
@@ -45,6 +51,11 @@ public class BaseReceiver {
 		return instance;
 	}
 
+	/**
+	 * Parse Webhook
+	 *
+	 * @return BaseReceiver
+	 */
 	public BaseReceiver parse()
 	{
 		int i;
@@ -224,16 +235,31 @@ public class BaseReceiver {
 		return instance;
 	}
 
+	/**
+	 * Get Messages
+	 *
+	 * @return Map
+	 */
 	public Map<String, Message> getMessages()
 	{
 		return this.message_webhook;
 	}
 
+	/**
+	 * Get Received Webhook data
+	 *
+	 * @return String
+	 */
 	public String getMessageString()
 	{
 		return this.message_string;
 	}
 
+	/**
+	 * Get Received Webhook data
+	 *
+	 * @return JSONObject
+	 */
 	public JSONObject getMessageObject()
 	{
 		return this.message_object;
