@@ -4,7 +4,11 @@
 package com.clivern.racter;
 
 import static spark.Spark.*;
+
 import com.clivern.racter.BotPlatform;
+import com.clivern.racter.receivers.webhook.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 import com.fasterxml.jackson.jr.ob.*;
@@ -43,6 +47,9 @@ public class Main {
         });
         post("/", (request, response) -> {
             String body = request.body();
+            BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
+            platform.getBaseReceiver().set(body).parse();
+            HashMap<String, Message> messages = (HashMap<String, Message>) platform.getBaseReceiver().getMessages();
             return body;
         });
     }

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 import org.json.JSONArray;
+import java.lang.*;
 
 /**
  * Message Webhook
@@ -14,52 +15,52 @@ import org.json.JSONArray;
  * <pre>
  * {
  *   	"sender":{
- *     	"id":"USER_ID"
+ *     		"id":"USER_ID"
  *   	},
  *   	"recipient":{
- *     	"id":"PAGE_ID"
+ *     		"id":"PAGE_ID"
  *   	},
  *   	"timestamp":1458692752478,
  *   	"message":{
- *     "mid":"mid.1457764197618:41d102a3e1ae206a38",
- *     "text":"hello, world!",
- *     "quick_reply": {
- *       	"payload": "DEVELOPER_DEFINED_PAYLOAD"
- *     },
- * 	"attachments":[
- *       	{
- *         	"type":"image",
- *         	"payload":{
- *           		"url":"IMAGE_URL"
- *         	}
- *       	},
- *       	{
- *         	"type":"audio",
- *         	"payload":{
- *           		"url":"AUDIO_URL"
- *         	}
- *       	},
- *       	{
- *         	"type":"video",
- *         	"payload":{
- *           		"url":"VIDEO_URL"
- *         	}
- *       	},
- *       	{
- *         	"type":"file",
- *         	"payload":{
- *           		"url":"FILE_URL"
- *         	}
- *       	},
- *       	{
- *         	"type":"location",
- *         	"payload":{
- *           		"coordinates.lat": LAT,
- *           		"coordinates.long": Long
- *         	}
- *       	},
- * 	]
- *   }
+ *     		"mid":"mid.1457764197618:41d102a3e1ae206a38",
+ *       	"text":"hello, world!",
+ *        	"quick_reply": {
+ *       	 	"payload": "DEVELOPER_DEFINED_PAYLOAD"
+ *          },
+ * 	        "attachments":[
+ *       	  	{
+ *         			"type":"image",
+ *         	  		"payload":{
+ *           		 	"url":"IMAGE_URL"
+ *         	   		}
+ *       	    },
+ *       	    {
+ *         	  		"type":"audio",
+ *         	    	"payload":{
+ *           		  	"url":"AUDIO_URL"
+ *         	      	}
+ *       	    },
+ *       	    {
+ *         	  		"type":"video",
+ *         	    	"payload":{
+ *           		  	"url":"VIDEO_URL"
+ *         	      	}
+ *       	    },
+ *       	    {
+ *         	  		"type":"file",
+ *         	    	"payload":{
+ *           		  	"url":"FILE_URL"
+ *         	      	}
+ *       	    },
+ *       	    {
+ *         	  		"type":"location",
+ *         	    	"payload":{
+ *           		  	"coordinates.lat": LAT,
+ *           		   	"coordinates.long": Long
+ *         	       	}
+ *       	     },
+ * 	       ]
+ *      }
  * }
  * </pre>
  */
@@ -124,6 +125,11 @@ public class Message {
 	public void setAttachment(String type, String payload)
 	{
 		attachments.put(type, payload);
+	}
+
+	public void setAttachment(String type, Long loc_lat, Long loc_long)
+	{
+		attachments.put(type, Long.toString(loc_lat) + "," + Long.toString(loc_long));
 	}
 
 	public Boolean hasUserId()

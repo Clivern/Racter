@@ -18,7 +18,7 @@ public class BaseReceiver {
 
 	private String message_string;
 	private JSONObject message_object;
-	private Map<String, String> data = new HashMap<String, String>();
+	private Map<String, Message> message_webhook = new HashMap<String, Message>();
 
 	/**
 	 * Constructor
@@ -47,7 +47,8 @@ public class BaseReceiver {
 
 	public BaseReceiver parse()
 	{
-		int i = 0;
+		int i;
+		int z = 1;
 
 		if( !this.message_object.has("object")  || !this.message_object.getString("object").equals("page") ){
 			return instance;
@@ -77,87 +78,144 @@ public class BaseReceiver {
 
 					JSONObject messaging_item = entry_obj.getJSONArray("messaging").getJSONObject(i);
 
+					String sender_id = null;
 					if( messaging_item.has("sender") ){
 						JSONObject sender = messaging_item.getJSONObject("sender");
 						// USER_ID
-						String sender_id = (sender.has("id")) ? sender.getString("id") : "";
+						sender_id = (sender.has("id")) ? sender.getString("id") : null;
 					}
 
+					String recipient_id = null;
 					if( messaging_item.has("recipient") ){
 						JSONObject recipient = messaging_item.getJSONObject("recipient");
 						// PAGE_ID
-						String recipient_id = (recipient.has("id")) ? recipient.getString("id") : "";
+						recipient_id = (recipient.has("id")) ? recipient.getString("id") : null;
 					}
 
+					Long timestamp = null;
 					if( messaging_item.has("timestamp") ){
-						Long timestamp = messaging_item.getLong("timestamp");
+						timestamp = messaging_item.getLong("timestamp");
 					}
 
 					if( messaging_item.has("message") ){
 						JSONObject message = messaging_item.getJSONObject("message");
-						String mid = (message.has("mid")) ? message.getString("mid") : "";
 
-						if ( message.has("text") ){
-							String text = message.getString("text");
-						}
 
-						if ( message.has("quick_reply") ){
-							JSONObject quick_reply = message.getJSONObject("quick_reply");
-							String payload = (quick_reply.has("payload")) ? quick_reply.getString("payload") : "";
-						}
+						if( message.has("is_echo") ){
+							//-----------------
+							// Message Echo
+							//-----------------
 
-						if ( message.has("attachments") ){
-							JSONArray attachments = message.getJSONArray("attachments");
+						}else{
 
-							for ( i = 0; i < attachments.length(); i++ ) {
+							z += 1;
 
-								JSONObject attachment = attachments.getJSONObject(i);
+							//-----------------
+							// Message
+							//-----------------
+							this.message_webhook.put("message." + z, Message.getInstance());
+							this.message_webhook.get("message." + z).setUserId(sender_id);
+							this.message_webhook.get("message." + z).setPageId(recipient_id);
+							this.message_webhook.get("message." + z).setTimestamp(timestamp);
 
-								String type = (attachment.has("type")) ? attachment.getString("type") : "";
+							String mid = (message.has("mid")) ? message.getString("mid") : null;
+							this.message_webhook.get("message." + z).setMessageId(mid);
 
-								if( type.equals("audio") ){
-									if( attachment.has("payload") ){
-										JSONObject attachment_payload = attachment.getJSONObject("payload");
-										String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : "";
+							if ( message.has("text") ){
+								String text = message.getString("text");
+								this.message_webhook.get("message." + z).setMessageText(text);
+							}
+
+							if ( message.has("quick_reply") ){
+								JSONObject quick_reply = message.getJSONObject("quick_reply");
+								String payload = (quick_reply.has("payload")) ? quick_reply.getString("payload") : null;
+								this.message_webhook.get("message." + z).setQuickReplyPayload(payload);
+							}
+
+							if ( message.has("attachments") ){
+								JSONArray attachments = message.getJSONArray("attachments");
+
+								for ( i = 0; i < attachments.length(); i++ ) {
+
+									JSONObject attachment = attachments.getJSONObject(i);
+
+									String type = (attachment.has("type")) ? attachment.getString("type") : null;
+
+									if( type.equals("audio") ){
+										if( attachment.has("payload") ){
+											JSONObject attachment_payload = attachment.getJSONObject("payload");
+											String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : null;
+
+											this.message_webhook.get("message." + z).setAttachment("audio", url);
+										}
+
+									/////////////////////////////////////////////////////////////////////////////////////////////
+									// Unknown right now
+									// }else if( type.equals("fallback") ){
+									/////////////////////////////////////////////////////////////////////////////////////////////
+
+									}else if( type.equals("file") ){
+
+										if( attachment.has("payload") ){
+											JSONObject attachment_payload = attachment.getJSONObject("payload");
+											String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : null;
+											this.message_webhook.get("message." + z).setAttachment("file", url);
+										}
+
+									}else if( type.equals("image") ){
+
+										if( attachment.has("payload") ){
+											JSONObject attachment_payload = attachment.getJSONObject("payload");
+											String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : null;
+											this.message_webhook.get("message." + z).setAttachment("image", url);
+										}
+
+									}else if( type.equals("video") ){
+
+										if( attachment.has("payload") ){
+											JSONObject attachment_payload = attachment.getJSONObject("payload");
+											String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : null;
+											this.message_webhook.get("message." + z).setAttachment("video", url);
+										}
+
+									}else if( type.equals("location") ){
+
+										if( attachment.has("payload") ){
+											JSONObject attachment_payload = attachment.getJSONObject("payload");
+											Long coordinates_lat = (attachment_payload.has("coordinates.lat")) ? attachment_payload.getLong("coordinates.lat") : null;
+											Long coordinates_long = (attachment_payload.has("coordinates.long")) ? attachment_payload.getLong("coordinates.long") : null;
+											this.message_webhook.get("message." + z).setAttachment("location", coordinates_lat, coordinates_long);
+										}
+
 									}
-
-								/////////////////////////////////////////////////////////////////////////////////////////////
-								// Unknown right now
-								// }else if( type.equals("fallback") ){
-								/////////////////////////////////////////////////////////////////////////////////////////////
-
-								}else if( type.equals("file") ){
-
-									if( attachment.has("payload") ){
-										JSONObject attachment_payload = attachment.getJSONObject("payload");
-										String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : "";
-									}
-
-								}else if( type.equals("image") ){
-
-									if( attachment.has("payload") ){
-										JSONObject attachment_payload = attachment.getJSONObject("payload");
-										String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : "";
-									}
-
-								}else if( type.equals("video") ){
-
-									if( attachment.has("payload") ){
-										JSONObject attachment_payload = attachment.getJSONObject("payload");
-										String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : "";
-									}
-
-								}else if( type.equals("location") ){
-
-									if( attachment.has("payload") ){
-										JSONObject attachment_payload = attachment.getJSONObject("payload");
-										Long coordinates_lat = (attachment_payload.has("coordinates.lat")) ? attachment_payload.getLong("coordinates.lat") : 0;
-										Long coordinates_long = (attachment_payload.has("coordinates.long")) ? attachment_payload.getLong("coordinates.long") : 0;
-									}
-
 								}
 							}
+
 						}
+					}
+
+					//-----------------
+					// Message Delivery
+					//-----------------
+					if( messaging_item.has("delivery") ){
+
+
+					}
+
+					//-------------
+					// Message Read
+					//-------------
+					if( messaging_item.has("read") ){
+
+
+					}
+
+					//----------
+					// Post Back
+					//----------
+					if( messaging_item.has("postback") ){
+
+
 					}
 				}
 			}
@@ -166,9 +224,9 @@ public class BaseReceiver {
 		return instance;
 	}
 
-	public Map<String, String> get()
+	public Map<String, Message> getMessages()
 	{
-		return this.data;
+		return this.message_webhook;
 	}
 
 	public String getMessageString()
