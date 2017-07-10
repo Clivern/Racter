@@ -153,15 +153,16 @@ public class MessageTemplate {
  				this.message_string += "},";
 
  			}
+ 			this.message_string = this.message_string.replaceAll(",$", "");
  			this.message_string += "],";
  		}
 
 
  		if( this.message_metadata != null ){
- 			this.message_string += "\"metadata\": \"" + this.message_metadata + "\"";
+ 			this.message_string += "\"metadata\": \"" + this.message_metadata + "\",";
  		}
-
- 		this.message_string += "}";
+ 		this.message_string = this.message_string.replaceAll(",$", "");
+ 		this.message_string += "},";
 
 
  		if( this.sender_action != null ){
@@ -170,6 +171,8 @@ public class MessageTemplate {
  		if( this.notification_type != null ){
  			this.message_string += "\"notification_type\":\"" + this.notification_type + "\",";
  		}
+
+ 		this.message_string = this.message_string.replaceAll(",$", "");
 
  		this.message_string += "}";
 

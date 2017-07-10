@@ -38,6 +38,10 @@ public class Main {
             MessageTemplate message = BaseSender.getInstance().getMessageTemplate();
             message.setRecipientId("tw7w8egdhsjsd");
             message.setMessageText("Hello World!");
+            message.setMessageMetadata("Metadata");
+            message.setSenderAction("Sender Action");
+            message.setNotificationType("Notif Type");
+
             return message.build();
 
 /*            BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
