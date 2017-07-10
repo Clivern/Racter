@@ -53,6 +53,7 @@ public class BotPlatform {
 	 */
 	public BotPlatform loadConfigs(String poperties_file_path) throws IOException
 	{
+		this.settings = Settings.getInstance();
 		this.settings.loadPropertiesFile(poperties_file_path);
 		return instance;
 	}
@@ -64,6 +65,7 @@ public class BotPlatform {
 	 */
 	public BotPlatform loadConfigs(Map<String, String> options)
 	{
+		this.settings = Settings.getInstance();
 		for (Map.Entry<String, String> entry : options.entrySet()) {
 			this.settings.set(entry.getKey(), options.get(entry.getKey()));
 		}
@@ -77,10 +79,9 @@ public class BotPlatform {
 	 */
 	public BotPlatform configDependencies() throws IOException
 	{
-		this.settings = Settings.getInstance();
 		this.log = Log.getInstance().config(this.settings);
 		this.base_receiver = BaseReceiver.getInstance();
-		this.base_sender = BaseSender.getInstance();
+		this.base_sender = BaseSender.getInstance().setAccessToken(this.settings.get("page_access_token", ""));
 		this.verify_webhook = VerifyWebhook.getInstance().config(this.settings, this.log);
 
 		return instance;

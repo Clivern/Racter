@@ -121,49 +121,50 @@ public class MessageTemplate {
 			this.message_string += "\"recipient\": {\"id\": \"" + this.recipient_id + "\"},";
  		}
 
- 		this.message_string += "\"message\": {";
+ 		if( ( this.message_text != null ) || ( !this.message_attachment.isEmpty() ) || ( !this.message_quick_replies.isEmpty() ) || ( this.message_metadata != null ) ){
+
+	 		this.message_string += "\"message\": {";
+
+	 		if( this.message_text != null ){
+	 			this.message_string += "\"text\": \"" + this.message_text + "\",";
+	 		}
+
+	 		if( !this.message_attachment.isEmpty() ){
+				this.message_string += "\"attachment\":{\"type\":\"" + this.message_attachment.get("type") + "\",\"payload\":{\"url\":\"" + this.message_attachment.get("url") + "\",\"is_reusable\": " + this.message_attachment.get("is_reusable") + "}},";
+	 		}
+
+	 		if( !this.message_quick_replies.isEmpty() ){
+	 			this.message_string += "[";
+	 			for ( int j = 0 ; j < this.message_quick_replies.size(); j++ ) {
+	 				HashMap<String, String> quick_reply = this.message_quick_replies.get(j);
+
+	 				this.message_string += "{";
+	 				if( !quick_reply.get("content_type").equals("") ){
+	 					this.message_string += "\"content_type\":\"" + quick_reply.get("content_type") + "\",";
+	 				}
+	 				if( !quick_reply.get("title").equals("") ){
+	 					this.message_string += "\"title\":\"" + quick_reply.get("title") + "\",";
+	 				}
+	 				if( !quick_reply.get("payload").equals("") ){
+	 					this.message_string += "\"payload\":\"" + quick_reply.get("payload") + "\",";
+	 				}
+	  				if( !quick_reply.get("image_url").equals("") ){
+	  					this.message_string += "\"image_url\":\"" + quick_reply.get("image_url") + "\",";
+	 				}
+	 				this.message_string += "},";
+
+	 			}
+	 			this.message_string = this.message_string.replaceAll(",$", "");
+	 			this.message_string += "],";
+	 		}
 
 
- 		if( this.message_text != null ){
- 			this.message_string += "\"text\": \"" + this.message_text + "\",";
+	 		if( this.message_metadata != null ){
+	 			this.message_string += "\"metadata\": \"" + this.message_metadata + "\",";
+	 		}
+	 		this.message_string = this.message_string.replaceAll(",$", "");
+	 		this.message_string += "},";
  		}
-
- 		if( !this.message_attachment.isEmpty() ){
-			this.message_string += "\"attachment\":{\"type\":\"" + this.message_attachment.get("type") + "\",\"payload\":{\"url\":\"" + this.message_attachment.get("url") + "\",\"is_reusable\": " + this.message_attachment.get("is_reusable") + "}},";
- 		}
-
- 		if( !this.message_quick_replies.isEmpty() ){
- 			this.message_string += "[";
- 			for ( int j = 0 ; j < this.message_quick_replies.size(); j++ ) {
- 				HashMap<String, String> quick_reply = this.message_quick_replies.get(j);
-
- 				this.message_string += "{";
- 				if( !quick_reply.get("content_type").equals("") ){
- 					this.message_string += "\"content_type\":\"" + quick_reply.get("content_type") + "\",";
- 				}
- 				if( !quick_reply.get("title").equals("") ){
- 					this.message_string += "\"title\":\"" + quick_reply.get("title") + "\",";
- 				}
- 				if( !quick_reply.get("payload").equals("") ){
- 					this.message_string += "\"payload\":\"" + quick_reply.get("payload") + "\",";
- 				}
-  				if( !quick_reply.get("image_url").equals("") ){
-  					this.message_string += "\"image_url\":\"" + quick_reply.get("image_url") + "\",";
- 				}
- 				this.message_string += "},";
-
- 			}
- 			this.message_string = this.message_string.replaceAll(",$", "");
- 			this.message_string += "],";
- 		}
-
-
- 		if( this.message_metadata != null ){
- 			this.message_string += "\"metadata\": \"" + this.message_metadata + "\",";
- 		}
- 		this.message_string = this.message_string.replaceAll(",$", "");
- 		this.message_string += "},";
-
 
  		if( this.sender_action != null ){
  			this.message_string += "\"sender_action\":\"" + this.sender_action + "\",";

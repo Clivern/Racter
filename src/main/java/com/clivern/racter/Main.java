@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) throws IOException
     {
         get("/", (request, response) -> {
-            BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
+            BotPlatform platform = BotPlatform.getInstance().loadConfigs("src/main/java/resources/config.properties").configDependencies();
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
@@ -42,14 +42,18 @@ public class Main {
         // ---------------------------------
         post("/", (request, response) -> {
             String body = request.body();
-            BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
+            BotPlatform platform = BotPlatform.getInstance().loadConfigs("src/main/java/resources/config.properties").configDependencies();
             platform.getBaseReceiver().set(body).parse();
             HashMap<String, MessageReceivedWebhook> messages = (HashMap<String, MessageReceivedWebhook>) platform.getBaseReceiver().getMessages();
             for (MessageReceivedWebhook message : messages.values()) {
-                MessageTemplate message_tpl = BaseSender.getInstance().getMessageTemplate();
+                //return message.getMessageText();
+                MessageTemplate message_tpl = BotPlatform.getInstance().getBaseSender().getMessageTemplate();
                 message_tpl.setRecipientId(message.getUserId());
                 message_tpl.setMessageText(message.getMessageText());
-                BaseSender.getInstance().sendMessageTemplate(message_tpl);
+                BotPlatform.getInstance().getBaseSender().sendMessageTemplate(message_tpl);
+                BotPlatform.getInstance().getLogger().info(message.getUserId());
+                BotPlatform.getInstance().getLogger().info(message.getMessageText());
+
                 return "ok";
             }
             return "bla";
