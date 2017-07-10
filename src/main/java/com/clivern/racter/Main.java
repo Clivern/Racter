@@ -8,6 +8,7 @@ import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.webhook.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.IOException;
 
 /*
 import com.fasterxml.jackson.jr.ob.*;
@@ -26,9 +27,10 @@ import com.mashape.unirest.request.HttpRequest;*/
 
 public class Main {
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         get("/", (request, response) -> {
+
             BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");

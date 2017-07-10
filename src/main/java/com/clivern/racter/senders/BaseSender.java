@@ -9,7 +9,7 @@ package com.clivern.racter.senders;
 public class BaseSender {
 
 	private static BaseSender instance;
-	private String remote_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=';
+	private String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
 	private String access_token;
 
 	/**

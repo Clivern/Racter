@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 import org.json.JSONArray;
+import java.io.IOException;
+import com.fasterxml.jackson.jr.ob.*;
+import com.fasterxml.jackson.jr.ob.comp.*;
+import java.lang.*;
 
 /**
  * Text Message Template
@@ -45,6 +49,7 @@ public class Message {
 	private String message_metadata;
 	private String sender_action;
 	private String notification_type;
+	private String message_string;
 	private static Message instance;
 
 	/**
@@ -84,7 +89,7 @@ public class Message {
 		this.notification_type = notification_type;
 	}
 
-	public void setAttachment(String type, String url, Boolean is_reusable=false)
+	public void setAttachment(String type, String url, Boolean is_reusable)
 	{
 		this.message_attachment.put("type", type);
 		this.message_attachment.put("url", url);
@@ -101,23 +106,23 @@ public class Message {
 		this.message_quick_replies.add(quick_reply);
 	}
 
-	public void getRecipientId(){
+	public String getRecipientId(){
 		return this.recipient_id;
 	}
 
-	public void getMessageText(){
+	public String getMessageText(){
 		return this.message_text;
 	}
 
-	public void getMessageMetadata(){
+	public String getMessageMetadata(){
 		return this.message_metadata;
 	}
 
-	public void getSenderAction(){
+	public String getSenderAction(){
 		return this.sender_action;
 	}
 
-	public void getNotificationType(){
+	public String getNotificationType(){
 		return this.notification_type;
 	}
 
@@ -131,13 +136,46 @@ public class Message {
 		return this.message_quick_replies;
 	}
 
-	public Boolean build()
-	{
+    public String build() throws IOException
+    {
+/*        String this.message_string = JSON.std.with(JSON.Feature.PRETTY_PRINT_OUTPUT).composeString()
+        	.startObject()
+                .startObjectField("recipient")
+                    .put("id", "USER_ID")
+                .end()
+                .startObjectField("message")
+                    .startObjectField("attachment")
+                        .put("type", "template")
+                        .startObjectField("payload")
+                            .put("template_type", "button")
+                            .put("text", "What do you want to do next?")
+                            .startArrayField("buttons")
+                          .startObject()
+                              .put("type", "web_url")
+                              .put("url", "https://petersapparel.parseapp.com")
+                              .put("title", "Show Website")
+                          .end()
+                          .startObject()
+                              .put("type", "postback")
+                              .put("title", "Start Chatting")
+                              .put("payload", "USER_DEFINED_PAYLOAD")
+                          .end()
+                            .end()
+                        .end()
+                    .end()
+                .end()
+            .end()
+            .finish();*/
+        return this.message_string;
+    }
 
+	public void setMessageString(String message_string)
+	{
+		this.message_string = message_string;
 	}
 
 	public String getMessageString()
 	{
-
+		return this.message_string;
 	}
 }
