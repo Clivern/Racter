@@ -12,7 +12,7 @@ import org.json.JSONArray;
 /**
  * Text Message Template
  */
-public class Message {
+public class MessageTemplate {
 
 	private String recipient_id;
 	private String message_text;

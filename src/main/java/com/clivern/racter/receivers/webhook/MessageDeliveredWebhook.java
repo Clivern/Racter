@@ -11,7 +11,7 @@ import org.json.JSONArray;
 /**
  * Message Delivered Webhook
  */
-public class MessageDelivered {
+public class MessageDeliveredWebhook {
 
 
 /*{
@@ -30,21 +30,21 @@ public class MessageDelivered {
    }
 }  */
 
-	private static MessageDelivered instance;
+	private static MessageDeliveredWebhook instance;
 
 	/**
 	 * Constructor
 	 */
-	protected MessageDelivered() { }
+	protected MessageDeliveredWebhook() { }
 
 	/**
 	 * Get Instance
 	 *
-	 * @return MessageDelivered
+	 * @return MessageDeliveredWebhook
 	 */
-	public static MessageDelivered getInstance() {
+	public static MessageDeliveredWebhook getInstance() {
 	    if(instance == null) {
-	        instance = new MessageDelivered();
+	        instance = new MessageDeliveredWebhook();
 	    }
 	    return instance;
 	}

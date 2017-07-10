@@ -13,7 +13,7 @@ public class BaseSender {
 	private static BaseSender instance;
 	private String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
 	private String access_token;
-	private Message message_template;
+	private MessageTemplate message_template;
 
 	/**
 	 * Constructor
@@ -32,9 +32,9 @@ public class BaseSender {
 	    return instance;
 	}
 
-	public Message getMessageTemplate()
+	public MessageTemplate getMessageTemplate()
 	{
-		this.message_template = new Message();
+		this.message_template = new MessageTemplate();
 		return this.message_template;
 	}
 }

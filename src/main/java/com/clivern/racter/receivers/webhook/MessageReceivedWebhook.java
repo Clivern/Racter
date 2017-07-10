@@ -64,7 +64,7 @@ import java.lang.*;
  * }
  * </pre>
  */
-public class MessageReceived {
+public class MessageReceivedWebhook {
 
 	private String user_id;
 	private String page_id;
@@ -73,21 +73,21 @@ public class MessageReceived {
 	private String message_text;
 	private String quick_reply_payload;
 	private Map<String, String> attachments = new HashMap<String, String>();
-	private static MessageReceived instance;
+	private static MessageReceivedWebhook instance;
 
 	/**
 	 * Constructor
 	 */
-	protected MessageReceived() { }
+	protected MessageReceivedWebhook() { }
 
 	/**
 	 * Get Instance
 	 *
-	 * @return MessageReceived
+	 * @return MessageReceivedWebhook
 	 */
-	public static MessageReceived getInstance() {
+	public static MessageReceivedWebhook getInstance() {
 	    if(instance == null) {
-	        instance = new MessageReceived();
+	        instance = new MessageReceivedWebhook();
 	    }
 	    return instance;
 	}

@@ -11,7 +11,7 @@ import org.json.JSONArray;
 /**
  * Message Read Webhook
  */
-public class MessageRead {
+public class MessageReadWebhook {
 
 
 /*{
@@ -28,21 +28,21 @@ public class MessageRead {
    }
 }
 */
-	private static MessageRead instance;
+	private static MessageReadWebhook instance;
 
 	/**
 	 * Constructor
 	 */
-	protected MessageRead() { }
+	protected MessageReadWebhook() { }
 
 	/**
 	 * Get Instance
 	 *
-	 * @return MessageRead
+	 * @return MessageReadWebhook
 	 */
-	public static MessageRead getInstance() {
+	public static MessageReadWebhook getInstance() {
 	    if(instance == null) {
-	        instance = new MessageRead();
+	        instance = new MessageReadWebhook();
 	    }
 	    return instance;
 	}

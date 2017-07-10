@@ -11,23 +11,23 @@ import org.json.JSONArray;
 /**
  * Message Echo Webhook
  */
-public class MessageEcho {
+public class MessageEchoWebhook {
 
-	private static MessageEcho instance;
+	private static MessageEchoWebhook instance;
 
 	/**
 	 * Constructor
 	 */
-	protected MessageEcho() { }
+	protected MessageEchoWebhook() { }
 
 	/**
 	 * Get Instance
 	 *
-	 * @return MessageEcho
+	 * @return MessageEchoWebhook
 	 */
-	public static MessageEcho getInstance() {
+	public static MessageEchoWebhook getInstance() {
 	    if(instance == null) {
-	        instance = new MessageEcho();
+	        instance = new MessageEchoWebhook();
 	    }
 	    return instance;
 	}

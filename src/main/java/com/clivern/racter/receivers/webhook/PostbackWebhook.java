@@ -11,7 +11,7 @@ import org.json.JSONArray;
 /**
  * Postback Webhook
  */
-public class Postback {
+public class PostbackWebhook {
 /*
 {
   "sender":{
@@ -30,21 +30,21 @@ public class Postback {
     }
   }
 }  */
-	private static Postback instance;
+	private static PostbackWebhook instance;
 
 	/**
 	 * Constructor
 	 */
-	protected Postback() { }
+	protected PostbackWebhook() { }
 
 	/**
 	 * Get Instance
 	 *
-	 * @return Postback
+	 * @return PostbackWebhook
 	 */
-	public static Postback getInstance() {
+	public static PostbackWebhook getInstance() {
 	    if(instance == null) {
-	        instance = new Postback();
+	        instance = new PostbackWebhook();
 	    }
 	    return instance;
 	}

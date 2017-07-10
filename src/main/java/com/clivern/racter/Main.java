@@ -35,12 +35,12 @@ public class Main {
     {
         get("/", (request, response) -> {
 
-/*            Message message = BaseSender.getInstance().getMessageTemplate();
+            MessageTemplate message = BaseSender.getInstance().getMessageTemplate();
             message.setRecipientId("tw7w8egdhsjsd");
             message.setMessageText("Hello World!");
-            return message.build();*/
+            return message.build();
 
-            BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
+/*            BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
@@ -53,7 +53,7 @@ public class Main {
 
             platform.finish();
             response.status(403);
-            return "Verification token mismatch";
+            return "Verification token mismatch";*/
 
         });
 
@@ -65,8 +65,8 @@ public class Main {
             String body = request.body();
             BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
             platform.getBaseReceiver().set(body).parse();
-            HashMap<String, MessageReceived> messages = (HashMap<String, MessageReceived>) platform.getBaseReceiver().getMessages();
-            for (MessageReceived message : messages.values()) {
+            HashMap<String, MessageReceivedWebhook> messages = (HashMap<String, MessageReceivedWebhook>) platform.getBaseReceiver().getMessages();
+            for (MessageReceivedWebhook message : messages.values()) {
                 return message.getMessageText();
             }
             return "bla";
