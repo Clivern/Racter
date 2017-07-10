@@ -22,24 +22,6 @@ public class Message {
 	private String sender_action;
 	private String notification_type;
 	private String message_string;
-	private static Message instance;
-
-	/**
-	 * Constructor
-	 */
-	protected Message() { }
-
-	/**
-	 * Get Instance
-	 *
-	 * @return Message
-	 */
-	public static Message getInstance() {
-	    if(instance == null) {
-	        instance = new Message();
-	    }
-	    return instance;
-	}
 
 	public void setRecipientId(String recipient_id){
 		this.recipient_id = recipient_id;
@@ -147,7 +129,7 @@ public class Message {
  		}
 
  		if( !this.message_attachment.isEmpty() ){
-			this.message_string += "\"attachment":{\"type\":\"" + this.message_attachment.get("type") + "\",\"payload\":{\"url\":\"" + this.message_attachment.get("url") + "\",\"is_reusable\": " + this.message_attachment.get("is_reusable") + "}},";
+			this.message_string += "\"attachment\":{\"type\":\"" + this.message_attachment.get("type") + "\",\"payload\":{\"url\":\"" + this.message_attachment.get("url") + "\",\"is_reusable\": " + this.message_attachment.get("is_reusable") + "}},";
  		}
 
  		if( !this.message_quick_replies.isEmpty() ){

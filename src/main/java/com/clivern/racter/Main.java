@@ -6,6 +6,10 @@ package com.clivern.racter;
 import static spark.Spark.*;
 import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.webhook.*;
+
+import com.clivern.racter.senders.*;
+import com.clivern.racter.senders.templates.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
@@ -31,6 +35,11 @@ public class Main {
     {
         get("/", (request, response) -> {
 
+/*            Message message = BaseSender.getInstance().getMessageTemplate();
+            message.setRecipientId("tw7w8egdhsjsd");
+            message.setMessageText("Hello World!");
+            return message.build();*/
+
             BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
@@ -45,6 +54,7 @@ public class Main {
             platform.finish();
             response.status(403);
             return "Verification token mismatch";
+
         });
 
         // ---------------------------------
@@ -55,8 +65,8 @@ public class Main {
             String body = request.body();
             BotPlatform platform = BotPlatform.getInstance().configDependencies().loadConfigs("src/main/java/resources/config.properties");
             platform.getBaseReceiver().set(body).parse();
-            HashMap<String, Message> messages = (HashMap<String, Message>) platform.getBaseReceiver().getMessages();
-            for (Message message : messages.values()) {
+            HashMap<String, MessageReceived> messages = (HashMap<String, MessageReceived>) platform.getBaseReceiver().getMessages();
+            for (MessageReceived message : messages.values()) {
                 return message.getMessageText();
             }
             return "bla";

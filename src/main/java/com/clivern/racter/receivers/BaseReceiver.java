@@ -18,7 +18,7 @@ public class BaseReceiver {
 
 	private String message_string;
 	private JSONObject message_object;
-	private Map<String, Message> message_webhook = new HashMap<String, Message>();
+	private Map<String, MessageReceived> message_webhook = new HashMap<String, MessageReceived>();
 
 	/**
 	 * Constructor
@@ -124,7 +124,7 @@ public class BaseReceiver {
 							//-----------------
 							// Message
 							//-----------------
-							this.message_webhook.put("message." + z, Message.getInstance());
+							this.message_webhook.put("message." + z, MessageReceived.getInstance());
 							this.message_webhook.get("message." + z).setUserId(sender_id);
 							this.message_webhook.get("message." + z).setPageId(recipient_id);
 							this.message_webhook.get("message." + z).setTimestamp(timestamp);
@@ -240,7 +240,7 @@ public class BaseReceiver {
 	 *
 	 * @return Map
 	 */
-	public Map<String, Message> getMessages()
+	public Map<String, MessageReceived> getMessages()
 	{
 		return this.message_webhook;
 	}

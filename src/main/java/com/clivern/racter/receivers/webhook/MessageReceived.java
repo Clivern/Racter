@@ -64,7 +64,7 @@ import java.lang.*;
  * }
  * </pre>
  */
-public class Message {
+public class MessageReceived {
 
 	private String user_id;
 	private String page_id;
@@ -73,21 +73,21 @@ public class Message {
 	private String message_text;
 	private String quick_reply_payload;
 	private Map<String, String> attachments = new HashMap<String, String>();
-	private static Message instance;
+	private static MessageReceived instance;
 
 	/**
 	 * Constructor
 	 */
-	protected Message() { }
+	protected MessageReceived() { }
 
 	/**
 	 * Get Instance
 	 *
-	 * @return Message
+	 * @return MessageReceived
 	 */
-	public static Message getInstance() {
+	public static MessageReceived getInstance() {
 	    if(instance == null) {
-	        instance = new Message();
+	        instance = new MessageReceived();
 	    }
 	    return instance;
 	}
