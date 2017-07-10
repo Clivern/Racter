@@ -8,10 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 import org.json.JSONArray;
-import java.io.IOException;
-import com.fasterxml.jackson.jr.ob.*;
-import com.fasterxml.jackson.jr.ob.comp.*;
-import java.lang.*;
 
 /**
  * Text Message Template
@@ -112,7 +108,7 @@ public class Message {
 		return this.message_quick_replies;
 	}
 
-    public String build() throws IOException
+    public String build()
     {
 		/*
 		 	{
