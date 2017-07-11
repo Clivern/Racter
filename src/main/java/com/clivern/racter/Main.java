@@ -54,7 +54,17 @@ public class Main {
                 String message_text = (message.hasMessageText()) ? message.getMessageText() : "";
                 String quick_reply_payload = (message.hasQuickReplyPayload()) ? message.getQuickReplyPayload() : "";
                 Long timestamp = (message.hasTimestamp()) ? message.getTimestamp() : 0;
-                Map<String, String> attachments = (message.hasAttachment()) ? message.getAttachment() : new HashMap<String, String>();
+                HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
+
+                BotPlatform.getInstance().getLogger().info("User ID#:" + user_id);
+                BotPlatform.getInstance().getLogger().info("Page ID#:" + page_id);
+                BotPlatform.getInstance().getLogger().info("Message ID#:" + message_id);
+                BotPlatform.getInstance().getLogger().info("Message Text#:" + message_text);
+                BotPlatform.getInstance().getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
+
+                for (String attachment : attachments.values()) {
+                    BotPlatform.getInstance().getLogger().info("Attachment#:" + attachment);
+                }
 
                 String text = message.getMessageText();
                 MessageTemplate message_tpl = BotPlatform.getInstance().getBaseSender().getMessageTemplate();
@@ -115,9 +125,6 @@ public class Main {
                 }
 
                 BotPlatform.getInstance().getBaseSender().sendMessageTemplate(message_tpl);
-
-                BotPlatform.getInstance().getLogger().info(message.getUserId());
-                BotPlatform.getInstance().getLogger().info(message.getMessageText());
 
                 return "ok";
             }
