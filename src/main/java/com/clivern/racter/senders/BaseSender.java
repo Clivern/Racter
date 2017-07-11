@@ -4,6 +4,8 @@
 package com.clivern.racter.senders;
 
 import com.clivern.racter.senders.templates.*;
+import com.clivern.racter.configs.Settings;
+import com.clivern.racter.utils.Log;
 
 import com.mashape.unirest.http.*;
 import com.mashape.unirest.http.async.Callback;
@@ -19,7 +21,8 @@ public class BaseSender {
 
 	private static BaseSender instance;
 	private String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
-	private String access_token;
+	private Settings settings;
+	private Log log;
 
 	/**
 	 * Constructor
@@ -38,8 +41,11 @@ public class BaseSender {
 	    return instance;
 	}
 
-	public BaseSender setAccessToken(String access_token){
-		this.access_token = access_token;
+	public BaseSender config(Settings settings, Log log)
+	{
+		this.settings = settings;
+		this.log = log;
+
 		return instance;
 	}
 
@@ -48,8 +54,9 @@ public class BaseSender {
 	}
 
 	public Boolean sendMessageTemplate(MessageTemplate message_template) throws UnirestException {
-		String url = this.remote_url + this.access_token;
+		String url = this.remote_url + this.settings.get("page_access_token", "");
 		String body = message_template.build();
+		this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
 		HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
 		return true;
