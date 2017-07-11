@@ -92,29 +92,6 @@ public class MessageTemplate {
 
     public String build()
     {
-		/*
-		 	{
-		 	  	"recipient": {
-		 	    	"id": "USER_ID"
-		 	  	},
-		 	  	"message": {
-		 	    	"text": "hello, world!",
-		 			"attachment":{
-		 	      		"type":"audio", # file, audio, image, video
-		 	      		"payload":{
-		 	        		"url":"https://petersapparel.com/bin/clip.mp3",
-		 	        		"is_reusable": true # Optional You can optimize sending multimedia by reusing attachments. If you're sending the same attachments repeatedly, you should consider reusing them. Attachment reuse works with sending images, audio clips, videos and files.
-		 	      		}
-		 	    	},
-		 	    	"quick_replies":[
-
-		 	    	],
-		 	    	"metadata": "" # Custom string that is delivered as a message echo.
-		 	  	}
-		 	  	"sender_action":"typing_on", # typing_on, typing_off, mark_seen
-		 	  	"notification_type": "REGULAR" # REGULAR, SILENT_PUSH, NO_PUSH
-		 	}
-		*/
  		this.message_string  = "{";
 
  		if( this.recipient_id != null ){
@@ -134,7 +111,7 @@ public class MessageTemplate {
 	 		}
 
 	 		if( !this.message_quick_replies.isEmpty() ){
-	 			this.message_string += "[";
+	 			this.message_string += "\"quick_replies\":[";
 	 			for ( int j = 0 ; j < this.message_quick_replies.size(); j++ ) {
 	 				HashMap<String, String> quick_reply = this.message_quick_replies.get(j);
 
@@ -151,6 +128,7 @@ public class MessageTemplate {
 	  				if( !quick_reply.get("image_url").equals("") ){
 	  					this.message_string += "\"image_url\":\"" + quick_reply.get("image_url") + "\",";
 	 				}
+	 				this.message_string = this.message_string.replaceAll(",$", "");
 	 				this.message_string += "},";
 
 	 			}

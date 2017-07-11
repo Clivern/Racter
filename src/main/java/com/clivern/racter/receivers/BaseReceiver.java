@@ -13,6 +13,9 @@ import com.clivern.racter.utils.Log;
 
 /**
  * Base Receiver Class
+ *
+ * @see https://developers.facebook.com/docs/messenger-platform/send-api-reference
+ * @see https://developers.facebook.com/docs/messenger-platform/webhook-reference
  */
 public class BaseReceiver {
 
