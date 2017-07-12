@@ -126,6 +126,17 @@ public class Main {
 
                 BotPlatform.getInstance().getBaseSender().sendMessageTemplate(message_tpl);
 
+                /*
+                ButtonTemplate button_message_tpl = BotPlatform.getInstance().getBaseSender().getButtonTemplate();
+                button_message_tpl.setRecipientId(message.getUserId());
+                button_message_tpl.setMessageText("Click Below!");
+                button_message_tpl.setButton("web_url", "Take the Hat Quiz", "https://m.me/petershats?ref=take_quiz", "");
+                button_message_tpl.setButton("postback", "Bookmark Item", "", "DEVELOPER_DEFINED_PAYLOAD");
+                button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234");
+                button_message_tpl.setButton("element_share", "", "", "");
+                button_message_tpl.setButton("account_link", "", "https://www.example.com/authorize", "");
+                button_message_tpl.setButton("account_unlink", "", "", "");
+                */
                 return "ok";
             }
             return "bla";

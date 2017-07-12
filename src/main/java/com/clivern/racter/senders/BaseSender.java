@@ -56,6 +56,10 @@ public class BaseSender {
 		return new MessageTemplate();
 	}
 
+	public ButtonTemplate getButtonTemplate(){
+		return new ButtonTemplate();
+	}
+
 	public Boolean sendMessageTemplate(MessageTemplate message_template) throws UnirestException {
 		String url = this.remote_url + this.settings.get("page_access_token", "");
 		String body = message_template.build();
