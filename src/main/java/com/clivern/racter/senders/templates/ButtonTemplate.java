@@ -28,8 +28,8 @@ public class ButtonTemplate {
                 "buttons":[
                     {
                         "type":"web_url",
-                        "url":"https://m.me/petershats?ref=take_quiz",
                         "title":"Take the Hat Quiz",
+                        "url":"https://m.me/petershats?ref=take_quiz",
                     },
                     {
                         "type":"postback",
