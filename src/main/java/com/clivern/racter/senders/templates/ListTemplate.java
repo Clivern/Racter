@@ -228,6 +228,46 @@ public class ListTemplate {
     {
         this.message_string  = "{";
 
+        if( this.recipient_id != null ){
+            this.message_string += "\"recipient\": {\"id\": \"" + this.recipient_id + "\"},";
+        }
+
+
+
+/*  "message": {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "list",
+                add "top_element_style": "compact", for Plain list
+
+            }
+        }
+    }
+*/
+
+        if( !this.elements.isEmpty() ){
+
+            this.message_string += "\"message\": {";
+
+                this.message_string += "\"attachment\": {";
+
+                    this.message_string += "\"type\": \"template\",";
+
+                    this.message_string += "\"payload\": {";
+
+                        if( this.element_style.equals("compact") ){
+                            this.message_string += "\"top_element_style\":\"" + this.element_style + "\",";
+                        }
+
+                    this.message_string += "}";
+
+                this.message_string += "}";
+
+            this.message_string += "}";
+
+        }
+
         this.message_string += "}";
 
         return this.message_string;
