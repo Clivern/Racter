@@ -167,13 +167,6 @@ public class Main {
                     button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234");
                     BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
 
-                }else if( text.equals("element_share_button") ){
-
-                    button_message_tpl.setRecipientId(message.getUserId());
-                    button_message_tpl.setMessageText("Click Below!");
-                    button_message_tpl.setButton("element_share", "", "", "");
-                    BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
-
                 }else if( text.equals("account_link_button") ){
 
                     button_message_tpl.setRecipientId(message.getUserId());

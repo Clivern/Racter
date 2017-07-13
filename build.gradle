@@ -32,6 +32,7 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.13'
     compile 'org.slf4j:slf4j-simple:1.7.13'
 
+    implementation 'com.fasterxml.jackson.jr:jackson-jr-objects:2.8.5'
     implementation 'com.mashape.unirest:unirest-java:1.4.9'
     implementation 'org.json:json:20170516'
 
