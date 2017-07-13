@@ -226,11 +226,7 @@ public class ListTemplate {
 
     public String build()
     {
-        this.message_string  = "{";
 
-        if( this.recipient_id != null ){
-            this.message_string += "\"recipient\": {\"id\": \"" + this.recipient_id + "\"},";
-        }
 
 
 
@@ -245,6 +241,11 @@ public class ListTemplate {
         }
     }
 */
+        this.message_string  = "{";
+
+        if( this.recipient_id != null ){
+            this.message_string += "\"recipient\": {\"id\": \"" + this.recipient_id + "\"},";
+        }
 
         if( !this.elements.isEmpty() ){
 
@@ -259,6 +260,37 @@ public class ListTemplate {
                         if( this.element_style.equals("compact") ){
                             this.message_string += "\"top_element_style\":\"" + this.element_style + "\",";
                         }
+
+                        //------------------
+                        // ELEMENT GOES HERE
+                        //------------------
+
+
+                        this.message_string += "\"buttons\":[";
+                        for ( int j = 0 ; j < this.buttons.size(); j++ ) {
+                            HashMap<String, String> button = this.buttons.get(j);
+
+                            this.message_string += "{";
+                            if( !button.get("type").equals("") ){
+                                this.message_string += "\"type\":\"" + button.get("type") + "\",";
+                            }
+                            if( !button.get("title").equals("") ){
+                                this.message_string += "\"title\":\"" + button.get("title") + "\",";
+                            }
+                            if( !button.get("url").equals("") ){
+                                this.message_string += "\"url\":\"" + button.get("url") + "\",";
+                            }
+                            if( !button.get("payload").equals("") ){
+                                this.message_string += "\"payload\":\"" + button.get("payload") + "\",";
+                            }
+                            this.message_string = this.message_string.replaceAll(",$", "");
+                            this.message_string += "},";
+                        }
+
+                        this.message_string = this.message_string.replaceAll(",$", "");
+                        this.message_string += "]";
+
+
 
                     this.message_string += "}";
 
