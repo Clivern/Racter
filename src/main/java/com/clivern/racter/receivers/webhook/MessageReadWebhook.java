@@ -28,22 +28,22 @@ public class MessageReadWebhook {
    }
 }
 */
-	private static MessageReadWebhook instance;
+    private static MessageReadWebhook instance;
 
-	/**
-	 * Constructor
-	 */
-	protected MessageReadWebhook() { }
+    /**
+     * Constructor
+     */
+    protected MessageReadWebhook() { }
 
-	/**
-	 * Get Instance
-	 *
-	 * @return MessageReadWebhook
-	 */
-	public static MessageReadWebhook getInstance() {
-	    if(instance == null) {
-	        instance = new MessageReadWebhook();
-	    }
-	    return instance;
-	}
+    /**
+     * Get Instance
+     *
+     * @return MessageReadWebhook
+     */
+    public static MessageReadWebhook getInstance() {
+        if(instance == null) {
+            instance = new MessageReadWebhook();
+        }
+        return instance;
+    }
 }

@@ -14,8 +14,8 @@ import org.json.JSONArray;
  */
 public class GenericTemplate {
 
-	private String recipient_id;
-	private String message_string;
+    private String recipient_id;
+    private String message_string;
     private ArrayList<HashMap<String, Object>> elements = new ArrayList<HashMap<String, Object>>();
 
     public void setRecipientId(String recipient_id){

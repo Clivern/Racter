@@ -30,22 +30,22 @@ public class MessageDeliveredWebhook {
    }
 }  */
 
-	private static MessageDeliveredWebhook instance;
+    private static MessageDeliveredWebhook instance;
 
-	/**
-	 * Constructor
-	 */
-	protected MessageDeliveredWebhook() { }
+    /**
+     * Constructor
+     */
+    protected MessageDeliveredWebhook() { }
 
-	/**
-	 * Get Instance
-	 *
-	 * @return MessageDeliveredWebhook
-	 */
-	public static MessageDeliveredWebhook getInstance() {
-	    if(instance == null) {
-	        instance = new MessageDeliveredWebhook();
-	    }
-	    return instance;
-	}
+    /**
+     * Get Instance
+     *
+     * @return MessageDeliveredWebhook
+     */
+    public static MessageDeliveredWebhook getInstance() {
+        if(instance == null) {
+            instance = new MessageDeliveredWebhook();
+        }
+        return instance;
+    }
 }

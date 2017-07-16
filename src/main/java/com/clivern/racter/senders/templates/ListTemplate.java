@@ -14,8 +14,8 @@ import org.json.JSONArray;
  */
 public class ListTemplate {
 
-	private String recipient_id;
-	private String element_style; // compact or cover
+    private String recipient_id;
+    private String element_style; // compact or cover
     private String message_string;
     private ArrayList<HashMap<String, Object>> elements = new ArrayList<HashMap<String, Object>>();
     private ArrayList<HashMap<String, String>> buttons = new ArrayList<HashMap<String, String>>();

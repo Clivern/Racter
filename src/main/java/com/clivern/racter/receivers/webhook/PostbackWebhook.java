@@ -30,22 +30,22 @@ public class PostbackWebhook {
     }
   }
 }  */
-	private static PostbackWebhook instance;
+    private static PostbackWebhook instance;
 
-	/**
-	 * Constructor
-	 */
-	protected PostbackWebhook() { }
+    /**
+     * Constructor
+     */
+    protected PostbackWebhook() { }
 
-	/**
-	 * Get Instance
-	 *
-	 * @return PostbackWebhook
-	 */
-	public static PostbackWebhook getInstance() {
-	    if(instance == null) {
-	        instance = new PostbackWebhook();
-	    }
-	    return instance;
-	}
+    /**
+     * Get Instance
+     *
+     * @return PostbackWebhook
+     */
+    public static PostbackWebhook getInstance() {
+        if(instance == null) {
+            instance = new PostbackWebhook();
+        }
+        return instance;
+    }
 }

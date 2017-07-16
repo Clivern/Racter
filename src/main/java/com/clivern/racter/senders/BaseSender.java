@@ -22,93 +22,93 @@ import com.mashape.unirest.request.HttpRequest;
  */
 public class BaseSender {
 
-	private static BaseSender instance;
-	private String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
-	private Settings settings;
-	private Log log;
+    private static BaseSender instance;
+    private String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
+    private Settings settings;
+    private Log log;
 
-	/**
-	 * Constructor
-	 */
-	protected BaseSender() { }
+    /**
+     * Constructor
+     */
+    protected BaseSender() { }
 
-	/**
-	 * Get Instance
-	 *
-	 * @return BaseSender
-	 */
-	public static BaseSender getInstance() {
-	    if(instance == null) {
-	        instance = new BaseSender();
-	    }
-	    return instance;
-	}
+    /**
+     * Get Instance
+     *
+     * @return BaseSender
+     */
+    public static BaseSender getInstance() {
+        if(instance == null) {
+            instance = new BaseSender();
+        }
+        return instance;
+    }
 
-	public BaseSender config(Settings settings, Log log)
-	{
-		this.settings = settings;
-		this.log = log;
+    public BaseSender config(Settings settings, Log log)
+    {
+        this.settings = settings;
+        this.log = log;
 
-		return instance;
-	}
+        return instance;
+    }
 
-	public MessageTemplate getMessageTemplate(){
-		return new MessageTemplate();
-	}
+    public MessageTemplate getMessageTemplate(){
+        return new MessageTemplate();
+    }
 
-	public ButtonTemplate getButtonTemplate(){
-		return new ButtonTemplate();
-	}
+    public ButtonTemplate getButtonTemplate(){
+        return new ButtonTemplate();
+    }
 
-	public ListTemplate getListTemplate(){
-		return new ListTemplate();
-	}
+    public ListTemplate getListTemplate(){
+        return new ListTemplate();
+    }
 
-	public GenericTemplate getGenericTemplate(){
-		return new GenericTemplate();
-	}
+    public GenericTemplate getGenericTemplate(){
+        return new GenericTemplate();
+    }
 
-	public Boolean send(MessageTemplate template) throws UnirestException {
-		String url = this.remote_url + this.settings.get("page_access_token", "");
-		String body = template.build();
-		this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
-		HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+    public Boolean send(MessageTemplate template) throws UnirestException {
+        String url = this.remote_url + this.settings.get("page_access_token", "");
+        String body = template.build();
+        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
-		return true;
-	}
+        return true;
+    }
 
-	public Boolean send(ButtonTemplate template) throws UnirestException {
-		String url = this.remote_url + this.settings.get("page_access_token", "");
-		String body = template.build();
-		this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
-		HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+    public Boolean send(ButtonTemplate template) throws UnirestException {
+        String url = this.remote_url + this.settings.get("page_access_token", "");
+        String body = template.build();
+        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
-		return true;
-	}
+        return true;
+    }
 
-	public Boolean send(ListTemplate template) throws UnirestException {
-		String url = this.remote_url + this.settings.get("page_access_token", "");
-		String body = template.build();
-		this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
-		HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+    public Boolean send(ListTemplate template) throws UnirestException {
+        String url = this.remote_url + this.settings.get("page_access_token", "");
+        String body = template.build();
+        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
-		return true;
-	}
+        return true;
+    }
 
-	public Boolean send(GenericTemplate template) throws UnirestException {
-		String url = this.remote_url + this.settings.get("page_access_token", "");
-		String body = template.build();
-		this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
-		HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+    public Boolean send(GenericTemplate template) throws UnirestException {
+        String url = this.remote_url + this.settings.get("page_access_token", "");
+        String body = template.build();
+        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
-		return true;
-	}
+        return true;
+    }
 
-	public Boolean send(String body) throws UnirestException {
-		String url = this.remote_url + this.settings.get("page_access_token", "");
-		this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
-		HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+    public Boolean send(String body) throws UnirestException {
+        String url = this.remote_url + this.settings.get("page_access_token", "");
+        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
-		return true;
-	}
+        return true;
+    }
 }
