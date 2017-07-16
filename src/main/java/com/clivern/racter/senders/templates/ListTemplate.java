@@ -284,44 +284,45 @@ public class ListTemplate {
                                     this.message_string += "},";
                                 }
 
+
+                                if( element.containsKey("buttons") ){
+                                    ArrayList<HashMap<String, String>> buttons = (ArrayList<HashMap<String, String>>) element.get("buttons");
+                                    if( !buttons.isEmpty() ){
+
+                                        this.message_string += "\"buttons\": [";
+
+                                            for ( int k = 0 ; k < buttons.size(); k++ ) {
+                                                HashMap<String, String> button = buttons.get(k);
+                                                this.message_string += "{";
+                                                    if( !button.get("title").equals("") ){
+                                                        this.message_string += "\"title\":\"" + button.get("title") + "\",";
+                                                    }
+                                                    if( !button.get("type").equals("") ){
+                                                        this.message_string += "\"type\":\"" + button.get("type") + "\",";
+                                                    }
+                                                    if( !button.get("url").equals("") ){
+                                                        this.message_string += "\"url\":\"" + button.get("url") + "\",";
+                                                    }
+                                                    if( !button.get("messenger_extensions").equals("") ){
+                                                        this.message_string += "\"messenger_extensions\":\"" + button.get("messenger_extensions") + "\",";
+                                                    }
+                                                    if( !button.get("webview_height_ratio").equals("") ){
+                                                        this.message_string += "\"webview_height_ratio\":\"" + button.get("webview_height_ratio") + "\",";
+                                                    }
+                                                    if( !button.get("fallback_url").equals("") ){
+                                                        this.message_string += "\"fallback_url\":\"" + button.get("fallback_url") + "\",";
+                                                    }
+                                                this.message_string = this.message_string.replaceAll(",$", "");
+                                                this.message_string += "},";
+                                            }
+
+                                            this.message_string = this.message_string.replaceAll(",$", "");
+                                        this.message_string += "]";
+                                    }
+                                }
+
                                 this.message_string = this.message_string.replaceAll(",$", "");
                                 this.message_string += "},";
-                            }
-
-
-                            if( element.containsKey("buttons") ){
-                                if( !element.get("buttons").isEmpty() ){
-                                    ArrayList<HashMap<String, String>> buttons = (ArrayList<HashMap<String, String>>) element.get("buttons");
-                                    this.message_string += "\"buttons\": [";
-
-                                        for ( int k = 0 ; k < buttons.size(); k++ ) {
-                                            HashMap<String, String> button = buttons.get(k);
-                                            this.message_string += "{";
-                                                if( !button.get("title").equals("") ){
-                                                    this.message_string += "\"title\":\"" + button.get("title") + "\",";
-                                                }
-                                                if( !button.get("type").equals("") ){
-                                                    this.message_string += "\"type\":\"" + button.get("type") + "\",";
-                                                }
-                                                if( !button.get("url").equals("") ){
-                                                    this.message_string += "\"url\":\"" + button.get("url") + "\",";
-                                                }
-                                                if( !button.get("messenger_extensions").equals("") ){
-                                                    this.message_string += "\"messenger_extensions\":\"" + button.get("messenger_extensions") + "\",";
-                                                }
-                                                if( !button.get("webview_height_ratio").equals("") ){
-                                                    this.message_string += "\"webview_height_ratio\":\"" + button.get("webview_height_ratio") + "\",";
-                                                }
-                                                if( !button.get("fallback_url").equals("") ){
-                                                    this.message_string += "\"fallback_url\":\"" + button.get("fallback_url") + "\",";
-                                                }
-                                            this.message_string = this.message_string.replaceAll(",$", "");
-                                            this.message_string += "},";
-                                        }
-
-                                        this.message_string = this.message_string.replaceAll(",$", "");
-                                    this.message_string += "]";
-                                }
                             }
 
                             this.message_string = this.message_string.replaceAll(",$", "");
@@ -360,6 +361,7 @@ public class ListTemplate {
 
         }
 
+        this.message_string = this.message_string.replaceAll(",$", "");
         this.message_string += "}";
 
         return this.message_string;

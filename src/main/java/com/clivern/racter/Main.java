@@ -34,7 +34,6 @@ public class Main {
             platform.finish();
             response.status(403);
             return "Verification token mismatch";
-
         });
 
         // ---------------------------------
@@ -69,6 +68,7 @@ public class Main {
                 String text = message.getMessageText();
                 MessageTemplate message_tpl = BotPlatform.getInstance().getBaseSender().getMessageTemplate();
                 ButtonTemplate button_message_tpl = BotPlatform.getInstance().getBaseSender().getButtonTemplate();
+                ListTemplate list_message_tpl = BotPlatform.getInstance().getBaseSender().getListTemplate();
 
                 if( text.equals("text") ){
 
@@ -180,6 +180,25 @@ public class Main {
                     button_message_tpl.setMessageText("Click Below!");
                     button_message_tpl.setButton("account_unlink", "", "", "");
                     BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+
+                }else if( text.equals("list_template") ){
+
+                    list_message_tpl.setRecipientId(message.getUserId());
+                    list_message_tpl.setElementStyle("compact");
+
+                    // Element
+                    Integer element_index = list_message_tpl.setElement("Classic T-Shirt Collection", "https://peterssendreceiveapp.ngrok.io/img/collection.png", "See all our colors");
+                    list_message_tpl.setElementDefaultAction(element_index, "web_url", "https://peterssendreceiveapp.ngrok.io/view?item=102", true, "tall", "https://peterssendreceiveapp.ngrok.io/");
+                    list_message_tpl.setElementButton(element_index, "Shop Now", "web_url", "https://peterssendreceiveapp.ngrok.io/shop?item=102", true, "tall", "https://peterssendreceiveapp.ngrok.io/");
+
+                    // Element
+                    element_index = list_message_tpl.setElement("Classic T-Shirt Collection", "https://peterssendreceiveapp.ngrok.io/img/collection.png", "See all our colors");
+                    list_message_tpl.setElementDefaultAction(element_index, "web_url", "https://peterssendreceiveapp.ngrok.io/view?item=102", true, "tall", "https://peterssendreceiveapp.ngrok.io/");
+                    list_message_tpl.setElementButton(element_index, "Shop Now", "web_url", "https://peterssendreceiveapp.ngrok.io/shop?item=102", true, "tall", "https://peterssendreceiveapp.ngrok.io/");
+
+                    // Set Button
+                    list_message_tpl.setButton("postback", "View More", "", "payload");
+                    BotPlatform.getInstance().getBaseSender().send(list_message_tpl);
 
                 }
 
