@@ -70,6 +70,7 @@ public class Main {
                 ButtonTemplate button_message_tpl = BotPlatform.getInstance().getBaseSender().getButtonTemplate();
                 ListTemplate list_message_tpl = BotPlatform.getInstance().getBaseSender().getListTemplate();
                 GenericTemplate generic_message_tpl = BotPlatform.getInstance().getBaseSender().getGenericTemplate();
+                ReceiptTemplate receipt_message_tpl = BotPlatform.getInstance().getBaseSender().getReceiptTemplate();
 
                 if( text.equals("text") ){
 
@@ -217,7 +218,25 @@ public class Main {
 
                     BotPlatform.getInstance().getBaseSender().send(generic_message_tpl);
 
+                }else if( text.equals("receipt_template") ){
+
+                    receipt_message_tpl.setRecipientId(message.getUserId());
+                    receipt_message_tpl.setRecipientName("Stephane Crozatier");
+                    receipt_message_tpl.setOrderNumber("12345678902");
+                    receipt_message_tpl.setCurrency("USD");
+                    receipt_message_tpl.setPaymentMethod("Visa 2345");
+                    receipt_message_tpl.setOrderUrl("http://petersapparel.parseapp.com/order?order_id=123456");
+                    receipt_message_tpl.setTimestamp("1428444852");
+                    receipt_message_tpl.setElement("Classic White T-Shirt", "100% Soft and Luxurious Cotton", "2", "50", "USD", "http://petersapparel.parseapp.com/img/whiteshirt.png");
+                    receipt_message_tpl.setElement("Classic Gray T-Shirt", "100% Soft and Luxurious Cotton", "2", "50", "USD", "http://petersapparel.parseapp.com/img/whiteshirt.png");
+                    receipt_message_tpl.setAddress("1 Hacker Way", "", "Menlo Park", "94025", "CA", "US");
+                    receipt_message_tpl.setSummary("75.00", "4.95", "6.19", "56.14");
+                    receipt_message_tpl.setAdjustment("New Customer Discount", "20");
+                    receipt_message_tpl.setAdjustment("$10 Off Coupon", "10");
+                    BotPlatform.getInstance().getBaseSender().send(receipt_message_tpl);
+
                 }
+
 
                 if( quick_reply_payload.equals("text_reply_red_click") ){
 
