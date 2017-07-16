@@ -14,49 +14,6 @@ import org.json.JSONArray;
  */
 public class ButtonTemplate {
 
-    /*
-        {
-          "recipient":{
-            "id":"USER_ID"
-          },
-          "message":{
-            "attachment":{
-              "type":"template",
-              "payload":{
-                "template_type":"button",
-                "text":"What do you want to do next?",
-                "buttons":[
-                    {
-                        "type":"web_url",
-                        "title":"Take the Hat Quiz",
-                        "url":"https://m.me/petershats?ref=take_quiz",
-                    },
-                    {
-                        "type":"postback",
-                        "title":"Bookmark Item",
-                        "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                    },
-                    {
-                        "type":"phone_number",
-                        "title":"Call Representative",
-                        "payload":"+15105551234"
-                    },
-                    {
-                        "type":"element_share"
-                    },
-                    {
-                        "type": "account_link",
-                        "url": "https://www.example.com/authorize"
-                    },
-                    {
-                        "type": "account_unlink"
-                    }
-                ]
-              }
-            }
-          }
-        }
-     */
     private String recipient_id;
     private String message_text;
     private ArrayList<HashMap<String, String>> buttons = new ArrayList<HashMap<String, String>>();
