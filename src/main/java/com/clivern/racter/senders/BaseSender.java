@@ -64,6 +64,10 @@ public class BaseSender {
 		return new ListTemplate();
 	}
 
+	public GenericTemplate getGenericTemplate(){
+		return new GenericTemplate();
+	}
+
 	public Boolean send(MessageTemplate template) throws UnirestException {
 		String url = this.remote_url + this.settings.get("page_access_token", "");
 		String body = template.build();
@@ -83,6 +87,15 @@ public class BaseSender {
 	}
 
 	public Boolean send(ListTemplate template) throws UnirestException {
+		String url = this.remote_url + this.settings.get("page_access_token", "");
+		String body = template.build();
+		this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+		HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+
+		return true;
+	}
+
+	public Boolean send(GenericTemplate template) throws UnirestException {
 		String url = this.remote_url + this.settings.get("page_access_token", "");
 		String body = template.build();
 		this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
