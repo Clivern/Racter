@@ -226,21 +226,6 @@ public class ListTemplate {
 
     public String build()
     {
-
-
-
-
-/*  "message": {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "list",
-                add "top_element_style": "compact", for Plain list
-
-            }
-        }
-    }
-*/
         this.message_string  = "{";
 
         if( this.recipient_id != null ){
@@ -261,10 +246,87 @@ public class ListTemplate {
                             this.message_string += "\"top_element_style\":\"" + this.element_style + "\",";
                         }
 
-                        //------------------
-                        // ELEMENT GOES HERE
-                        //------------------
+                        if( !this.elements.isEmpty() ){
 
+                            this.message_string += "\"elements\":[";
+                            for ( int j = 0 ; j < this.elements.size(); j++ ) {
+                                HashMap<String, Object> element = this.elements.get(j);
+
+                                this.message_string += "{";
+                                if( !element.get("title").equals("") ){
+                                    this.message_string += "\"title\":\"" + element.get("title") + "\",";
+                                }
+                                if( !element.get("image_url").equals("") ){
+                                    this.message_string += "\"image_url\":\"" + element.get("image_url") + "\",";
+                                }
+                                if( !element.get("subtitle").equals("") ){
+                                    this.message_string += "\"subtitle\":\"" + element.get("subtitle") + "\",";
+                                }
+
+                                if( !element.get("default_action_type").equals("") || !element.get("default_action_url").equals("") || !element.get("default_action_messenger_extensions").equals("") || !element.get("default_action_webview_height_ratio").equals("") || !element.get("default_action_fallback_url").equals("") ){
+                                    this.message_string += "\"default_action\":{";
+                                        if( !element.get("default_action_type").equals("") ){
+                                            this.message_string += "\"type\":\"" + element.get("default_action_type") + "\",";
+                                        }
+                                        if( !element.get("default_action_url").equals("") ){
+                                            this.message_string += "\"url\":\"" + element.get("default_action_url") + "\",";
+                                        }
+                                        if( !element.get("default_action_messenger_extensions").equals("") ){
+                                            this.message_string += "\"messenger_extensions\":\"" + element.get("default_action_messenger_extensions") + "\",";
+                                        }
+                                        if( !element.get("default_action_webview_height_ratio").equals("") ){
+                                            this.message_string += "\"webview_height_ratio\":\"" + element.get("default_action_webview_height_ratio") + "\",";
+                                        }
+                                        if( !element.get("default_action_fallback_url").equals("") ){
+                                            this.message_string += "\"fallback_url\":\"" + element.get("default_action_fallback_url") + "\",";
+                                        }
+                                        this.message_string = this.message_string.replaceAll(",$", "");
+                                    this.message_string += "},";
+                                }
+
+                                this.message_string = this.message_string.replaceAll(",$", "");
+                                this.message_string += "},";
+                            }
+
+
+                            if( element.containsKey("buttons") ){
+                                if( !element.get("buttons").isEmpty() ){
+                                    ArrayList<HashMap<String, String>> buttons = (ArrayList<HashMap<String, String>>) element.get("buttons");
+                                    this.message_string += "\"buttons\": [";
+
+                                        for ( int k = 0 ; k < buttons.size(); k++ ) {
+                                            HashMap<String, String> button = buttons.get(k);
+                                            this.message_string += "{";
+                                                if( !button.get("title").equals("") ){
+                                                    this.message_string += "\"title\":\"" + button.get("title") + "\",";
+                                                }
+                                                if( !button.get("type").equals("") ){
+                                                    this.message_string += "\"type\":\"" + button.get("type") + "\",";
+                                                }
+                                                if( !button.get("url").equals("") ){
+                                                    this.message_string += "\"url\":\"" + button.get("url") + "\",";
+                                                }
+                                                if( !button.get("messenger_extensions").equals("") ){
+                                                    this.message_string += "\"messenger_extensions\":\"" + button.get("messenger_extensions") + "\",";
+                                                }
+                                                if( !button.get("webview_height_ratio").equals("") ){
+                                                    this.message_string += "\"webview_height_ratio\":\"" + button.get("webview_height_ratio") + "\",";
+                                                }
+                                                if( !button.get("fallback_url").equals("") ){
+                                                    this.message_string += "\"fallback_url\":\"" + button.get("fallback_url") + "\",";
+                                                }
+                                            this.message_string = this.message_string.replaceAll(",$", "");
+                                            this.message_string += "},";
+                                        }
+
+                                        this.message_string = this.message_string.replaceAll(",$", "");
+                                    this.message_string += "]";
+                                }
+                            }
+
+                            this.message_string = this.message_string.replaceAll(",$", "");
+                            this.message_string += "],";
+                        }
 
                         this.message_string += "\"buttons\":[";
                         for ( int j = 0 ; j < this.buttons.size(); j++ ) {
@@ -289,8 +351,6 @@ public class ListTemplate {
 
                         this.message_string = this.message_string.replaceAll(",$", "");
                         this.message_string += "]";
-
-
 
                     this.message_string += "}";
 
