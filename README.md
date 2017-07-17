@@ -9,9 +9,20 @@ Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 
 Installation
 ------------
-To install Racter:
+To add a dependency using Maven, use the following:
 ```
-#
+<dependency>
+  <groupId>com.clivern</groupId>
+  <artifactId>racter</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+To add a dependency using Gradle, use the following:
+```
+dependencies {
+  compile 'com.clivern:racter:1.0.0'
+}
 ```
 
 Usage
