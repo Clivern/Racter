@@ -227,8 +227,8 @@ public class Main {
                     receipt_message_tpl.setPaymentMethod("Visa 2345");
                     receipt_message_tpl.setOrderUrl("http://petersapparel.parseapp.com/order?order_id=123456");
                     receipt_message_tpl.setTimestamp("1428444852");
-                    receipt_message_tpl.setElement("Classic White T-Shirt", "100% Soft and Luxurious Cotton", "2", "50", "USD", "http://petersapparel.parseapp.com/img/whiteshirt.png");
-                    receipt_message_tpl.setElement("Classic Gray T-Shirt", "100% Soft and Luxurious Cotton", "2", "50", "USD", "http://petersapparel.parseapp.com/img/whiteshirt.png");
+                    receipt_message_tpl.setElement("Classic White T-Shirt", "100% Soft and Luxurious Cotton", "2", "50", "USD", "https://image.spreadshirtmedia.com/image-server/v1/products/1001491830/views/1,width=800,height=800,appearanceId=2,version=1473664654/black-rap-nation-t-shirt-men-s-premium-t-shirt.png");
+                    receipt_message_tpl.setElement("Classic Gray T-Shirt", "100% Soft and Luxurious Cotton", "2", "50", "USD", "https://static1.squarespace.com/static/57a088e05016e13b82b0beac/t/584fe89720099e4b5211c624/1481631899763/darts-is-my-religion-ally-pally-is-my-church-t-shirt-maenner-maenner-t-shirt.png");
                     receipt_message_tpl.setAddress("1 Hacker Way", "", "Menlo Park", "94025", "CA", "US");
                     receipt_message_tpl.setSummary("75.00", "4.95", "6.19", "56.14");
                     receipt_message_tpl.setAdjustment("New Customer Discount", "20");
