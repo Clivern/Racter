@@ -5,9 +5,9 @@ package com.clivern.racter.receivers.webhook;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.lang.*;
 import org.json.JSONObject;
 import org.json.JSONArray;
-import java.lang.*;
 
 /**
  * Message Webhook

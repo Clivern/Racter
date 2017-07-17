@@ -13,7 +13,7 @@ apply plugin: 'application'
 
 archivesBaseName = "racter"
 version = '1.0.0'
-mainClassName = "com.clivern.racter.Main"
+mainClassName = "com.clivern.racter.BotPlatform"
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -25,14 +25,8 @@ repositories {
 
 dependencies {
     // For Development Only
-    compile 'com.sparkjava:spark-core:2.6.0'
-    compile 'org.slf4j:slf4j-api:1.7.13'
-    compile 'org.slf4j:slf4j-simple:1.7.13'
-
-    implementation 'com.fasterxml.jackson.jr:jackson-jr-objects:2.8.5'
-    implementation 'com.mashape.unirest:unirest-java:1.4.9'
-    implementation 'org.json:json:20170516'
-
+    compile 'com.mashape.unirest:unirest-java:1.4.9'
+    compile 'org.json:json:20170516'
     // Use TestNG framework, also requires calling test.useTestNG() below
     testImplementation 'org.testng:testng:6.10'
 }
@@ -41,4 +35,4 @@ dependencies {
 test.useTestNG()
 
 // /opt/gradle/bin/gradle uploadArchives
-// apply from: 'maven-push.gradle'
+//apply from: 'maven-push.gradle'

@@ -6,8 +6,6 @@ package com.clivern.racter.senders.templates;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONObject;
-import org.json.JSONArray;
 
 /**
  * Generic Template
