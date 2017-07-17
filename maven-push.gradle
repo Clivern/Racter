@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// /opt/gradle/bin/gradle -b maven-push.gradle uploadArchives
+apply from: 'build.gradle'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
