@@ -96,10 +96,6 @@ BotPlatform platform = BotPlatform.getInstance().loadConfigs(options).configDepe
 ```
 
 
-Customizing
-===========
-
-
 Misc
 ====
 
