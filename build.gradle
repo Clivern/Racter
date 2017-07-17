@@ -45,4 +45,5 @@ dependencies {
 // Use TestNG for unit tests
 test.useTestNG()
 
+// /opt/gradle/bin/gradle uploadArchives
 // apply from: 'maven-push.gradle'
