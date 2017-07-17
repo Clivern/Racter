@@ -47,7 +47,7 @@ public class Log {
     /**
      * Config Logger
      *
-     * @param  options
+     * @param  settings
      * @return Log
      */
     public Log config(Settings settings) throws IOException

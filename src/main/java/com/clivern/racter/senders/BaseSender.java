@@ -16,9 +16,6 @@ import com.mashape.unirest.request.HttpRequest;
 
 /**
  * Base Sender Class
- *
- * @see https://developers.facebook.com/docs/messenger-platform/send-api-reference
- * @see https://developers.facebook.com/docs/messenger-platform/webhook-reference
  */
 public class BaseSender {
 
