@@ -46,7 +46,7 @@ log_file_count=200000
 log_file_append=true or false
 ```
 
-the pass this file to bot platform
+then pass this file to bot platform
 ```
 import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.webhook.*;
