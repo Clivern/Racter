@@ -95,6 +95,46 @@ options.put("log_file_append", "true or false");
 BotPlatform platform = BotPlatform.getInstance().loadConfigs(options).configDependencies();
 ```
 
+Create a route to verify your verify token, Facebook will perform a GET request to this route URL with some URL parameters to make sure that verify token is correct. So let's say we use [spark java framework](http://sparkjava.com/) for our bot, Our route and callback will look like the following:
+
+```
+import static spark.Spark.*;
+import com.clivern.racter.BotPlatform;
+import com.clivern.racter.receivers.webhook.*;
+
+import com.clivern.racter.senders.*;
+import com.clivern.racter.senders.templates.*;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.io.IOException;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException
+    {
+        // Verify Token Route
+        get("/", (request, response) -> {
+            BotPlatform platform = BotPlatform.getInstance().loadConfigs("src/main/java/resources/config.properties").configDependencies();
+            platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
+            platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
+            platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
+
+            if( platform.getVerifyWebhook().challenge() ){
+                platform.finish();
+                response.status(200);
+                return ( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "";
+            }
+
+            platform.finish();
+            response.status(403);
+            return "Verification token mismatch";
+        });
+    }
+}
+
+```
+
 
 Misc
 ====
