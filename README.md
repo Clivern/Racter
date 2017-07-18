@@ -10,7 +10,7 @@ Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 Installation
 ------------
 To add a dependency using Maven, use the following:
-```
+```xml
 <dependency>
   <groupId>com.clivern</groupId>
   <artifactId>racter</artifactId>
@@ -19,7 +19,7 @@ To add a dependency using Maven, use the following:
 ```
 
 To add a dependency using Gradle, use the following:
-```
+```java
 dependencies {
   compile 'com.clivern:racter:1.0.0'
 }
@@ -48,7 +48,7 @@ log_file_append=true or false
 
 Then import all required classes
 
-```
+```java
 import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.*;
 import com.clivern.racter.receivers.webhook.*;
@@ -63,12 +63,12 @@ import java.io.IOException;
 
 then pass the `config.properties` file to the bot platform instance
 
-```
+```java
 BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
 ```
 
 or Configure it manually
-```
+```java
 Map<String, String> options = new HashMap<String, String>();
 
 options.put("app_id", "App ID Goes Here");
@@ -90,7 +90,7 @@ Setup Webhook
 -------------
 Create a route to verify your verify token, Facebook will perform a GET request to this route URL with some URL parameters to make sure that verify token is correct.
 
-```
+```java
 BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
 
 String hubMode = // Get hub.mode query parameter value from the current URL
@@ -119,7 +119,7 @@ platform.finish();
 
 So let's say we use [Spark Java Framework](http://sparkjava.com/) for our bot, Our route and callback will look like the following:
 
-```
+```java
 import static spark.Spark.*;
 import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.*;
@@ -171,17 +171,18 @@ Misc
 
 Tutorials & Examples
 --------------------
-1. [Building Your Chat Bot with SparkJava Framework.]()
-2. [Building Your Chat Bot with Spring Framework.]()
-3. [Building Your Chat Bot with Java Servlets.]()
-4. [Building Your Chat Bot with Play Framework.]()
+I am still working on the following:
+1. [Building Your Chat Bot with Racter & SparkJava Framework.](https://github.com/Clivern/Racter)
+2. [Building Your Chat Bot with Racter & Spring Framework.](https://github.com/Clivern/Racter)
+3. [Building Your Chat Bot with Racter & Java Servlets.](https://github.com/Clivern/Racter)
+4. [Building Your Chat Bot with Racter & Play Framework.](https://github.com/Clivern/Racter)
 
 
 Changelog
 ---------
 Version 1.0.0 (coming soon):
 ```
-initial release
+Initial Release
 ```
 
 Acknowledgements
