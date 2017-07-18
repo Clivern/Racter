@@ -278,44 +278,52 @@ Here's some of the usage cases:
 // To send a seen mark
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("mark_seen");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send a typing on
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("typing_on");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send a typing off
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("typing_off");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send text message
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setMessageText("Hello World");
 message_tpl.setNotificationType("REGULAR");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send an image
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setAttachment("image", "http://techslides.com/demos/samples/sample.jpg", false);
 message_tpl.setNotificationType("SILENT_PUSH");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send file attachment
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setAttachment("file", "http://techslides.com/demos/samples/sample.pdf", false);
 message_tpl.setNotificationType("NO_PUSH");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send a video
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setAttachment("video", "http://techslides.com/demos/samples/sample.mp4", false);
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send an audio
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setAttachment("audio", "http://techslides.com/demos/samples/sample.mp3", false);
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send a quick text reply with payload buttons
@@ -324,6 +332,7 @@ message_tpl.setMessageText("Select a Color!");
 message_tpl.setQuickReply("text", "Red", "text_reply_red_click", "");
 message_tpl.setQuickReply("text", "Green", "text_reply_green_click", "");
 message_tpl.setQuickReply("text", "Black", "text_reply_black_click", "");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send a quick text reply with payload buttons (Button with images)
@@ -332,12 +341,42 @@ message_tpl.setMessageText("Select a Color!");
 message_tpl.setQuickReply("text", "Red", "text_reply_red_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
 message_tpl.setQuickReply("text", "Green", "text_reply_green_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
 message_tpl.setQuickReply("text", "Black", "text_reply_black_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
 
 
 // To send location reply
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setMessageText("Please share your location!");
 message_tpl.setQuickReply("location", "", "", "");
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
+```
+
+Please note that to respond to custom payloads, Please do the following:
+
+```java
+// To get the payload value, Use this code
+//   String quick_reply_payload = (message.hasQuickReplyPayload()) ? message.getQuickReplyPayload() : "";
+// as shown before
+
+if( quick_reply_payload.equals("text_reply_red_click") ){
+
+    message_tpl.setRecipientId(message.getUserId());
+    message_tpl.setMessageText("Red Clicked");
+    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+
+}else if( quick_reply_payload.equals("text_reply_green_click") ){
+
+    message_tpl.setRecipientId(message.getUserId());
+    message_tpl.setMessageText("Green Clicked");
+    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+
+}else if( quick_reply_payload.equals("text_reply_black_click") ){
+
+    message_tpl.setRecipientId(message.getUserId());
+    message_tpl.setMessageText("Black Clicked");
+    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+
+}
 ```
 
 Finally let's send the message
