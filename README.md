@@ -269,7 +269,38 @@ MessageTemplate message_tpl = BotPlatform.getInstance().getBaseSender().getMessa
 // ..
 ```
 
+To Send a Seen Mark
+
+```java
+
+// get the message.getUserId() from the message received
+
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setSenderAction("mark_seen");
+```
+
+To Send a Typing On
+
+```java
+
+// get the message.getUserId() from the message received
+
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setSenderAction("typing_on");
+```
+
+To Send a Typing Off
+
+```java
+
+// get the message.getUserId() from the message received
+
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setSenderAction("typing_off");
+```
+
 Finally let's send the message
+
 ```java
 BotPlatform.getInstance().getBaseSender().send(message_tpl);
 ```
