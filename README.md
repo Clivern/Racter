@@ -396,9 +396,44 @@ ButtonTemplate button_message_tpl = BotPlatform.getInstance().getBaseSender().ge
 // ..
 ```
 
-Finally let's send the message
+Here's some of the usage cases:
 
 ```java
+// get the message.getUserId() from the message received
+
+
+// To send a web url button
+button_message_tpl.setRecipientId(message.getUserId());
+button_message_tpl.setMessageText("Click Below!");
+button_message_tpl.setButton("web_url", "Take the Hat Quiz", "https://m.me/petershats?ref=take_quiz", "");
+BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+
+
+// To send a postback button
+button_message_tpl.setRecipientId(message.getUserId());
+button_message_tpl.setMessageText("Click Below!");
+button_message_tpl.setButton("postback", "Bookmark Item", "", "DEVELOPER_DEFINED_PAYLOAD");
+BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+
+
+// To send a phone number button
+button_message_tpl.setRecipientId(message.getUserId());
+button_message_tpl.setMessageText("Click Below!");
+button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234");
+BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+
+
+// To send account link button
+button_message_tpl.setRecipientId(message.getUserId());
+button_message_tpl.setMessageText("Click Below!");
+button_message_tpl.setButton("account_link", "", "https://www.example.com/authorize", "");
+BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+
+
+// To send account unlink button
+button_message_tpl.setRecipientId(message.getUserId());
+button_message_tpl.setMessageText("Click Below!");
+button_message_tpl.setButton("account_unlink", "", "", "");
 BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
 ```
 
