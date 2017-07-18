@@ -6,7 +6,10 @@ Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 *Under Development*
 
 [![Build Status](https://travis-ci.org/Clivern/Racter.svg?branch=master)](https://travis-ci.org/Clivern/Racter)
+![](https://img.shields.io/maven-central/v/com.clivern/racter.svg)
 [![Javadocs](http://www.javadoc.io/badge/com.clivern/racter.svg)](http://www.javadoc.io/doc/com.clivern/racter)
+![](https://img.shields.io/github/license/clivern/racter.svg)
+
 
 Installation
 ------------
