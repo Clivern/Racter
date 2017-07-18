@@ -40,7 +40,7 @@ log_console_status=true or false
 log_console_level=ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF
 log_file_status=true or false
 log_file_level=ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF
-log_file_path=src/main/java/resources/app.log
+log_file_path=app.log
 log_file_limit=1
 log_file_count=200000
 log_file_append=true or false
@@ -78,7 +78,7 @@ options.put("log_console_status", "true or false");
 options.put("log_console_level", "ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF");
 options.put("log_file_status", "true or false");
 options.put("log_file_level", "ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF");
-options.put("log_file_path", "src/main/java/resources/app.log");
+options.put("log_file_path", "app.log");
 options.put("log_file_limit", "1");
 options.put("log_file_count", "200000");
 options.put("log_file_append", "true or false");
@@ -138,7 +138,7 @@ public class Main {
     {
         // Verify Token Route
         get("/", (request, response) -> {
-            BotPlatform platform = BotPlatform.getInstance().loadConfigs("src/main/java/resources/config.properties").configDependencies();
+            BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
@@ -200,7 +200,7 @@ public class Main {
     {
         // Verify Token Route
         get("/", (request, response) -> {
-            BotPlatform platform = BotPlatform.getInstance().loadConfigs("src/main/java/resources/config.properties").configDependencies();
+            BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
@@ -218,7 +218,7 @@ public class Main {
 
         post("/", (request, response) -> {
             String body = request.body();
-            BotPlatform platform = BotPlatform.getInstance().loadConfigs("src/main/java/resources/config.properties").configDependencies();
+            BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
             platform.getBaseReceiver().set(body).parse();
             HashMap<String, MessageReceivedWebhook> messages = (HashMap<String, MessageReceivedWebhook>) platform.getBaseReceiver().getMessages();
             for (MessageReceivedWebhook message : messages.values()) {
