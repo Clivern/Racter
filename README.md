@@ -498,10 +498,10 @@ Tutorials & Examples
 
 I am still working on the following:
 
-1. [Building Your Chat Bot with Racter & SparkJava Framework.](https://github.com/Clivern/Racter)
-2. [Building Your Chat Bot with Racter & Spring Framework.](https://github.com/Clivern/Racter)
-3. [Building Your Chat Bot with Racter & Java Servlets.](https://github.com/Clivern/Racter)
-4. [Building Your Chat Bot with Racter & Play Framework.](https://github.com/Clivern/Racter)
+1. [Building Your Messenger Chat Bot with Racter & SparkJava Framework.](https://github.com/Clivern/Racter)
+2. [Building Your Messenger Chat Bot with Racter & Spring Framework.](https://github.com/Clivern/Racter)
+3. [Building Your Messenger Chat Bot with Racter & Java Servlets.](https://github.com/Clivern/Racter)
+4. [Building Your Messenger Chat Bot with Racter & Play Framework.](https://github.com/Clivern/Racter)
 
 
 Changelog
