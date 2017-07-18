@@ -3,7 +3,7 @@ Racter
 
 Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 
-*Under Development*
+*Current Version: 1.0.0*
 
 [![Build Status](https://travis-ci.org/Clivern/Racter.svg?branch=master)](https://travis-ci.org/Clivern/Racter)
 ![](https://img.shields.io/maven-central/v/com.clivern/racter.svg)
@@ -435,28 +435,6 @@ button_message_tpl.setButton("account_unlink", "", "", "");
 BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
 ```
 
-### Sending List Message
-
-Let's create an empty list message first and fill it with the required data. We can get a new list message container from Bot Platform Instance:
-
-```java
-ListTemplate list_message_tpl = BotPlatform.getInstance().getBaseSender().getListTemplate();
-
-// Let's start to fill the required data here
-// ..
-```
-
-### Sending Generic Message
-
-Let's create an empty generic message first and fill it with the required data. We can get a new generic message container from Bot Platform Instance:
-
-```java
-GenericTemplate generic_message_tpl = BotPlatform.getInstance().getBaseSender().getGenericTemplate();
-
-// Let's start to fill the required data here
-// ..
-```
-
 ### Sending Receipt Message
 
 Let's create an empty receipt message first and fill it with the required data. We can get a new receipt message container from Bot Platform Instance:
@@ -509,7 +487,7 @@ I am still working on the following:
 
 Changelog
 ---------
-Version 1.0.0 (coming soon):
+Version 1.0.0:
 ```
 Initial Release
 ```
