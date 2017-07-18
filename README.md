@@ -269,34 +269,75 @@ MessageTemplate message_tpl = BotPlatform.getInstance().getBaseSender().getMessa
 // ..
 ```
 
-To Send a Seen Mark
+Here's some of the usage cases:
 
 ```java
-
 // get the message.getUserId() from the message received
 
+
+// To send a seen mark
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("mark_seen");
-```
 
-To Send a Typing On
 
-```java
-
-// get the message.getUserId() from the message received
-
+// To send a typing on
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("typing_on");
-```
 
-To Send a Typing Off
 
-```java
-
-// get the message.getUserId() from the message received
-
+// To send a typing off
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("typing_off");
+
+
+// To send text message
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setMessageText("Hello World");
+message_tpl.setNotificationType("REGULAR");
+
+
+// To send an image
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setAttachment("image", "http://techslides.com/demos/samples/sample.jpg", false);
+message_tpl.setNotificationType("SILENT_PUSH");
+
+
+// To send file attachment
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setAttachment("file", "http://techslides.com/demos/samples/sample.pdf", false);
+message_tpl.setNotificationType("NO_PUSH");
+
+
+// To send a video
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setAttachment("video", "http://techslides.com/demos/samples/sample.mp4", false);
+
+
+// To send an audio
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setAttachment("audio", "http://techslides.com/demos/samples/sample.mp3", false);
+
+
+// To send a quick text reply with payload buttons
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setMessageText("Select a Color!");
+message_tpl.setQuickReply("text", "Red", "text_reply_red_click", "");
+message_tpl.setQuickReply("text", "Green", "text_reply_green_click", "");
+message_tpl.setQuickReply("text", "Black", "text_reply_black_click", "");
+
+
+// To send a quick text reply with payload buttons (Button with images)
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setMessageText("Select a Color!");
+message_tpl.setQuickReply("text", "Red", "text_reply_red_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
+message_tpl.setQuickReply("text", "Green", "text_reply_green_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
+message_tpl.setQuickReply("text", "Black", "text_reply_black_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
+
+
+// To send location reply
+message_tpl.setRecipientId(message.getUserId());
+message_tpl.setMessageText("Please share your location!");
+message_tpl.setQuickReply("location", "", "", "");
 ```
 
 Finally let's send the message
