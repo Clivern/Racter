@@ -379,12 +379,6 @@ if( quick_reply_payload.equals("text_reply_red_click") ){
 }
 ```
 
-Finally let's send the message
-
-```java
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
-```
-
 ### Sending Button Message
 
 Let's create an empty message first and fill it with the required data. We can get a new message container from Bot Platform Instance:
@@ -448,12 +442,6 @@ ListTemplate list_message_tpl = BotPlatform.getInstance().getBaseSender().getLis
 // ..
 ```
 
-Finally let's send the message
-
-```java
-BotPlatform.getInstance().getBaseSender().send(list_message_tpl);
-```
-
 ### Sending Generic Message
 
 Let's create an empty generic message first and fill it with the required data. We can get a new generic message container from Bot Platform Instance:
@@ -463,12 +451,6 @@ GenericTemplate generic_message_tpl = BotPlatform.getInstance().getBaseSender().
 
 // Let's start to fill the required data here
 // ..
-```
-
-Finally let's send the message
-
-```java
-BotPlatform.getInstance().getBaseSender().send(generic_message_tpl);
 ```
 
 ### Sending Receipt Message
