@@ -86,6 +86,8 @@ options.put("log_file_append", "true or false");
 BotPlatform platform = BotPlatform.getInstance().loadConfigs(options).configDependencies();
 ```
 
+Setup Webhook
+-------------
 Create a route to verify your verify token, Facebook will perform a GET request to this route URL with some URL parameters to make sure that verify token is correct.
 
 ```
@@ -155,6 +157,13 @@ public class Main {
 }
 
 ```
+
+Message Received
+----------------
+
+
+Send API
+--------
 
 
 Misc
