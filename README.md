@@ -494,7 +494,7 @@ Misc
 Tutorials & Examples
 --------------------
 
-> For almost all supported features you can take a look at the examples (`examples/`) for working examples.
+> For almost all supported features you can take a look at [`examples/](https://github.com/Clivern/Racter/tree/master/examples) folder for working examples.
 
 I am still working on the following:
 
