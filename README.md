@@ -231,7 +231,7 @@ public class Main {
                 Long timestamp = (message.hasTimestamp()) ? message.getTimestamp() : 0;
                 HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
 
-                // User Logger To Log Incoming Data
+                // Use Logger To Log Incoming Data
                 BotPlatform.getInstance().getLogger().info("User ID#:" + user_id);
                 BotPlatform.getInstance().getLogger().info("Page ID#:" + page_id);
                 BotPlatform.getInstance().getLogger().info("Message ID#:" + message_id);
