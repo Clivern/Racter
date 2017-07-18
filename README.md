@@ -258,6 +258,89 @@ public class Main {
 Send API
 --------
 
+### Sending Message
+
+Let's create an empty message first and fill it with the required data. We can get a new message container from Bot Platform Instance:
+
+```java
+MessageTemplate message_tpl = BotPlatform.getInstance().getBaseSender().getMessageTemplate();
+
+// Let's start to fill the required data here
+// ..
+```
+
+Finally let's send the message
+```java
+BotPlatform.getInstance().getBaseSender().send(message_tpl);
+```
+
+### Sending Button Message
+
+Let's create an empty message first and fill it with the required data. We can get a new message container from Bot Platform Instance:
+
+```java
+ButtonTemplate button_message_tpl = BotPlatform.getInstance().getBaseSender().getButtonTemplate();
+
+// Let's start to fill the required data here
+// ..
+```
+
+Finally let's send the message
+
+```java
+BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+```
+
+### Sending List Message
+
+Let's create an empty list message first and fill it with the required data. We can get a new list message container from Bot Platform Instance:
+
+```java
+ListTemplate list_message_tpl = BotPlatform.getInstance().getBaseSender().getListTemplate();
+
+// Let's start to fill the required data here
+// ..
+```
+
+Finally let's send the message
+
+```java
+BotPlatform.getInstance().getBaseSender().send(list_message_tpl);
+```
+
+### Sending Generic Message
+
+Let's create an empty generic message first and fill it with the required data. We can get a new generic message container from Bot Platform Instance:
+
+```java
+GenericTemplate generic_message_tpl = BotPlatform.getInstance().getBaseSender().getGenericTemplate();
+
+// Let's start to fill the required data here
+// ..
+```
+
+Finally let's send the message
+
+```java
+BotPlatform.getInstance().getBaseSender().send(generic_message_tpl);
+```
+
+### Sending Receipt Message
+
+Let's create an empty receipt message first and fill it with the required data. We can get a new receipt message container from Bot Platform Instance:
+
+```java
+ReceiptTemplate receipt_message_tpl = BotPlatform.getInstance().getBaseSender().getReceiptTemplate();
+
+// Let's start to fill the required data here
+// ..
+```
+
+Finally let's send the message
+
+```java
+BotPlatform.getInstance().getBaseSender().send(receipt_message_tpl);
+```
 
 Misc
 ====
