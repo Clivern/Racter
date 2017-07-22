@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2017 Clivern. <https://clivern.com>
  */
+package com.racter.example;
 
 import static spark.Spark.*;
 import com.clivern.racter.BotPlatform;
