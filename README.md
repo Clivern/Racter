@@ -29,6 +29,11 @@ dependencies {
 }
 ```
 
+To add a dependency using Scala SBT, use the following:
+```java
+libraryDependencies += "com.clivern" % "racter" % "1.0.0"
+```
+
 Usage
 -----
 After adding the package as a dependency, Please read the following steps:
