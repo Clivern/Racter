@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.clivern</groupId>
+  <artifactId>racter</artifactId>
+  <version>1.0.0</version>
+  <name>Racter</name>
+  <description>A Java Framework for Building Bots on Facebook's Messenger Platform.</description>
+  <url>https://github.com/clivern/racter</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>clivern</id>
+      <name>clivern</name>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:hg:https://github.com/clivern/racter</connection>
+    <developerConnection>scm:hg:https://github.com/clivern/racter</developerConnection>
+    <url>https://github.com/clivern/racter</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.mashape.unirest</groupId>
+      <artifactId>unirest-java</artifactId>
+      <version>1.4.9</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20170516</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.10</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
