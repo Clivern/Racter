@@ -12,47 +12,155 @@ import java.util.Map;
  */
 public class ReceiptTemplate {
 
-    private String recipient_id;
-    private String recipient_name;
-    private String order_number;
-    private String currency;
-    private String payment_method;
-    private String order_url;
-    private String timestamp;
-    private String message_string;
-    private ArrayList<HashMap<String, String>> elements = new ArrayList<HashMap<String, String>>();
-    private ArrayList<HashMap<String, String>> adjustments = new ArrayList<HashMap<String, String>>();
-    private HashMap<String, String> address = new HashMap<String, String>();
-    private HashMap<String, String> summary = new HashMap<String, String>();
+    /**
+     * @var String
+     */
+    protected String recipient_id;
 
-    public void setRecipientId(String recipient_id){
+    /**
+     * @var String
+     */
+    protected String recipient_name;
+
+    /**
+     * @var String
+     */
+    protected String order_number;
+
+    /**
+     * @var String
+     */
+    protected String currency;
+
+    /**
+     * @var String
+     */
+    protected String payment_method;
+
+    /**
+     * @var String
+     */
+    protected String order_url;
+
+    /**
+     * @var String
+     */
+    protected String timestamp;
+
+    /**
+     * @var String
+     */
+    protected String message_string;
+
+    /**
+     * @var ArrayList
+     */
+    protected ArrayList<HashMap<String, String>> elements = new ArrayList<HashMap<String, String>>();
+
+    /**
+     * @var ArrayList
+     */
+    protected ArrayList<HashMap<String, String>> adjustments = new ArrayList<HashMap<String, String>>();
+
+    /**
+     * @var HashMap
+     */
+    protected HashMap<String, String> address = new HashMap<String, String>();
+
+    /**
+     * @var HashMap
+     */
+    protected HashMap<String, String> summary = new HashMap<String, String>();
+
+
+    /**
+     * Set Recipient ID
+     *
+     * @param recipient_id
+     * @return void
+     */
+    public void setRecipientId(String recipient_id)
+    {
         this.recipient_id = recipient_id;
     }
 
-    public void setRecipientName(String recipient_name){
+    /**
+     * Set Recipient Name
+     *
+     * @param recipient_name
+     * @return void
+     */
+    public void setRecipientName(String recipient_name)
+    {
         this.recipient_name = recipient_name;
     }
 
-    public void setOrderNumber(String order_number){
+    /**
+     * Set Order Number
+     *
+     * @param order_number
+     * @return void
+     */
+    public void setOrderNumber(String order_number)
+    {
         this.order_number = order_number;
     }
 
-    public void setCurrency(String currency){
+    /**
+     * Set Currency
+     *
+     * @param currency
+     * @return void
+     */
+    public void setCurrency(String currency)
+    {
         this.currency = currency;
     }
 
-    public void setPaymentMethod(String payment_method){
+    /**
+     * Set Payment Method
+     *
+     * @param payment_method
+     * @return void
+     */
+    public void setPaymentMethod(String payment_method)
+    {
         this.payment_method = payment_method;
     }
 
-    public void setOrderUrl(String order_url){
+    /**
+     * Set Order URL
+     *
+     * @param order_url
+     * @return void
+     */
+    public void setOrderUrl(String order_url)
+    {
         this.order_url = order_url;
     }
 
-    public void setTimestamp(String timestamp){
+    /**
+     * Set Timestamp
+     *
+     * @param timestamp
+     * @return void
+     */
+    public void setTimestamp(String timestamp)
+    {
         this.timestamp = timestamp;
     }
 
+    /**
+     * Set Element
+     *
+     * @param title
+     * @param subtitle
+     * @param quantity
+     * @param price
+     * @param currency
+     * @param image_url
+     * @return void
+     */
     public void setElement(String title, String subtitle, String quantity, String price, String currency, String image_url)
     {
         HashMap<String, String> element = new HashMap<String, String>();
@@ -65,6 +173,17 @@ public class ReceiptTemplate {
         this.elements.add(element);
     }
 
+    /**
+     * Set Address
+     *
+     * @param street_1
+     * @param street_2
+     * @param city
+     * @param postal_code
+     * @param state
+     * @param country
+     * @return void
+     */
     public void setAddress(String street_1, String street_2, String city, String postal_code, String state, String country)
     {
         this.address.put("street_1", street_1);
@@ -75,6 +194,15 @@ public class ReceiptTemplate {
         this.address.put("country", country);
     }
 
+    /**
+     * Set Summary
+     *
+     * @param subtotal
+     * @param shipping_cost
+     * @param total_tax
+     * @param total_cost
+     * @return void
+     */
     public void setSummary(String subtotal, String shipping_cost, String total_tax, String total_cost)
     {
         this.summary.put("subtotal", subtotal);
@@ -83,6 +211,13 @@ public class ReceiptTemplate {
         this.summary.put("total_cost", total_cost);
     }
 
+    /**
+     * Set Adjustment
+     *
+     * @param name
+     * @param amount
+     * @return void
+     */
     public void setAdjustment(String name, String amount)
     {
         HashMap<String, String> adjustment = new HashMap<String, String>();
@@ -91,64 +226,114 @@ public class ReceiptTemplate {
         this.adjustments.add(adjustment);
     }
 
-    public void setMessageString(String message_string)
-    {
-        this.message_string = message_string;
-    }
-
+    /**
+     * Get Recipient ID
+     *
+     * @return String
+     */
     public String getRecipientId(){
         return this.recipient_id;
     }
 
+    /**
+     * Get Recipient Name
+     *
+     * @return String
+     */
     public String getRecipientName(){
         return this.recipient_name;
     }
 
+    /**
+     * Get Order Number
+     *
+     * @return String
+     */
     public String getOrderNumber(){
         return this.order_number;
     }
 
+    /**
+     * Get Currency
+     *
+     * @return String
+     */
     public String getCurrency(){
         return this.currency;
     }
 
+    /**
+     * Get Payment Method
+     *
+     * @return String
+     */
     public String getPaymentMethod(){
         return this.payment_method;
     }
 
+    /**
+     * Get Order URL
+     *
+     * @return String
+     */
     public String getOrderUrl(){
         return this.order_url;
     }
 
+    /**
+     * Get Timestamp
+     *
+     * @return String
+     */
     public String getTimestamp(){
         return this.timestamp;
     }
 
+    /**
+     * Get Elements
+     *
+     * @return ArrayList
+     */
     public ArrayList<HashMap<String, String>> getElements()
     {
         return this.elements;
     }
 
+    /**
+     * Get Adjustments
+     *
+     * @return ArrayList
+     */
     public ArrayList<HashMap<String, String>> getAdjustments()
     {
         return this.adjustments;
     }
 
+    /**
+     * Get Address
+     *
+     * @return HashMap
+     */
     public HashMap<String, String> getAddress()
     {
         return this.address;
     }
 
+    /**
+     * Get Summary
+     *
+     * @return HashMap
+     */
     public HashMap<String, String> getSummary()
     {
         return this.summary;
     }
 
-    public String getMessageString()
-    {
-        return this.message_string;
-    }
-
+    /**
+     * Build and get message as a string
+     *
+     * @return String
+     */
     public String build()
     {
         this.message_string  = "{";
@@ -295,6 +480,27 @@ public class ReceiptTemplate {
 
         this.message_string += "}";
 
+        return this.message_string;
+    }
+
+    /**
+     * Set or override message
+     *
+     * @param message_string
+     * @return void
+     */
+    public void setMessageString(String message_string)
+    {
+        this.message_string = message_string;
+    }
+
+    /**
+     * Get message as a string
+     *
+     * @return String
+     */
+    public String getMessageString()
+    {
         return this.message_string;
     }
 }
