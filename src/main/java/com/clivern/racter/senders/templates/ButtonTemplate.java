@@ -12,19 +12,57 @@ import java.util.Map;
  */
 public class ButtonTemplate {
 
-    private String recipient_id;
-    private String message_text;
-    private ArrayList<HashMap<String, String>> buttons = new ArrayList<HashMap<String, String>>();
-    private String message_string;
+    /**
+     * @var String
+     */
+    protected String recipient_id;
 
-    public void setRecipientId(String recipient_id){
+    /**
+     * @var String
+     */
+    protected String message_text;
+
+    /**
+     * @var ArrayList
+     */
+    protected ArrayList<HashMap<String, String>> buttons = new ArrayList<HashMap<String, String>>();
+
+    /**
+     * @var String
+     */
+    protected String message_string;
+
+
+    /**
+     * Set Recipient ID
+     *
+     * @return void
+     */
+    public void setRecipientId(String recipient_id)
+    {
         this.recipient_id = recipient_id;
     }
 
-    public void setMessageText(String message_text){
+    /**
+     * Set Message Text
+     *
+     * @param message_text
+     * @return void
+     */
+    public void setMessageText(String message_text)
+    {
         this.message_text = message_text;
     }
 
+    /**
+     * Set Button
+     *
+     * @param type
+     * @param title
+     * @param url
+     * @param payload
+     * @return void
+     */
     public void setButton(String type, String title, String url, String payload)
     {
         HashMap<String, String> button = new HashMap<String, String>();
@@ -35,19 +73,41 @@ public class ButtonTemplate {
         this.buttons.add(button);
     }
 
-    public String getRecipientId(){
+    /**
+     * Get Recipient ID
+     *
+     * @return String
+     */
+    public String getRecipientId()
+    {
         return this.recipient_id;
     }
 
-    public String getMessageText(){
+    /**
+     * Get message text
+     *
+     * @return String
+     */
+    public String getMessageText()
+    {
         return this.message_text;
     }
 
+    /**
+     * Get Buttons
+     *
+     * @return ArrayList
+     */
     public ArrayList<HashMap<String, String>> getButton()
     {
         return this.buttons;
     }
 
+    /**
+     * Build and get message as a string
+     *
+     * @return String
+     */
     public String build()
     {
         this.message_string  = "{";
@@ -96,11 +156,22 @@ public class ButtonTemplate {
         return this.message_string;
     }
 
+    /**
+     * Set or override message
+     *
+     * @param message_string
+     * @return void
+     */
     public void setMessageString(String message_string)
     {
         this.message_string = message_string;
     }
 
+    /**
+     * Get message as a string
+     *
+     * @return String
+     */
     public String getMessageString()
     {
         return this.message_string;
