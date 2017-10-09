@@ -6,7 +6,7 @@ package com.clivern.racter;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
-import com.clivern.racter.configs.Settings;
+import com.clivern.racter.utils.Config;
 import com.clivern.racter.utils.Log;
 import com.clivern.racter.receivers.BaseReceiver;
 import com.clivern.racter.receivers.VerifyWebhook;
@@ -17,7 +17,7 @@ import com.clivern.racter.senders.BaseSender;
  */
 public class BotPlatform {
 
-    private Settings settings;
+    private Config configs;
 
     private VerifyWebhook verify_webhook;
 
@@ -53,8 +53,8 @@ public class BotPlatform {
      */
     public BotPlatform loadConfigs(String poperties_file_path) throws IOException
     {
-        this.settings = Settings.getInstance();
-        this.settings.loadPropertiesFile(poperties_file_path);
+        this.configs = new Config();
+        this.configs.loadPropertiesFile(poperties_file_path);
         return instance;
     }
 
@@ -65,9 +65,9 @@ public class BotPlatform {
      */
     public BotPlatform loadConfigs(Map<String, String> options)
     {
-        this.settings = Settings.getInstance();
+        this.configs = new Config();
         for (Map.Entry<String, String> entry : options.entrySet()) {
-            this.settings.set(entry.getKey(), options.get(entry.getKey()));
+            this.configs.set(entry.getKey(), options.get(entry.getKey()));
         }
         return instance;
     }
@@ -79,17 +79,17 @@ public class BotPlatform {
      */
     public BotPlatform configDependencies() throws IOException
     {
-        this.log = Log.getInstance().config(this.settings);
-        this.base_receiver = BaseReceiver.getInstance().config(this.settings, this.log);
-        this.base_sender = BaseSender.getInstance().config(this.settings, this.log);
-        this.verify_webhook = VerifyWebhook.getInstance().config(this.settings, this.log);
+        this.log = new Log(this.configs);
+        this.base_receiver = BaseReceiver.getInstance().config(this.configs, this.log);
+        this.base_sender = BaseSender.getInstance().config(this.configs, this.log);
+        this.verify_webhook = VerifyWebhook.getInstance().config(this.configs, this.log);
 
         return instance;
     }
 
-    public Settings getSettings()
+    public Config getSettings()
     {
-        return this.settings;
+        return this.configs;
     }
 
     public VerifyWebhook getVerifyWebhook()

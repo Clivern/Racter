@@ -6,7 +6,7 @@ package com.clivern.racter.receivers;
 import com.clivern.racter.receivers.webhook.*;
 import java.util.HashMap;
 import java.util.Map;
-import com.clivern.racter.configs.Settings;
+import com.clivern.racter.utils.Config;
 import com.clivern.racter.utils.Log;
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -17,7 +17,7 @@ import org.json.JSONArray;
 public class BaseReceiver {
 
     private static BaseReceiver instance;
-    private Settings settings;
+    private Config settings;
     private Log log;
     private String message_string;
     private JSONObject message_object;
@@ -40,7 +40,7 @@ public class BaseReceiver {
         return instance;
     }
 
-    public BaseReceiver config(Settings settings, Log log)
+    public BaseReceiver config(Config settings, Log log)
     {
         this.settings = settings;
         this.log = log;

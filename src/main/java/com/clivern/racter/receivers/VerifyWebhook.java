@@ -3,7 +3,7 @@
  */
 package com.clivern.racter.receivers;
 
-import com.clivern.racter.configs.Settings;
+import com.clivern.racter.utils.Config;
 import com.clivern.racter.utils.Log;
 
 /**
@@ -14,7 +14,7 @@ public class VerifyWebhook {
     private String hub_mode;
     private String hub_verify_token;
     private String hub_challenge;
-    private Settings settings;
+    private Config settings;
     private Log log;
     private static VerifyWebhook instance;
 
@@ -42,7 +42,7 @@ public class VerifyWebhook {
      * @param  log
      * @return VerifyWebhook
      */
-    public VerifyWebhook config(Settings settings, Log log)
+    public VerifyWebhook config(Config settings, Log log)
     {
         this.settings = settings;
         this.log = log;

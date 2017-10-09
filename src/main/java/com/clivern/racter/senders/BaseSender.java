@@ -4,7 +4,7 @@
 package com.clivern.racter.senders;
 
 import com.clivern.racter.senders.templates.*;
-import com.clivern.racter.configs.Settings;
+import com.clivern.racter.utils.Config;
 import com.clivern.racter.utils.Log;
 
 import com.mashape.unirest.http.*;
@@ -21,7 +21,7 @@ public class BaseSender {
 
     private static BaseSender instance;
     private String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
-    private Settings settings;
+    private Config settings;
     private Log log;
 
     /**
@@ -41,7 +41,7 @@ public class BaseSender {
         return instance;
     }
 
-    public BaseSender config(Settings settings, Log log)
+    public BaseSender config(Config settings, Log log)
     {
         this.settings = settings;
         this.log = log;

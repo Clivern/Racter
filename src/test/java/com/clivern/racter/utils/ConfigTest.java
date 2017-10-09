@@ -12,13 +12,28 @@ import java.io.IOException;
  */
 public class ConfigTest extends TestCase {
 
-	/**
-	 * Test Set and Get Config
-	 */
+    /**
+     * @var Config an instance of config class
+     */
+    protected Config configs;
+
+    /**
+     * Class Constructor
+     *
+     * @return void
+     */
+    public ConfigTest()
+    {
+        this.configs = new Config();
+    }
+
+    /**
+     * Test Set and Get Config
+     */
     public void testGetConfig()
     {
-        Config.instance().set("app_name", "Racter");
-        assertEquals(Config.instance().get("app_name", ""), "Racter");
+        this.configs.set("app_name", "Racter");
+        assertEquals(this.configs.get("app_name", ""), "Racter");
     }
 
     /**
@@ -28,8 +43,8 @@ public class ConfigTest extends TestCase {
      */
     public void testStorePropFile() throws IOException
     {
-    	Config.instance().set("app_name", "Racter Changed");
-    	Config.instance().storePropertiesFile("src/main/java/resources/test_config.properties");
+        this.configs.set("app_name", "Racter Changed");
+        this.configs.storePropertiesFile("src/main/java/resources/test_config.properties");
     }
 
     /**
@@ -39,7 +54,7 @@ public class ConfigTest extends TestCase {
      */
     public void testLoadPropFile() throws IOException
     {
-    	Config.instance().loadPropertiesFile("src/main/java/resources/test_config.properties");
-    	assertEquals(Config.instance().get("app_name", ""), "Racter Changed");
+        this.configs.loadPropertiesFile("src/main/java/resources/test_config.properties");
+        assertEquals(this.configs.get("app_name", ""), "Racter Changed");
     }
 }

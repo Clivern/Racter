@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 /**
- * Config Class
+ * Config Utils Class
  */
 public class Config {
 
@@ -23,25 +23,11 @@ public class Config {
     protected Map<String, String> configs = new HashMap<String, String>();
 
     /**
-     * @var Config
-     */
-    private static Config instance;
-
-    /**
      * Constructor
      */
-    protected Config() { }
-
-    /**
-     * Get Instance
-     *
-     * @return Config
-     */
-    public static Config instance() {
-        if(instance == null) {
-            instance = new Config();
-        }
-        return instance;
+    public Config()
+    {
+        //
     }
 
     /**
@@ -93,7 +79,6 @@ public class Config {
             prop.store(output, null);
 
             return true;
-
         } catch (IOException io) {
             return false;
         }
