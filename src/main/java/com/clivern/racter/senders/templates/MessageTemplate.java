@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Text Message Template
+ * Text Message Template Class
  */
 public class MessageTemplate {
 

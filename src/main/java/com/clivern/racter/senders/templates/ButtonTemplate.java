@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Button Template
+ * Button Template Class
  */
 public class ButtonTemplate {
 

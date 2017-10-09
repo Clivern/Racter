@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Receipt Template
+ * Receipt Template Class
  */
 public class ReceiptTemplate {
 

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * List Template
+ * List Template Class
  */
 public class ListTemplate {
 

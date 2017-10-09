@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Generic Template
+ * Generic Template Class
  */
 public class GenericTemplate {
 
