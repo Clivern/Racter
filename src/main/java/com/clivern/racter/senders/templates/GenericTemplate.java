@@ -12,28 +12,50 @@ import java.util.Map;
  */
 public class GenericTemplate {
 
-    private String recipient_id;
-    private String message_string;
-    private ArrayList<HashMap<String, Object>> elements = new ArrayList<HashMap<String, Object>>();
+    /**
+     * @var String
+     */
+    protected String recipient_id;
 
-    public void setRecipientId(String recipient_id){
+    /**
+     * @var String
+     */
+    protected String message_string;
+
+    /**
+     * @var ArrayList
+     */
+    protected ArrayList<HashMap<String, Object>> elements = new ArrayList<HashMap<String, Object>>();
+
+
+    /**
+     * Set Recipient ID
+     *
+     * @return void
+     */
+    public void setRecipientId(String recipient_id)
+    {
         this.recipient_id = recipient_id;
     }
 
-    public String getRecipientId(){
+    /**
+     * Get Recipient ID
+     *
+     * @return String
+     */
+    public String getRecipientId()
+    {
         return this.recipient_id;
     }
 
-    public void setMessageString(String message_string)
-    {
-        this.message_string = message_string;
-    }
-
-    public String getMessageString()
-    {
-        return this.message_string;
-    }
-
+    /**
+     * Set Element
+     *
+     * @param  title
+     * @param  image_url
+     * @param  subtitle
+     * @return Integer
+     */
     public Integer setElement(String title, String image_url, String subtitle)
     {
         Integer index = 0;
@@ -47,6 +69,17 @@ public class GenericTemplate {
         return this.elements.size() - 1;
     }
 
+    /**
+     * Set Element Default Action
+     *
+     * @param index
+     * @param type
+     * @param url
+     * @param messenger_extensions
+     * @param webview_height_ratio
+     * @param fallback_url
+     * @return void
+     */
     public void setElementDefaultAction(Integer index, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
     {
         this.elements.get(index).put("default_action_type", type);
@@ -56,6 +89,18 @@ public class GenericTemplate {
         this.elements.get(index).put("default_action_fallback_url", fallback_url);
     }
 
+    /**
+     * Set Element Button
+     *
+     * @param index
+     * @param title
+     * @param type
+     * @param url
+     * @param messenger_extensions
+     * @param webview_height_ratio
+     * @param fallback_url
+     * @return void
+     */
     public void setElementButton(Integer index, String title, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
     {
         if( this.elements.get(index).containsKey("buttons") ){
@@ -66,11 +111,9 @@ public class GenericTemplate {
             button.put("messenger_extensions", String.valueOf(messenger_extensions));
             button.put("webview_height_ratio", webview_height_ratio);
             button.put("fallback_url", fallback_url);
-
             @SuppressWarnings("unchecked")
             ArrayList<HashMap<String, String>> element_buttons = (ArrayList<HashMap<String, String>>) this.elements.get(index).get("buttons");
             element_buttons.add(button);
-
             this.elements.get(index).put("buttons", element_buttons);
         }else{
             ArrayList<HashMap<String, String>> element_buttons = new ArrayList<HashMap<String, String>>();
@@ -86,6 +129,11 @@ public class GenericTemplate {
         }
     }
 
+    /**
+     * Build and get message as a string
+     *
+     * @return String
+     */
     public String build()
     {
         this.message_string  = "{";
@@ -200,6 +248,27 @@ public class GenericTemplate {
         this.message_string = this.message_string.replaceAll(",$", "");
         this.message_string += "}";
 
+        return this.message_string;
+    }
+
+    /**
+     * Set or override message
+     *
+     * @param message_string
+     * @return void
+     */
+    public void setMessageString(String message_string)
+    {
+        this.message_string = message_string;
+    }
+
+    /**
+     * Get message as a string
+     *
+     * @return String
+     */
+    public String getMessageString()
+    {
         return this.message_string;
     }
 }
