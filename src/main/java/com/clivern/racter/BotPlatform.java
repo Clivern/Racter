@@ -80,8 +80,8 @@ public class BotPlatform {
     public BotPlatform configDependencies() throws IOException
     {
         this.log = new Log(this.configs);
-        this.base_receiver = BaseReceiver.getInstance().config(this.configs, this.log);
-        this.base_sender = BaseSender.getInstance().config(this.configs, this.log);
+        this.base_receiver = new BaseReceiver(this.configs, this.log);
+        this.base_sender = new BaseSender(this.configs, this.log);
         this.verify_webhook = new VerifyWebhook(this.configs, this.log);
 
         return instance;

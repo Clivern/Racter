@@ -16,36 +16,43 @@ import org.json.JSONArray;
  */
 public class BaseReceiver {
 
-    private static BaseReceiver instance;
-    private Config configs;
-    private Log log;
-    private String message_string;
-    private JSONObject message_object;
-    private Map<String, MessageReceivedWebhook> message_webhook = new HashMap<String, MessageReceivedWebhook>();
-
     /**
-     * Constructor
+     * @var String final message string
      */
-    protected BaseReceiver() { }
+    protected String message_string;
 
     /**
-     * Get Instance
+     * @var JSONObject incoming message data
+     */
+    protected JSONObject message_object;
+
+    /**
+     * @var Map<String, MessageReceivedWebhook>
+     */
+    protected Map<String, MessageReceivedWebhook> message_webhook = new HashMap<String, MessageReceivedWebhook>();
+
+    /**
+     * @var Config an instance of config class
+     */
+    protected Config configs;
+
+    /**
+     * @var Log an instance of log class
+     */
+    protected Log log;
+
+
+    /**
+     * Class Constructor
      *
-     * @return BaseReceiver
+     * @param configs
+     * @param log
+     * @return void
      */
-    public static BaseReceiver getInstance() {
-        if(instance == null) {
-            instance = new BaseReceiver();
-        }
-        return instance;
-    }
-
-    public BaseReceiver config(Config configs, Log log)
+    public BaseReceiver(Config configs, Log log)
     {
         this.configs = configs;
         this.log = log;
-
-        return instance;
     }
 
     /**
@@ -59,7 +66,7 @@ public class BaseReceiver {
         this.message_string = message_string;
         this.message_object = new JSONObject(message_string);
 
-        return instance;
+        return this;
     }
 
     /**
@@ -73,11 +80,11 @@ public class BaseReceiver {
         int z = 1;
 
         if( !this.message_object.has("object")  || !this.message_object.getString("object").equals("page") ){
-            return instance;
+            return this;
         }
 
         if( !this.message_object.has("entry") ){
-            return instance;
+            return this;
         }
 
         JSONArray entry = this.message_object.getJSONArray("entry");
@@ -243,7 +250,7 @@ public class BaseReceiver {
             }
         }
 
-        return instance;
+        return this;
     }
 
     /**

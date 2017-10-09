@@ -7,7 +7,7 @@ import com.clivern.racter.utils.Config;
 import com.clivern.racter.utils.Log;
 
 /**
- * Verify Webhook
+ * Verify Webhook Class
  */
 public class VerifyWebhook {
 
