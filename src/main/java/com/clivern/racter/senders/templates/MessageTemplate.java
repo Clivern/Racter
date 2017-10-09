@@ -12,35 +12,110 @@ import java.util.Map;
  */
 public class MessageTemplate {
 
-    private String recipient_id;
-    private String message_text;
-    private Map<String, String> message_attachment = new HashMap<String, String>();
-    private ArrayList<HashMap<String, String>> message_quick_replies = new ArrayList<HashMap<String, String>>();
-    private String message_metadata;
-    private String sender_action;
-    private String notification_type;
-    private String message_string;
+    /**
+     * @var String
+     */
+    protected String recipient_id;
 
-    public void setRecipientId(String recipient_id){
+    /**
+     * @var String
+     */
+    protected String message_text;
+
+    /**
+     * @var Map
+     */
+    protected Map<String, String> message_attachment = new HashMap<String, String>();
+
+    /**
+     * @var ArrayList
+     */
+    protected ArrayList<HashMap<String, String>> message_quick_replies = new ArrayList<HashMap<String, String>>();
+
+    /**
+     * @var String
+     */
+    protected String message_metadata;
+
+    /**
+     * @var String
+     */
+    protected String sender_action;
+
+    /**
+     * @var String
+     */
+    protected String notification_type;
+
+    /**
+     * @var String
+     */
+    protected String message_string;
+
+
+    /**
+     * Set Recipient ID
+     *
+     * @param recipient_id
+     * @return void
+     */
+    public void setRecipientId(String recipient_id)
+    {
         this.recipient_id = recipient_id;
     }
 
-    public void setMessageText(String message_text){
+    /**
+     * Set Message Text
+     *
+     * @param message_text
+     * @return void
+     */
+    public void setMessageText(String message_text)
+    {
         this.message_text = message_text;
     }
 
-    public void setMessageMetadata(String message_metadata){
+    /**
+     * Set Message Meta Data
+     *
+     * @param message_metadata
+     * @return void
+     */
+    public void setMessageMetadata(String message_metadata)
+    {
         this.message_metadata = message_metadata;
     }
 
-    public void setSenderAction(String sender_action){
+    /**
+     * Set Sender Action
+     *
+     * @param sender_action
+     * @return void
+     */
+    public void setSenderAction(String sender_action)
+    {
         this.sender_action = sender_action;
     }
 
-    public void setNotificationType(String notification_type){
+    /**
+     * Set Notifications Type
+     *
+     * @param notification_type
+     * @return void
+     */
+    public void setNotificationType(String notification_type)
+    {
         this.notification_type = notification_type;
     }
 
+    /**
+     * Set Attachment
+     *
+     * @param type
+     * @param url
+     * @param is_reusable
+     * @return void
+     */
     public void setAttachment(String type, String url, Boolean is_reusable)
     {
         this.message_attachment.put("type", type);
@@ -48,6 +123,15 @@ public class MessageTemplate {
         this.message_attachment.put("is_reusable", String.valueOf(is_reusable));
     }
 
+    /**
+     * Set Quick Reply
+     *
+     * @param content_type
+     * @param title
+     * @param payload
+     * @param image_url
+     * @return void
+     */
     public void setQuickReply(String content_type, String title, String payload, String image_url)
     {
         HashMap<String, String> quick_reply = new HashMap<String, String>();
@@ -58,36 +142,81 @@ public class MessageTemplate {
         this.message_quick_replies.add(quick_reply);
     }
 
-    public String getRecipientId(){
+    /**
+     * Get Recipient ID
+     *
+     * @return String
+     */
+    public String getRecipientId()
+    {
         return this.recipient_id;
     }
 
-    public String getMessageText(){
+    /**
+     * Get Message Text
+     *
+     * @return String
+     */
+    public String getMessageText()
+    {
         return this.message_text;
     }
 
-    public String getMessageMetadata(){
+    /**
+     * Get Message Meta Data
+     *
+     * @return String
+     */
+    public String getMessageMetadata()
+    {
         return this.message_metadata;
     }
 
-    public String getSenderAction(){
+    /**
+     * Get Sender Action
+     *
+     * @return String
+     */
+    public String getSenderAction()
+    {
         return this.sender_action;
     }
 
-    public String getNotificationType(){
+    /**
+     * Get Notification Type
+     *
+     * @return String
+     */
+    public String getNotificationType()
+    {
         return this.notification_type;
     }
 
+    /**
+     * Get Attachment
+     *
+     * @return Map
+     */
     public Map<String, String> getAttachment()
     {
         return this.message_attachment;
     }
 
+    /**
+     * Get Quick Reply
+     *
+     * @return ArrayList
+     */
     public ArrayList<HashMap<String, String>> getQuickReply()
     {
         return this.message_quick_replies;
     }
 
+    /**
+     * Build and get message as a string
+     *
+     * @return String
+     */
     public String build()
     {
         this.message_string  = "{";
@@ -156,11 +285,22 @@ public class MessageTemplate {
         return this.message_string;
     }
 
+    /**
+     * Set or override message
+     *
+     * @param message_string
+     * @return void
+     */
     public void setMessageString(String message_string)
     {
         this.message_string = message_string;
     }
 
+    /**
+     * Get message as a string
+     *
+     * @return String
+     */
     public String getMessageString()
     {
         return this.message_string;
