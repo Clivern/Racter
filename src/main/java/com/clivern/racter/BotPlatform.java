@@ -112,9 +112,9 @@ public class BotPlatform {
         return this.log;
     }
 
-    public boolean someLibraryMethod()
+    public String getName()
     {
-        return true;
+        return "Racter";
     }
 
     public void finish()

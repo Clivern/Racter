@@ -4,9 +4,10 @@
 
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
+apply plugin: 'maven'
 
 archivesBaseName = "racter"
-version = '1.0.0'
+version = '1.0.1-SNAPSHOT'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -14,15 +15,50 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+// Update Pom file ./gradlew updatePom
+task updatePom {
+    doLast {
+        pom {
+            project {
+                groupId 'com.clivern'
+                artifactId 'racter'
+                version '1.0.1-SNAPSHOT'
+                name 'Racter'
+                description "A Java Framework for Building Bots on Facebook's Messenger Platform."
+                url 'https://github.com/clivern/racter'
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'https://raw.githubusercontent.com/Clivern/racter/master/LICENSE'
+                        distribution 'repo'
+                    }
+                }
+                developers {
+                	developer {
+                		id 'clivern'
+                		name 'AF'
+                        email 'hello@clivern.com'
+                        url 'http://clivern.com'
+                        roles {
+                            role 'Software Developer'
+                        }
+                	}
+                }
+                scm {
+                    url 'https://github.com/clivern/racter'
+                	connection 'scm:git:git://github.com/clivern/racter.git'
+                	developerConnection 'scm:git:git@github.com:clivern/racter.git'
+                }
+            }
+        }.writeTo("racter.pom").writeTo("racter.xml")
+    }
 }
 
 dependencies {
-    // For Development Only
+    testImplementation 'junit:junit:4.12'
     compile 'com.mashape.unirest:unirest-java:1.4.9'
     compile 'org.json:json:20170516'
-    // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation 'org.testng:testng:6.10'
 }
-
-// Use TestNG for unit tests
-test.useTestNG()

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Clivern. <https://clivern.com>
+ * Copyright (c) 2017 Clivern. <https://clivern.com>.
  */
 
 // /opt/gradle/bin/gradle -b maven-push.gradle uploadArchives
@@ -8,7 +8,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 def isReleaseBuild() {
-    return VERSION_NAME.contains("SNAPSHOT") == false
+    return POM_VERSION.contains("SNAPSHOT") == false
 }
 
 def getReleaseRepositoryUrl() {
@@ -35,9 +35,9 @@ afterEvaluate { project ->
             mavenDeployer {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-                pom.groupId = GROUP
+                pom.groupId = POM_GROUP_ID
                 pom.artifactId = POM_ARTIFACT_ID
-                pom.version = VERSION_NAME
+                pom.version = POM_VERSION
 
                 repository(url: getReleaseRepositoryUrl()) {
                     authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
@@ -47,30 +47,34 @@ afterEvaluate { project ->
                 }
 
                 pom.project {
+                    groupId POM_GROUP_ID
+                    artifactId POM_ARTIFACT_ID
+                    version POM_VERSION
                     name POM_NAME
-                    packaging POM_PACKAGING
                     description POM_DESCRIPTION
                     url POM_URL
-
-                    scm {
-                        url POM_SCM_URL
-                        connection POM_SCM_CONNECTION
-                        developerConnection POM_SCM_DEV_CONNECTION
-                    }
-
                     licenses {
                         license {
-                            name POM_LICENCE_NAME
-                            url POM_LICENCE_URL
-                            distribution POM_LICENCE_DIST
+                            name POM_LICENSE_NAME
+                            url POM_LICENSE_URL
+                            distribution POM_LICENSE_DISTRIBUTION
                         }
                     }
-
                     developers {
                         developer {
                             id POM_DEVELOPER_ID
                             name POM_DEVELOPER_NAME
+                            email POM_DEVELOPER_EMAIL
+                            url POM_DEVELOPER_URL
+                            roles {
+                                role POM_DEVELOPER_ROLE
+                            }
                         }
+                    }
+                    scm {
+                        url POM_SCM_URL
+                        connection POM_SCM_CONNECTION
+                        developerConnection POM_SCM_DEVELOPER_CONNECTION
                     }
                 }
             }
