@@ -110,61 +110,61 @@ public class Log {
     /**
      * Log Fine Messages
      *
-     * @param msg
+     * @param message
      */
-    public static void fine(String msg)
+    public static void fine(String message)
     {
-        log.fine(msg);
+        log.fine(message);
     }
 
     /**
      * Log Fine Messages
      *
-     * @param msg
+     * @param message
      */
-    public static void finer(String msg)
+    public static void finer(String message)
     {
-        log.finer(msg);
+        log.finer(message);
     }
 
     /**
      * Log Finest Messages
      *
-     * @param msg
+     * @param message
      */
-    public static void finest(String msg)
+    public static void finest(String message)
     {
-        log.finest(msg);
+        log.finest(message);
     }
 
     /**
      * Log Info Messages
      *
-     * @param msg
+     * @param message
      */
-    public static void info(String msg)
+    public static void info(String message)
     {
-        log.info(msg);
+        log.info(message);
     }
 
     /**
      * Log Severe Messages
      *
-     * @param msg
+     * @param message
      */
-    public static void severe(String msg)
+    public static void severe(String message)
     {
-        log.severe(msg);
+        log.severe(message);
     }
 
     /**
      * Log Warning Messages
      *
-     * @param msg
+     * @param message
      */
-    public static void warning(String msg)
+    public static void warning(String message)
     {
-        log.warning(msg);
+        log.warning(message);
     }
 
     /**
@@ -176,5 +176,4 @@ public class Log {
             fileHandler.close();
         }
     }
-
 }
