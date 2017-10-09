@@ -150,7 +150,7 @@ public class BaseReceiver {
                             //-----------------
                             // Message
                             //-----------------
-                            this.message_webhook.put("message." + z, MessageReceivedWebhook.getInstance());
+                            this.message_webhook.put("message." + z, new MessageReceivedWebhook());
                             this.message_webhook.get("message." + z).setUserId(sender_id);
                             this.message_webhook.get("message." + z).setPageId(recipient_id);
                             this.message_webhook.get("message." + z).setTimestamp(timestamp);
