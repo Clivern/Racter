@@ -17,7 +17,7 @@ import org.json.JSONArray;
 public class BaseReceiver {
 
     private static BaseReceiver instance;
-    private Config settings;
+    private Config configs;
     private Log log;
     private String message_string;
     private JSONObject message_object;
@@ -40,9 +40,9 @@ public class BaseReceiver {
         return instance;
     }
 
-    public BaseReceiver config(Config settings, Log log)
+    public BaseReceiver config(Config configs, Log log)
     {
-        this.settings = settings;
+        this.configs = configs;
         this.log = log;
 
         return instance;

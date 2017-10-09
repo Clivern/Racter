@@ -14,7 +14,7 @@ public class VerifyWebhook {
     private String hub_mode;
     private String hub_verify_token;
     private String hub_challenge;
-    private Config settings;
+    private Config configs;
     private Log log;
     private static VerifyWebhook instance;
 
@@ -38,13 +38,13 @@ public class VerifyWebhook {
     /**
      * Config Class
      *
-     * @param  settings
+     * @param  configs
      * @param  log
      * @return VerifyWebhook
      */
-    public VerifyWebhook config(Config settings, Log log)
+    public VerifyWebhook config(Config configs, Log log)
     {
-        this.settings = settings;
+        this.configs = configs;
         this.log = log;
 
         return instance;
@@ -117,7 +117,7 @@ public class VerifyWebhook {
      */
     public Boolean challenge()
     {
-        if( (this.hub_mode.equals("subscribe")) && (this.hub_verify_token.equals(this.settings.get("verify_token", ""))) ){
+        if( (this.hub_mode.equals("subscribe")) && (this.hub_verify_token.equals(this.configs.get("verify_token", ""))) ){
             this.log.info("Verify token validated successfully.");
             return true;
         }

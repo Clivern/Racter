@@ -23,14 +23,6 @@ public class Config {
     protected Map<String, String> configs = new HashMap<String, String>();
 
     /**
-     * Constructor
-     */
-    public Config()
-    {
-        //
-    }
-
-    /**
      * Load Properties File
      *
      * @param path
