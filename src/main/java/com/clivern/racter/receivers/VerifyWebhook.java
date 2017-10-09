@@ -11,18 +11,38 @@ import com.clivern.racter.utils.Log;
  */
 public class VerifyWebhook {
 
+    /**
+     * @var String
+     */
     protected String hub_mode;
-    protected String hub_verify_token;
-    protected String hub_challenge;
-
-    protected Config configs;
-    protected Log log;
 
     /**
-     * Constructor
+     * @var String
+     */
+    protected String hub_verify_token;
+
+    /**
+     * @var String
+     */
+    protected String hub_challenge;
+
+    /**
+     * @var Config an instance of config class
+     */
+    protected Config configs;
+
+    /**
+     * @var Log an instance of log class
+     */
+    protected Log log;
+
+
+    /**
+     * Class Constructor
      *
      * @param  configs
      * @param  log
+     * @return void
      */
     public VerifyWebhook(Config configs, Log log)
     {
@@ -34,6 +54,7 @@ public class VerifyWebhook {
      * Set Hub Mode
      *
      * @param hub_mode
+     * @return void
      */
     public void setHubMode(String hub_mode)
     {
@@ -44,6 +65,7 @@ public class VerifyWebhook {
      * Set Hub Verify Token
      *
      * @param hub_verify_token
+     * @return void
      */
     public void setHubVerifyToken(String hub_verify_token)
     {
@@ -54,6 +76,7 @@ public class VerifyWebhook {
      * Set Hub Challenge
      *
      * @param hub_challenge
+     * @return void
      */
     public void setHubChallenge(String hub_challenge)
     {
