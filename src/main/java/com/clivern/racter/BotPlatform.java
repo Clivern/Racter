@@ -82,7 +82,7 @@ public class BotPlatform {
         this.log = new Log(this.configs);
         this.base_receiver = BaseReceiver.getInstance().config(this.configs, this.log);
         this.base_sender = BaseSender.getInstance().config(this.configs, this.log);
-        this.verify_webhook = VerifyWebhook.getInstance().config(this.configs, this.log);
+        this.verify_webhook = new VerifyWebhook(this.configs, this.log);
 
         return instance;
     }

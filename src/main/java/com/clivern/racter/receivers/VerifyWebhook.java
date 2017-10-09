@@ -11,43 +11,23 @@ import com.clivern.racter.utils.Log;
  */
 public class VerifyWebhook {
 
-    private String hub_mode;
-    private String hub_verify_token;
-    private String hub_challenge;
-    private Config configs;
-    private Log log;
-    private static VerifyWebhook instance;
+    protected String hub_mode;
+    protected String hub_verify_token;
+    protected String hub_challenge;
+
+    protected Config configs;
+    protected Log log;
 
     /**
      * Constructor
-     */
-    protected VerifyWebhook() { }
-
-    /**
-     * Get Instance
-     *
-     * @return VerifyWebhook
-     */
-    public static VerifyWebhook getInstance() {
-        if(instance == null) {
-            instance = new VerifyWebhook();
-        }
-        return instance;
-    }
-
-    /**
-     * Config Class
      *
      * @param  configs
      * @param  log
-     * @return VerifyWebhook
      */
-    public VerifyWebhook config(Config configs, Log log)
+    public VerifyWebhook(Config configs, Log log)
     {
         this.configs = configs;
         this.log = log;
-
-        return instance;
     }
 
     /**
