@@ -56,7 +56,7 @@ public class BaseReceiver {
     }
 
     /**
-     * Set Incoming webhook data
+     * Set Incoming Message
      *
      * @param  message_string
      * @return BaseReceiver
@@ -70,7 +70,7 @@ public class BaseReceiver {
     }
 
     /**
-     * Parse Webhook
+     * Parse Incoming Message
      *
      * @return BaseReceiver
      */
@@ -82,7 +82,6 @@ public class BaseReceiver {
         if( !this.message_object.has("object")  || !this.message_object.getString("object").equals("page") ){
             return this;
         }
-
         if( !this.message_object.has("entry") ){
             return this;
         }
@@ -107,28 +106,37 @@ public class BaseReceiver {
 
                     JSONObject messaging_item = entry_obj.getJSONArray("messaging").getJSONObject(i);
 
+                    //-----------------
+                    // Get Sender ID
+                    //-----------------
                     String sender_id = null;
                     if( messaging_item.has("sender") ){
                         JSONObject sender = messaging_item.getJSONObject("sender");
-                        // USER_ID
                         sender_id = (sender.has("id")) ? sender.getString("id") : null;
                     }
 
+                    //-----------------------------
+                    // Get Recipient ID or Page ID
+                    //-----------------------------
                     String recipient_id = null;
                     if( messaging_item.has("recipient") ){
                         JSONObject recipient = messaging_item.getJSONObject("recipient");
-                        // PAGE_ID
                         recipient_id = (recipient.has("id")) ? recipient.getString("id") : null;
                     }
 
+                    //-----------------
+                    // Get Timestamp
+                    //-----------------
                     Long timestamp = null;
                     if( messaging_item.has("timestamp") ){
                         timestamp = messaging_item.getLong("timestamp");
                     }
 
+                    //-----------------
+                    // Incoming Message
+                    //-----------------
                     if( messaging_item.has("message") ){
                         JSONObject message = messaging_item.getJSONObject("message");
-
 
                         if( message.has("is_echo") ){
                             //-----------------
@@ -254,9 +262,9 @@ public class BaseReceiver {
     }
 
     /**
-     * Get Messages
+     * Get parsed message
      *
-     * @return Map
+     * @return Map<String, MessageReceivedWebhook>
      */
     public Map<String, MessageReceivedWebhook> getMessages()
     {
@@ -264,7 +272,7 @@ public class BaseReceiver {
     }
 
     /**
-     * Get Received Webhook data
+     * Get message as a string
      *
      * @return String
      */
@@ -274,7 +282,7 @@ public class BaseReceiver {
     }
 
     /**
-     * Get Received Webhook data
+     * Get message as an object
      *
      * @return JSONObject
      */
