@@ -31,6 +31,7 @@ public class GenericTemplate {
     /**
      * Set Recipient ID
      *
+     * @param recipient_id
      * @return void
      */
     public void setRecipientId(String recipient_id)
