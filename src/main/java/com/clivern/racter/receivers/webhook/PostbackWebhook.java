@@ -12,40 +12,24 @@ import org.json.JSONArray;
  * Postback Webhook
  */
 public class PostbackWebhook {
-/*
-{
-  "sender":{
-    "id":"USER_ID"
-  },
-  "recipient":{
-    "id":"PAGE_ID"
-  },
-  "timestamp":1458692752478,
-  "postback":{
-    "payload": USER_DEFINED_PAYLOAD,
-    "referral": {
-      "ref": USER_DEFINED_REFERRAL_PARAM,
-      "source": "SHORTLINK",
-      "type": "OPEN_THREAD",
-    }
-  }
-}  */
-    private static PostbackWebhook instance;
 
-    /**
-     * Constructor
-     */
-    protected PostbackWebhook() { }
-
-    /**
-     * Get Instance
-     *
-     * @return PostbackWebhook
-     */
-    public static PostbackWebhook getInstance() {
-        if(instance == null) {
-            instance = new PostbackWebhook();
+    /*
+    {
+        "sender":{
+            "id":"USER_ID"
+        },
+        "recipient":{
+            "id":"PAGE_ID"
+        },
+        "timestamp":1458692752478,
+        "postback":{
+            "payload": USER_DEFINED_PAYLOAD,
+            "referral": {
+                "ref": USER_DEFINED_REFERRAL_PARAM,
+                "source": "SHORTLINK",
+                "type": "OPEN_THREAD",
+            }
         }
-        return instance;
     }
+    */
 }

@@ -13,22 +13,4 @@ import org.json.JSONArray;
  */
 public class MessageEchoWebhook {
 
-    private static MessageEchoWebhook instance;
-
-    /**
-     * Constructor
-     */
-    protected MessageEchoWebhook() { }
-
-    /**
-     * Get Instance
-     *
-     * @return MessageEchoWebhook
-     */
-    public static MessageEchoWebhook getInstance() {
-        if(instance == null) {
-            instance = new MessageEchoWebhook();
-        }
-        return instance;
-    }
 }

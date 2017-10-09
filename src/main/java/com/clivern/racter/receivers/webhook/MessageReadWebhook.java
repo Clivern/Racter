@@ -13,37 +13,19 @@ import org.json.JSONArray;
  */
 public class MessageReadWebhook {
 
-
-/*{
-   "sender":{
-      "id":"USER_ID"
-   },
-   "recipient":{
-      "id":"PAGE_ID"
-   },
-   "timestamp":1458668856463,
-   "read":{
-      "watermark":1458668856253,
-      "seq":38
-   }
-}
-*/
-    private static MessageReadWebhook instance;
-
-    /**
-     * Constructor
-     */
-    protected MessageReadWebhook() { }
-
-    /**
-     * Get Instance
-     *
-     * @return MessageReadWebhook
-     */
-    public static MessageReadWebhook getInstance() {
-        if(instance == null) {
-            instance = new MessageReadWebhook();
+    /*
+    {
+        "sender":{
+            "id":"USER_ID"
+        },
+        "recipient":{
+            "id":"PAGE_ID"
+        },
+        "timestamp":1458668856463,
+        "read":{
+            "watermark":1458668856253,
+            "seq":38
         }
-        return instance;
     }
+    */
 }

@@ -13,39 +13,21 @@ import org.json.JSONArray;
  */
 public class MessageDeliveredWebhook {
 
-
-/*{
-   "sender":{
-      "id":"USER_ID"
-   },
-   "recipient":{
-      "id":"PAGE_ID"
-   },
-   "delivery":{
-      "mids":[
-         "mid.1458668856218:ed81099e15d3f4f233"
-      ],
-      "watermark":1458668856253,
-      "seq":37
-   }
-}  */
-
-    private static MessageDeliveredWebhook instance;
-
-    /**
-     * Constructor
-     */
-    protected MessageDeliveredWebhook() { }
-
-    /**
-     * Get Instance
-     *
-     * @return MessageDeliveredWebhook
-     */
-    public static MessageDeliveredWebhook getInstance() {
-        if(instance == null) {
-            instance = new MessageDeliveredWebhook();
+    /*
+    {
+        "sender":{
+            "id":"USER_ID"
+        },
+        "recipient":{
+            "id":"PAGE_ID"
+        },
+        "delivery":{
+            "mids":[
+                "mid.1458668856218:ed81099e15d3f4f233"
+            ],
+            "watermark":1458668856253,
+            "seq":37
         }
-        return instance;
     }
+    */
 }
