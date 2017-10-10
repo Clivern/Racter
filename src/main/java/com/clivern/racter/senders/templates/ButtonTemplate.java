@@ -112,44 +112,44 @@ public class ButtonTemplate {
     {
         this.message_string  = "{";
 
-        if( this.recipient_id != null ){
-            this.message_string += "\"recipient\": {\"id\": \"" + this.recipient_id + "\"},";
-        }
-
-        if( (this.message_text != null) && !(this.message_text.equals("")) && !(this.buttons.isEmpty()) ){
-            this.message_string += "\"message\": {";
-            this.message_string += "\"attachment\": {";
-            this.message_string += "\"type\": \"template\",";
-            this.message_string += "\"payload\": {";
-            this.message_string += "\"template_type\": \"button\",";
-            this.message_string += "\"text\": \"" + this.message_text + "\",";
-            this.message_string += "\"buttons\":[";
-            for ( int j = 0 ; j < this.buttons.size(); j++ ) {
-                HashMap<String, String> button = this.buttons.get(j);
-                this.message_string += "{";
-                if( !button.get("type").equals("") ){
-                    this.message_string += "\"type\":\"" + button.get("type") + "\",";
-                }
-                if( !button.get("title").equals("") ){
-                    this.message_string += "\"title\":\"" + button.get("title") + "\",";
-                }
-                if( !button.get("url").equals("") ){
-                    this.message_string += "\"url\":\"" + button.get("url") + "\",";
-                }
-                if( !button.get("payload").equals("") ){
-                    this.message_string += "\"payload\":\"" + button.get("payload") + "\",";
-                }
-                this.message_string = this.message_string.replaceAll(",$", "");
-                this.message_string += "},";
+            if( this.recipient_id != null ){
+                this.message_string += "\"recipient\": {\"id\": \"" + this.recipient_id + "\"},";
             }
-            this.message_string = this.message_string.replaceAll(",$", "");
-            this.message_string += "]";
-            this.message_string += "}";
-            this.message_string += "}";
-            this.message_string += "}";
-        }
 
-        this.message_string = this.message_string.replaceAll(",$", "");
+            if( (this.message_text != null) && !(this.message_text.equals("")) && !(this.buttons.isEmpty()) ){
+                this.message_string += "\"message\": {";
+                    this.message_string += "\"attachment\": {";
+                        this.message_string += "\"type\": \"template\",";
+                        this.message_string += "\"payload\": {";
+                            this.message_string += "\"template_type\": \"button\",";
+                            this.message_string += "\"text\": \"" + this.message_text + "\",";
+                            this.message_string += "\"buttons\":[";
+                                for ( int j = 0 ; j < this.buttons.size(); j++ ) {
+                                    HashMap<String, String> button = this.buttons.get(j);
+                                    this.message_string += "{";
+                                    if( !button.get("type").equals("") ){
+                                        this.message_string += "\"type\":\"" + button.get("type") + "\",";
+                                    }
+                                    if( !button.get("title").equals("") ){
+                                        this.message_string += "\"title\":\"" + button.get("title") + "\",";
+                                    }
+                                    if( !button.get("url").equals("") ){
+                                        this.message_string += "\"url\":\"" + button.get("url") + "\",";
+                                    }
+                                    if( !button.get("payload").equals("") ){
+                                        this.message_string += "\"payload\":\"" + button.get("payload") + "\",";
+                                    }
+                                    this.message_string = this.message_string.replaceAll(",$", "");
+                                    this.message_string += "},";
+                                }
+                                this.message_string = this.message_string.replaceAll(",$", "");
+                            this.message_string += "]";
+                        this.message_string += "}";
+                    this.message_string += "}";
+                this.message_string += "}";
+            }
+
+            this.message_string = this.message_string.replaceAll(",$", "");
 
         this.message_string += "}";
 
