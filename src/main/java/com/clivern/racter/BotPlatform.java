@@ -17,106 +17,131 @@ import com.clivern.racter.senders.BaseSender;
  */
 public class BotPlatform {
 
-    private Config configs;
-
-    private VerifyWebhook verify_webhook;
-
-    private BaseReceiver base_receiver;
-
-    private BaseSender base_sender;
-
-    private Log log;
-
-    private static BotPlatform instance;
-
     /**
-     * Constructor
+     * @var Config
      */
-    protected BotPlatform() { }
+    protected Config configs;
 
     /**
-     * Get Instance
+     * @var VerifyWebhook
+     */
+    protected VerifyWebhook verify_webhook;
+
+    /**
+     * @var BaseReceiver
+     */
+    protected BaseReceiver base_receiver;
+
+    /**
+     * @var BaseSender
+     */
+    protected BaseSender base_sender;
+
+    /**
+     * @var Log
+     */
+    protected Log log;
+
+
+    /**
+     * Class Constructor
      *
-     * @return BotPlatform
+     * @param  poperties_file_path
+     * @return void
      */
-    public static BotPlatform getInstance() {
-        if(instance == null) {
-            instance = new BotPlatform();
-        }
-        return instance;
-    }
-
-    /**
-     * Config Class
-     *
-     * @return BotPlatform
-     */
-    public BotPlatform loadConfigs(String poperties_file_path) throws IOException
+    public BotPlatform(String poperties_file_path)
     {
         this.configs = new Config();
         this.configs.loadPropertiesFile(poperties_file_path);
-        return instance;
+        this.log = new Log(this.configs);
+        this.base_receiver = new BaseReceiver(this.configs, this.log);
+        this.base_sender = new BaseSender(this.configs, this.log);
+        this.verify_webhook = new VerifyWebhook(this.configs, this.log);
     }
 
     /**
-     * Config Class
+     * Class Constructor
      *
-     * @return BotPlatform
+     * @param  options
+     * @return void
      */
-    public BotPlatform loadConfigs(Map<String, String> options)
+    public BotPlatform(Map<String, String> options)
     {
         this.configs = new Config();
         for (Map.Entry<String, String> entry : options.entrySet()) {
             this.configs.set(entry.getKey(), options.get(entry.getKey()));
         }
-        return instance;
-    }
-
-    /**
-     * Config Dependencies
-     *
-     * @return BotPlatform
-     */
-    public BotPlatform configDependencies() throws IOException
-    {
         this.log = new Log(this.configs);
         this.base_receiver = new BaseReceiver(this.configs, this.log);
         this.base_sender = new BaseSender(this.configs, this.log);
         this.verify_webhook = new VerifyWebhook(this.configs, this.log);
-
-        return instance;
     }
 
-    public Config getSettings()
+    /**
+     * Get Configs
+     *
+     * @return Config
+     */
+    public Config getConfigs()
     {
         return this.configs;
     }
 
+    /**
+     * Get Verify Webhook
+     *
+     * @return VerifyWebhook
+     */
     public VerifyWebhook getVerifyWebhook()
     {
         return this.verify_webhook;
     }
 
+    /**
+     * Get Base Receiver
+     *
+     * @return BaseReceiver
+     */
     public BaseReceiver getBaseReceiver()
     {
         return this.base_receiver;
     }
 
+    /**
+     * Get Base Sender
+     *
+     * @return BaseSender
+     */
     public BaseSender getBaseSender()
     {
         return this.base_sender;
     }
 
+    /**
+     * Get Logger
+     *
+     * @return Log
+     */
     public Log getLogger()
     {
         return this.log;
     }
 
+    /**
+     * Get Package Name
+     *
+     * @return String
+     */
     public String getName()
     {
         return "Racter";
     }
 
+    /**
+     * Close any connections
+     *
+     * @return void
+     */
     public void finish()
     {
         this.log.close();
