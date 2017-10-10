@@ -59,6 +59,7 @@ Then import all required classes
 
 ```java
 import com.clivern.racter.BotPlatform;
+
 import com.clivern.racter.receivers.*;
 import com.clivern.racter.receivers.webhook.*;
 
@@ -73,7 +74,7 @@ import java.io.IOException;
 then pass the `config.properties` file to the bot platform instance
 
 ```java
-BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
+BotPlatform platform = new BotPlatform("config.properties");
 ```
 
 or Configure it manually
@@ -92,7 +93,7 @@ options.put("log_file_limit", "1");
 options.put("log_file_count", "200000");
 options.put("log_file_append", "true or false");
 
-BotPlatform platform = BotPlatform.getInstance().loadConfigs(options).configDependencies();
+BotPlatform platform = new BotPlatform(options);
 ```
 
 Setup Webhook
@@ -100,7 +101,7 @@ Setup Webhook
 Create a route to verify your verify token, Facebook will perform a GET request to this route URL with some URL parameters to make sure that verify token is correct.
 
 ```java
-BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
+BotPlatform platform = new BotPlatform("config.properties");
 
 String hubMode = // Get hub.mode query parameter value from the current URL
 String hubVerifyToken = // Get hub.verify_token query parameter value from the current URL
@@ -147,7 +148,7 @@ public class Main {
     {
         // Verify Token Route
         get("/", (request, response) -> {
-            BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
+            BotPlatform platform = new BotPlatform("config.properties");
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
@@ -172,7 +173,7 @@ In order to receive and parse messages, You will need to create another route th
 
 ```java
 String body = // Get current Request Body
-BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
+BotPlatform platform = new BotPlatform("config.properties");
 platform.getBaseReceiver().set(body).parse();
 HashMap<String, MessageReceivedWebhook> messages = (HashMap<String, MessageReceivedWebhook>) platform.getBaseReceiver().getMessages();
 for (MessageReceivedWebhook message : messages.values()) {
@@ -209,7 +210,7 @@ public class Main {
     {
         // Verify Token Route
         get("/", (request, response) -> {
-            BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
+            BotPlatform platform = new BotPlatform("config.properties");
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
@@ -227,7 +228,7 @@ public class Main {
 
         post("/", (request, response) -> {
             String body = request.body();
-            BotPlatform platform = BotPlatform.getInstance().loadConfigs("config.properties").configDependencies();
+            BotPlatform platform = new BotPlatform("config.properties");
             platform.getBaseReceiver().set(body).parse();
             HashMap<String, MessageReceivedWebhook> messages = (HashMap<String, MessageReceivedWebhook>) platform.getBaseReceiver().getMessages();
             for (MessageReceivedWebhook message : messages.values()) {
@@ -241,14 +242,14 @@ public class Main {
                 HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
 
                 // Use Logger To Log Incoming Data
-                BotPlatform.getInstance().getLogger().info("User ID#:" + user_id);
-                BotPlatform.getInstance().getLogger().info("Page ID#:" + page_id);
-                BotPlatform.getInstance().getLogger().info("Message ID#:" + message_id);
-                BotPlatform.getInstance().getLogger().info("Message Text#:" + message_text);
-                BotPlatform.getInstance().getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
+                platform.getLogger().info("User ID#:" + user_id);
+                platform.getLogger().info("Page ID#:" + page_id);
+                platform.getLogger().info("Message ID#:" + message_id);
+                platform.getLogger().info("Message Text#:" + message_text);
+                platform.getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
 
                 for (String attachment : attachments.values()) {
-                    BotPlatform.getInstance().getLogger().info("Attachment#:" + attachment);
+                    platform.getLogger().info("Attachment#:" + attachment);
                 }
 
                 return "ok";
@@ -272,7 +273,7 @@ Send API
 Let's create an empty message first and fill it with the required data. We can get a new message container from Bot Platform Instance:
 
 ```java
-MessageTemplate message_tpl = BotPlatform.getInstance().getBaseSender().getMessageTemplate();
+MessageTemplate message_tpl = platform.getBaseSender().getMessageTemplate();
 
 // Let's start to fill the required data here
 // ..
@@ -287,52 +288,52 @@ Here's some of the usage cases:
 // To send a seen mark
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("mark_seen");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send a typing on
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("typing_on");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send a typing off
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setSenderAction("typing_off");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send text message
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setMessageText("Hello World");
 message_tpl.setNotificationType("REGULAR");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send an image
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setAttachment("image", "http://techslides.com/demos/samples/sample.jpg", false);
 message_tpl.setNotificationType("SILENT_PUSH");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send file attachment
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setAttachment("file", "http://techslides.com/demos/samples/sample.pdf", false);
 message_tpl.setNotificationType("NO_PUSH");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send a video
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setAttachment("video", "http://techslides.com/demos/samples/sample.mp4", false);
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send an audio
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setAttachment("audio", "http://techslides.com/demos/samples/sample.mp3", false);
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send a quick text reply with payload buttons
@@ -341,7 +342,7 @@ message_tpl.setMessageText("Select a Color!");
 message_tpl.setQuickReply("text", "Red", "text_reply_red_click", "");
 message_tpl.setQuickReply("text", "Green", "text_reply_green_click", "");
 message_tpl.setQuickReply("text", "Black", "text_reply_black_click", "");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send a quick text reply with payload buttons (Button with images)
@@ -350,14 +351,14 @@ message_tpl.setMessageText("Select a Color!");
 message_tpl.setQuickReply("text", "Red", "text_reply_red_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
 message_tpl.setQuickReply("text", "Green", "text_reply_green_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
 message_tpl.setQuickReply("text", "Black", "text_reply_black_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 
 
 // To send location reply
 message_tpl.setRecipientId(message.getUserId());
 message_tpl.setMessageText("Please share your location!");
 message_tpl.setQuickReply("location", "", "", "");
-BotPlatform.getInstance().getBaseSender().send(message_tpl);
+platform.getBaseSender().send(message_tpl);
 ```
 
 Please note that to respond to custom payloads, Please do the following:
@@ -371,19 +372,19 @@ if( quick_reply_payload.equals("text_reply_red_click") ){
 
     message_tpl.setRecipientId(message.getUserId());
     message_tpl.setMessageText("Red Clicked");
-    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+    platform.getBaseSender().send(message_tpl);
 
 }else if( quick_reply_payload.equals("text_reply_green_click") ){
 
     message_tpl.setRecipientId(message.getUserId());
     message_tpl.setMessageText("Green Clicked");
-    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+    platform.getBaseSender().send(message_tpl);
 
 }else if( quick_reply_payload.equals("text_reply_black_click") ){
 
     message_tpl.setRecipientId(message.getUserId());
     message_tpl.setMessageText("Black Clicked");
-    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+    platform.getBaseSender().send(message_tpl);
 
 }
 ```
@@ -393,7 +394,7 @@ if( quick_reply_payload.equals("text_reply_red_click") ){
 Let's create an empty message first and fill it with the required data. We can get a new message container from Bot Platform Instance:
 
 ```java
-ButtonTemplate button_message_tpl = BotPlatform.getInstance().getBaseSender().getButtonTemplate();
+ButtonTemplate button_message_tpl = platform.getBaseSender().getButtonTemplate();
 
 // Let's start to fill the required data here
 // ..
@@ -409,35 +410,35 @@ Here's some of the usage cases:
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
 button_message_tpl.setButton("web_url", "Take the Hat Quiz", "https://m.me/petershats?ref=take_quiz", "");
-BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+platform.getBaseSender().send(button_message_tpl);
 
 
 // To send a postback button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
 button_message_tpl.setButton("postback", "Bookmark Item", "", "DEVELOPER_DEFINED_PAYLOAD");
-BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+platform.getBaseSender().send(button_message_tpl);
 
 
 // To send a phone number button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
 button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234");
-BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+platform.getBaseSender().send(button_message_tpl);
 
 
 // To send account link button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
 button_message_tpl.setButton("account_link", "", "https://www.example.com/authorize", "");
-BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+platform.getBaseSender().send(button_message_tpl);
 
 
 // To send account unlink button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
 button_message_tpl.setButton("account_unlink", "", "", "");
-BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+platform.getBaseSender().send(button_message_tpl);
 ```
 
 ### Sending List Message
@@ -445,7 +446,7 @@ BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
 Let's create an empty list message first and fill it with the required data. We can get a new list message container from Bot Platform Instance:
 
 ```java
-ListTemplate list_message_tpl = BotPlatform.getInstance().getBaseSender().getListTemplate();
+ListTemplate list_message_tpl = platform.getBaseSender().getListTemplate();
 
 // Let's start to fill the required data here
 // ..
@@ -456,7 +457,7 @@ ListTemplate list_message_tpl = BotPlatform.getInstance().getBaseSender().getLis
 Let's create an empty generic message first and fill it with the required data. We can get a new generic message container from Bot Platform Instance:
 
 ```java
-GenericTemplate generic_message_tpl = BotPlatform.getInstance().getBaseSender().getGenericTemplate();
+GenericTemplate generic_message_tpl = platform.getBaseSender().getGenericTemplate();
 
 // Let's start to fill the required data here
 // ..
@@ -467,7 +468,7 @@ GenericTemplate generic_message_tpl = BotPlatform.getInstance().getBaseSender().
 Let's create an empty receipt message first and fill it with the required data. We can get a new receipt message container from Bot Platform Instance:
 
 ```java
-ReceiptTemplate receipt_message_tpl = BotPlatform.getInstance().getBaseSender().getReceiptTemplate();
+ReceiptTemplate receipt_message_tpl = platform.getBaseSender().getReceiptTemplate();
 
 // Let's start to fill the required data here
 // ..
@@ -492,7 +493,7 @@ receipt_message_tpl.setAddress("1 Hacker Way", "", "Menlo Park", "94025", "CA", 
 receipt_message_tpl.setSummary("75.00", "4.95", "6.19", "56.14");
 receipt_message_tpl.setAdjustment("New Customer Discount", "20");
 receipt_message_tpl.setAdjustment("$10 Off Coupon", "10");
-BotPlatform.getInstance().getBaseSender().send(receipt_message_tpl);
+platform.getBaseSender().send(receipt_message_tpl);
 ```
 
 

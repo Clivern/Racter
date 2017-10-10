@@ -20,7 +20,7 @@ public class Main {
     {
         // Verify Token Route
         get("/", (request, response) -> {
-            BotPlatform platform = BotPlatform.getInstance().loadConfigs("src/main/java/resources/config.properties").configDependencies();
+            BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
             platform.getVerifyWebhook().setHubMode(( request.queryParams("hub.mode") != null ) ? request.queryParams("hub.mode") : "");
             platform.getVerifyWebhook().setHubVerifyToken(( request.queryParams("hub.verify_token") != null ) ? request.queryParams("hub.verify_token") : "");
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
@@ -42,7 +42,7 @@ public class Main {
         // ---------------------------------
         post("/", (request, response) -> {
             String body = request.body();
-            BotPlatform platform = BotPlatform.getInstance().loadConfigs("src/main/java/resources/config.properties").configDependencies();
+            BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
             platform.getBaseReceiver().set(body).parse();
             HashMap<String, MessageReceivedWebhook> messages = (HashMap<String, MessageReceivedWebhook>) platform.getBaseReceiver().getMessages();
             for (MessageReceivedWebhook message : messages.values()) {
@@ -55,73 +55,73 @@ public class Main {
                 Long timestamp = (message.hasTimestamp()) ? message.getTimestamp() : 0;
                 HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
 
-                BotPlatform.getInstance().getLogger().info("User ID#:" + user_id);
-                BotPlatform.getInstance().getLogger().info("Page ID#:" + page_id);
-                BotPlatform.getInstance().getLogger().info("Message ID#:" + message_id);
-                BotPlatform.getInstance().getLogger().info("Message Text#:" + message_text);
-                BotPlatform.getInstance().getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
+                platform.getLogger().info("User ID#:" + user_id);
+                platform.getLogger().info("Page ID#:" + page_id);
+                platform.getLogger().info("Message ID#:" + message_id);
+                platform.getLogger().info("Message Text#:" + message_text);
+                platform.getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
 
                 for (String attachment : attachments.values()) {
-                    BotPlatform.getInstance().getLogger().info("Attachment#:" + attachment);
+                    platform.getLogger().info("Attachment#:" + attachment);
                 }
 
                 String text = message.getMessageText();
-                MessageTemplate message_tpl = BotPlatform.getInstance().getBaseSender().getMessageTemplate();
-                ButtonTemplate button_message_tpl = BotPlatform.getInstance().getBaseSender().getButtonTemplate();
-                ListTemplate list_message_tpl = BotPlatform.getInstance().getBaseSender().getListTemplate();
-                GenericTemplate generic_message_tpl = BotPlatform.getInstance().getBaseSender().getGenericTemplate();
-                ReceiptTemplate receipt_message_tpl = BotPlatform.getInstance().getBaseSender().getReceiptTemplate();
+                MessageTemplate message_tpl = platform.getBaseSender().getMessageTemplate();
+                ButtonTemplate button_message_tpl = platform.getBaseSender().getButtonTemplate();
+                ListTemplate list_message_tpl = platform.getBaseSender().getListTemplate();
+                GenericTemplate generic_message_tpl = platform.getBaseSender().getGenericTemplate();
+                ReceiptTemplate receipt_message_tpl = platform.getBaseSender().getReceiptTemplate();
 
                 if( text.equals("text") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setMessageText("Hello World");
                     message_tpl.setNotificationType("REGULAR");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("image") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setAttachment("image", "http://techslides.com/demos/samples/sample.jpg", false);
                     message_tpl.setNotificationType("SILENT_PUSH");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("file") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setAttachment("file", "http://techslides.com/demos/samples/sample.pdf", false);
                     message_tpl.setNotificationType("NO_PUSH");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("video") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setAttachment("video", "http://techslides.com/demos/samples/sample.mp4", false);
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("audio") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setAttachment("audio", "http://techslides.com/demos/samples/sample.mp3", false);
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("mark_seen") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setSenderAction("mark_seen");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("typing_on") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setSenderAction("typing_on");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("typing_off") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setSenderAction("typing_off");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("quick_text_reply") ){
 
@@ -130,7 +130,7 @@ public class Main {
                     message_tpl.setQuickReply("text", "Red", "text_reply_red_click", "");
                     message_tpl.setQuickReply("text", "Green", "text_reply_green_click", "");
                     message_tpl.setQuickReply("text", "Black", "text_reply_black_click", "");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("quick_text_image_reply") ){
 
@@ -139,49 +139,49 @@ public class Main {
                     message_tpl.setQuickReply("text", "Red", "text_reply_red_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
                     message_tpl.setQuickReply("text", "Green", "text_reply_green_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
                     message_tpl.setQuickReply("text", "Black", "text_reply_black_click", "http://static.wixstatic.com/media/f0a6df_9ae4c70963244e16ba0d89d021407335.png");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("quick_location_reply") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setMessageText("Please share your location!");
                     message_tpl.setQuickReply("location", "", "", "");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( text.equals("web_url_button") ){
 
                     button_message_tpl.setRecipientId(message.getUserId());
                     button_message_tpl.setMessageText("Click Below!");
                     button_message_tpl.setButton("web_url", "Take the Hat Quiz", "https://m.me/petershats?ref=take_quiz", "");
-                    BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+                    platform.getBaseSender().send(button_message_tpl);
 
                 }else if( text.equals("postback_button") ){
 
                     button_message_tpl.setRecipientId(message.getUserId());
                     button_message_tpl.setMessageText("Click Below!");
                     button_message_tpl.setButton("postback", "Bookmark Item", "", "DEVELOPER_DEFINED_PAYLOAD");
-                    BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+                    platform.getBaseSender().send(button_message_tpl);
 
                 }else if( text.equals("phone_number_button") ){
 
                     button_message_tpl.setRecipientId(message.getUserId());
                     button_message_tpl.setMessageText("Click Below!");
                     button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234");
-                    BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+                    platform.getBaseSender().send(button_message_tpl);
 
                 }else if( text.equals("account_link_button") ){
 
                     button_message_tpl.setRecipientId(message.getUserId());
                     button_message_tpl.setMessageText("Click Below!");
                     button_message_tpl.setButton("account_link", "", "https://www.example.com/authorize", "");
-                    BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+                    platform.getBaseSender().send(button_message_tpl);
 
                 }else if( text.equals("account_unlink_button") ){
 
                     button_message_tpl.setRecipientId(message.getUserId());
                     button_message_tpl.setMessageText("Click Below!");
                     button_message_tpl.setButton("account_unlink", "", "", "");
-                    BotPlatform.getInstance().getBaseSender().send(button_message_tpl);
+                    platform.getBaseSender().send(button_message_tpl);
 
                 }else if( text.equals("list_template") ){
 
@@ -200,7 +200,7 @@ public class Main {
 
                     // Set Button
                     list_message_tpl.setButton("postback", "View More", "", "payload");
-                    BotPlatform.getInstance().getBaseSender().send(list_message_tpl);
+                    platform.getBaseSender().send(list_message_tpl);
 
                 }else if( text.equals("generic_template") ){
 
@@ -216,7 +216,7 @@ public class Main {
                     generic_message_tpl.setElementDefaultAction(element_index, "web_url", "https://peterssendreceiveapp.ngrok.io/view?item=102", true, "tall", "https://peterssendreceiveapp.ngrok.io/");
                     generic_message_tpl.setElementButton(element_index, "Shop Now", "web_url", "https://peterssendreceiveapp.ngrok.io/shop?item=102", true, "tall", "https://peterssendreceiveapp.ngrok.io/");
 
-                    BotPlatform.getInstance().getBaseSender().send(generic_message_tpl);
+                    platform.getBaseSender().send(generic_message_tpl);
 
                 }else if( text.equals("receipt_template") ){
 
@@ -233,7 +233,7 @@ public class Main {
                     receipt_message_tpl.setSummary("75.00", "4.95", "6.19", "56.14");
                     receipt_message_tpl.setAdjustment("New Customer Discount", "20");
                     receipt_message_tpl.setAdjustment("$10 Off Coupon", "10");
-                    BotPlatform.getInstance().getBaseSender().send(receipt_message_tpl);
+                    platform.getBaseSender().send(receipt_message_tpl);
 
                 }
 
@@ -242,19 +242,19 @@ public class Main {
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setMessageText("Red Clicked");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( quick_reply_payload.equals("text_reply_green_click") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setMessageText("Green Clicked");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }else if( quick_reply_payload.equals("text_reply_black_click") ){
 
                     message_tpl.setRecipientId(message.getUserId());
                     message_tpl.setMessageText("Black Clicked");
-                    BotPlatform.getInstance().getBaseSender().send(message_tpl);
+                    platform.getBaseSender().send(message_tpl);
 
                 }
 
