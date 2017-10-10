@@ -49,7 +49,7 @@ public class BotPlatform {
      * @param  poperties_file_path
      * @return void
      */
-    public BotPlatform(String poperties_file_path)
+    public BotPlatform(String poperties_file_path) throws IOException
     {
         this.configs = new Config();
         this.configs.loadPropertiesFile(poperties_file_path);
@@ -65,7 +65,7 @@ public class BotPlatform {
      * @param  options
      * @return void
      */
-    public BotPlatform(Map<String, String> options)
+    public BotPlatform(Map<String, String> options) throws IOException
     {
         this.configs = new Config();
         for (Map.Entry<String, String> entry : options.entrySet()) {
