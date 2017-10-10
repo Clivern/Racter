@@ -6,6 +6,7 @@ package com.clivern.racter.receivers.webhook;
 import java.util.HashMap;
 import java.util.Map;
 import java.lang.*;
+import java.util.ArrayList;
 import org.json.JSONObject;
 import org.json.JSONArray;
 
@@ -17,37 +18,37 @@ public class MessageReceivedWebhook {
     /**
      * @var String
      */
-    private String user_id;
+    protected String user_id;
 
     /**
      * @var String
      */
-    private String page_id;
+    protected String page_id;
 
     /**
      * @var Long
      */
-    private Long timestamp;
+    protected Long timestamp;
 
     /**
      * @var String
      */
-    private String message_id;
+    protected String message_id;
 
     /**
      * @var String
      */
-    private String message_text;
+    protected String message_text;
 
     /**
      * @var String
      */
-    private String quick_reply_payload;
+    protected String quick_reply_payload;
 
     /**
      * @var Map<String, String>
      */
-    private Map<String, String> attachments = new HashMap<String, String>();
+    protected Map<String, String> attachments = new HashMap<String, String>();
 
 
     /**
