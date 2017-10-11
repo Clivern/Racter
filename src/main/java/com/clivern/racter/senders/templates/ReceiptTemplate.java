@@ -12,64 +12,28 @@ import java.util.Map;
  */
 public class ReceiptTemplate {
 
-    /**
-     * @var String
-     */
     protected String recipient_id;
 
-    /**
-     * @var String
-     */
     protected String recipient_name;
 
-    /**
-     * @var String
-     */
     protected String order_number;
 
-    /**
-     * @var String
-     */
     protected String currency;
 
-    /**
-     * @var String
-     */
     protected String payment_method;
 
-    /**
-     * @var String
-     */
     protected String order_url;
 
-    /**
-     * @var String
-     */
     protected String timestamp;
 
-    /**
-     * @var String
-     */
     protected String message_string;
 
-    /**
-     * @var ArrayList
-     */
     protected ArrayList<HashMap<String, String>> elements = new ArrayList<HashMap<String, String>>();
 
-    /**
-     * @var ArrayList
-     */
     protected ArrayList<HashMap<String, String>> adjustments = new ArrayList<HashMap<String, String>>();
 
-    /**
-     * @var HashMap
-     */
     protected HashMap<String, String> address = new HashMap<String, String>();
 
-    /**
-     * @var HashMap
-     */
     protected HashMap<String, String> summary = new HashMap<String, String>();
 
 
@@ -77,7 +41,6 @@ public class ReceiptTemplate {
      * Set Recipient ID
      *
      * @param recipient_id
-     * @return void
      */
     public void setRecipientId(String recipient_id)
     {
@@ -88,7 +51,6 @@ public class ReceiptTemplate {
      * Set Recipient Name
      *
      * @param recipient_name
-     * @return void
      */
     public void setRecipientName(String recipient_name)
     {
@@ -99,7 +61,6 @@ public class ReceiptTemplate {
      * Set Order Number
      *
      * @param order_number
-     * @return void
      */
     public void setOrderNumber(String order_number)
     {
@@ -110,7 +71,6 @@ public class ReceiptTemplate {
      * Set Currency
      *
      * @param currency
-     * @return void
      */
     public void setCurrency(String currency)
     {
@@ -121,7 +81,6 @@ public class ReceiptTemplate {
      * Set Payment Method
      *
      * @param payment_method
-     * @return void
      */
     public void setPaymentMethod(String payment_method)
     {
@@ -132,7 +91,6 @@ public class ReceiptTemplate {
      * Set Order URL
      *
      * @param order_url
-     * @return void
      */
     public void setOrderUrl(String order_url)
     {
@@ -143,7 +101,6 @@ public class ReceiptTemplate {
      * Set Timestamp
      *
      * @param timestamp
-     * @return void
      */
     public void setTimestamp(String timestamp)
     {
@@ -159,7 +116,6 @@ public class ReceiptTemplate {
      * @param price
      * @param currency
      * @param image_url
-     * @return void
      */
     public void setElement(String title, String subtitle, String quantity, String price, String currency, String image_url)
     {
@@ -182,7 +138,6 @@ public class ReceiptTemplate {
      * @param postal_code
      * @param state
      * @param country
-     * @return void
      */
     public void setAddress(String street_1, String street_2, String city, String postal_code, String state, String country)
     {
@@ -201,7 +156,6 @@ public class ReceiptTemplate {
      * @param shipping_cost
      * @param total_tax
      * @param total_cost
-     * @return void
      */
     public void setSummary(String subtotal, String shipping_cost, String total_tax, String total_cost)
     {
@@ -216,7 +170,6 @@ public class ReceiptTemplate {
      *
      * @param name
      * @param amount
-     * @return void
      */
     public void setAdjustment(String name, String amount)
     {
@@ -487,7 +440,6 @@ public class ReceiptTemplate {
      * Set or override message
      *
      * @param message_string
-     * @return void
      */
     public void setMessageString(String message_string)
     {

@@ -12,19 +12,10 @@ import java.util.Map;
  */
 public class GenericTemplate {
 
-    /**
-     * @var String
-     */
     protected String recipient_id;
 
-    /**
-     * @var String
-     */
     protected String message_string;
 
-    /**
-     * @var ArrayList
-     */
     protected ArrayList<HashMap<String, Object>> elements = new ArrayList<HashMap<String, Object>>();
 
 
@@ -32,7 +23,7 @@ public class GenericTemplate {
      * Set Recipient ID
      *
      * @param recipient_id
-     * @return void
+
      */
     public void setRecipientId(String recipient_id)
     {
@@ -79,7 +70,6 @@ public class GenericTemplate {
      * @param messenger_extensions
      * @param webview_height_ratio
      * @param fallback_url
-     * @return void
      */
     public void setElementDefaultAction(Integer index, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
     {
@@ -100,7 +90,6 @@ public class GenericTemplate {
      * @param messenger_extensions
      * @param webview_height_ratio
      * @param fallback_url
-     * @return void
      */
     public void setElementButton(Integer index, String title, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
     {
@@ -256,7 +245,6 @@ public class GenericTemplate {
      * Set or override message
      *
      * @param message_string
-     * @return void
      */
     public void setMessageString(String message_string)
     {

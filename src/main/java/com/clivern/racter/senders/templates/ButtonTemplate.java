@@ -12,31 +12,17 @@ import java.util.Map;
  */
 public class ButtonTemplate {
 
-    /**
-     * @var String
-     */
     protected String recipient_id;
 
-    /**
-     * @var String
-     */
     protected String message_text;
 
-    /**
-     * @var ArrayList
-     */
     protected ArrayList<HashMap<String, String>> buttons = new ArrayList<HashMap<String, String>>();
 
-    /**
-     * @var String
-     */
     protected String message_string;
 
 
     /**
      * Set Recipient ID
-     *
-     * @return void
      */
     public void setRecipientId(String recipient_id)
     {
@@ -47,7 +33,6 @@ public class ButtonTemplate {
      * Set Message Text
      *
      * @param message_text
-     * @return void
      */
     public void setMessageText(String message_text)
     {
@@ -61,7 +46,6 @@ public class ButtonTemplate {
      * @param title
      * @param url
      * @param payload
-     * @return void
      */
     public void setButton(String type, String title, String url, String payload)
     {
@@ -160,7 +144,6 @@ public class ButtonTemplate {
      * Set or override message
      *
      * @param message_string
-     * @return void
      */
     public void setMessageString(String message_string)
     {

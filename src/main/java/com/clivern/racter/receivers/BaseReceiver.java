@@ -16,29 +16,15 @@ import org.json.JSONArray;
  */
 public class BaseReceiver {
 
-    /**
-     * @var String final message string
-     */
+
     protected String message_string;
 
-    /**
-     * @var JSONObject incoming message data
-     */
     protected JSONObject message_object;
 
-    /**
-     * @var Map<String, MessageReceivedWebhook>
-     */
     protected Map<String, MessageReceivedWebhook> message_webhook = new HashMap<String, MessageReceivedWebhook>();
 
-    /**
-     * @var Config an instance of config class
-     */
     protected Config configs;
 
-    /**
-     * @var Log an instance of log class
-     */
     protected Log log;
 
 
@@ -47,7 +33,6 @@ public class BaseReceiver {
      *
      * @param configs
      * @param log
-     * @return void
      */
     public BaseReceiver(Config configs, Log log)
     {

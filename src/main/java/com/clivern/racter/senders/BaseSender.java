@@ -18,19 +18,10 @@ import com.mashape.unirest.request.HttpRequest;
  */
 public class BaseSender {
 
-    /**
-     * @var String
-     */
     protected String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
 
-    /**
-     * @var Config an instance of config class
-     */
     protected Config configs;
 
-    /**
-     * @var Log an instance of log class
-     */
     protected Log log;
 
 
@@ -39,7 +30,6 @@ public class BaseSender {
      *
      * @param configs
      * @param log
-     * @return void
      */
     public BaseSender(Config configs, Log log)
     {

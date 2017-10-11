@@ -29,29 +29,14 @@ public class MessageReadWebhook {
     }
     */
 
-    /**
-     * @var String
-     */
     protected String user_id;
 
-    /**
-     * @var String
-     */
     protected String page_id;
 
-    /**
-     * @var Long
-     */
     protected Long watermark;
 
-    /**
-     * @var Integer
-     */
     protected Integer seq;
 
-    /**
-     * @var Long
-     */
     protected Long timestamp;
 
 
@@ -59,7 +44,6 @@ public class MessageReadWebhook {
      * Set User ID
      *
      * @param user_id
-     * @return void
      */
     public void setUserId(String user_id)
     {
@@ -70,7 +54,6 @@ public class MessageReadWebhook {
      * Set Page ID or Receiver ID
      *
      * @param page_id
-     * @return void
      */
     public void setPageId(String page_id)
     {
@@ -81,7 +64,6 @@ public class MessageReadWebhook {
      * Set Watermark
      *
      * @param watermark
-     * @return void
      */
     public void setWatermark(Long watermark)
     {
@@ -92,7 +74,6 @@ public class MessageReadWebhook {
      * Set Seq
      *
      * @param seq
-     * @return void
      */
     public void setSeq(Integer seq)
     {
@@ -103,7 +84,6 @@ public class MessageReadWebhook {
      * Set Timestamp
      *
      * @param timestamp
-     * @return void
      */
     public void setTimestamp(Long timestamp)
     {

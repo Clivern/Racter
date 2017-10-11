@@ -12,29 +12,14 @@ import java.util.Map;
  */
 public class ListTemplate {
 
-    /**
-     * @var String
-     */
     protected String recipient_id;
 
-    /**
-     * @var String
-     */
     protected String element_style; // compact or cover
 
-    /**
-     * @var String
-     */
     protected String message_string;
 
-    /**
-     * @var ArrayList
-     */
     protected ArrayList<HashMap<String, Object>> elements = new ArrayList<HashMap<String, Object>>();
 
-    /**
-     * @var ArrayList
-     */
     protected ArrayList<HashMap<String, String>> buttons = new ArrayList<HashMap<String, String>>();
 
 
@@ -42,7 +27,6 @@ public class ListTemplate {
      * Set Recipient ID
      *
      * @param recipient_id
-     * @return void
      */
     public void setRecipientId(String recipient_id)
     {
@@ -63,7 +47,6 @@ public class ListTemplate {
      * Set Element Style
      *
      * @param element_style
-     * @return void
      */
     public void setElementStyle(String element_style)
     {
@@ -87,7 +70,6 @@ public class ListTemplate {
      * @param title
      * @param url
      * @param payload
-     * @return void
      */
     public void setButton(String type, String title, String url, String payload)
     {
@@ -105,7 +87,6 @@ public class ListTemplate {
      * @param  title
      * @param  image_url
      * @param  subtitle
-     * @return void
      */
     public Integer setElement(String title, String image_url, String subtitle)
     {
@@ -129,7 +110,6 @@ public class ListTemplate {
      * @param messenger_extensions
      * @param webview_height_ratio
      * @param fallback_url
-     * @return void
      */
     public void setElementDefaultAction(Integer index, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
     {
@@ -150,7 +130,6 @@ public class ListTemplate {
      * @param messenger_extensions
      * @param webview_height_ratio
      * @param fallback_url
-     * @return void
      */
     public void setElementButton(Integer index, String title, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
     {
@@ -332,7 +311,6 @@ public class ListTemplate {
      * Set or override message
      *
      * @param message_string
-     * @return void
      */
     public void setMessageString(String message_string)
     {

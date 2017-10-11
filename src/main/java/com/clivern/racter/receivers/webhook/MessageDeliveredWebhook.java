@@ -33,29 +33,14 @@ public class MessageDeliveredWebhook {
     }
     */
 
-    /**
-     * @var String
-     */
     protected String user_id;
 
-    /**
-     * @var String
-     */
     protected String page_id;
 
-    /**
-     * @var Long
-     */
     protected Long watermark;
 
-    /**
-     * @var Integer
-     */
     protected Integer seq;
 
-    /**
-     * @var ArrayList
-     */
     protected ArrayList<String> mids = new ArrayList<String>();
 
 
@@ -63,7 +48,6 @@ public class MessageDeliveredWebhook {
      * Set User ID
      *
      * @param user_id
-     * @return void
      */
     public void setUserId(String user_id)
     {
@@ -74,7 +58,6 @@ public class MessageDeliveredWebhook {
      * Set Page ID or Receiver ID
      *
      * @param page_id
-     * @return void
      */
     public void setPageId(String page_id)
     {
@@ -85,7 +68,6 @@ public class MessageDeliveredWebhook {
      * Set Watermark
      *
      * @param watermark
-     * @return void
      */
     public void setWatermark(Long watermark)
     {
@@ -96,7 +78,6 @@ public class MessageDeliveredWebhook {
      * Set Seq
      *
      * @param seq
-     * @return void
      */
     public void setSeq(Integer seq)
     {
@@ -107,7 +88,6 @@ public class MessageDeliveredWebhook {
      * Set Mid
      *
      * @param mid
-     * @return void
      */
     public void setMid(String mid)
     {

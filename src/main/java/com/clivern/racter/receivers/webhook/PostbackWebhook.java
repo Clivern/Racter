@@ -33,24 +33,12 @@ public class PostbackWebhook {
     }
     */
 
-    /**
-     * @var String
-     */
     protected String user_id;
 
-    /**
-     * @var String
-     */
     protected String page_id;
 
-    /**
-     * @var Long
-     */
     protected Long timestamp;
 
-    /**
-     * @var Map<String, String>
-     */
     protected Map<String, String> postback = new HashMap<String, String>();
 
 
@@ -58,7 +46,6 @@ public class PostbackWebhook {
      * Set User ID
      *
      * @param user_id
-     * @return void
      */
     public void setUserId(String user_id)
     {
@@ -69,7 +56,6 @@ public class PostbackWebhook {
      * Set Page ID or Receiver ID
      *
      * @param page_id
-     * @return void
      */
     public void setPageId(String page_id)
     {
@@ -80,7 +66,6 @@ public class PostbackWebhook {
      * Set Timestamp
      *
      * @param timestamp
-     * @return void
      */
     public void setTimestamp(Long timestamp)
     {
@@ -92,7 +77,6 @@ public class PostbackWebhook {
      *
      * @param key
      * @param value
-     * @return void
      */
     public void setPostback(String key, String value)
     {

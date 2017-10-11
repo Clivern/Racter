@@ -15,39 +15,19 @@ import org.json.JSONArray;
  */
 public class MessageReceivedWebhook {
 
-    /**
-     * @var String
-     */
+
     protected String user_id;
 
-    /**
-     * @var String
-     */
     protected String page_id;
 
-    /**
-     * @var Long
-     */
     protected Long timestamp;
 
-    /**
-     * @var String
-     */
     protected String message_id;
 
-    /**
-     * @var String
-     */
     protected String message_text;
 
-    /**
-     * @var String
-     */
     protected String quick_reply_payload;
 
-    /**
-     * @var Map<String, String>
-     */
     protected Map<String, String> attachments = new HashMap<String, String>();
 
 
@@ -55,7 +35,6 @@ public class MessageReceivedWebhook {
      * Set User ID
      *
      * @param user_id
-     * @return void
      */
     public void setUserId(String user_id)
     {
@@ -66,7 +45,6 @@ public class MessageReceivedWebhook {
      * Set Page ID or Receiver ID
      *
      * @param page_id
-     * @return void
      */
     public void setPageId(String page_id)
     {
@@ -77,7 +55,6 @@ public class MessageReceivedWebhook {
      * Set Timestamp
      *
      * @param timestamp
-     * @return void
      */
     public void setTimestamp(Long timestamp)
     {
@@ -88,7 +65,6 @@ public class MessageReceivedWebhook {
      * Set Message ID
      *
      * @param message_id
-     * @return void
      */
     public void setMessageId(String message_id)
     {
@@ -99,7 +75,6 @@ public class MessageReceivedWebhook {
      * Set Message Text
      *
      * @param message_text
-     * @return void
      */
     public void setMessageText(String message_text)
     {
@@ -110,7 +85,6 @@ public class MessageReceivedWebhook {
      * Set Quick Reply Payload
      *
      * @param quick_reply_payload
-     * @return void
      */
     public void setQuickReplyPayload(String quick_reply_payload)
     {
@@ -122,7 +96,6 @@ public class MessageReceivedWebhook {
      *
      * @param type
      * @param payload
-     * @return void
      */
     public void setAttachment(String type, String payload)
     {
@@ -135,7 +108,6 @@ public class MessageReceivedWebhook {
      * @param type
      * @param loc_lat
      * @param loc_long
-     * @return void
      */
     public void setAttachment(String type, Long loc_lat, Long loc_long)
     {

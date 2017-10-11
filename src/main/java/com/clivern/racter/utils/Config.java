@@ -17,9 +17,6 @@ import java.io.InputStream;
  */
 public class Config {
 
-    /**
-     * @var Map<String, String>
-     */
     protected Map<String, String> configs = new HashMap<String, String>();
 
     /**
@@ -81,7 +78,6 @@ public class Config {
      *
      * @param key
      * @param value
-     * @retun void
      */
     public void set(String key, String value)
     {

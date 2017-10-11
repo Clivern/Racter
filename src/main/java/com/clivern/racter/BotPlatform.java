@@ -17,29 +17,14 @@ import com.clivern.racter.senders.BaseSender;
  */
 public class BotPlatform {
 
-    /**
-     * @var Config
-     */
     protected Config configs;
 
-    /**
-     * @var VerifyWebhook
-     */
     protected VerifyWebhook verify_webhook;
 
-    /**
-     * @var BaseReceiver
-     */
     protected BaseReceiver base_receiver;
 
-    /**
-     * @var BaseSender
-     */
     protected BaseSender base_sender;
 
-    /**
-     * @var Log
-     */
     protected Log log;
 
 
@@ -47,7 +32,6 @@ public class BotPlatform {
      * Class Constructor
      *
      * @param  poperties_file_path
-     * @return void
      */
     public BotPlatform(String poperties_file_path) throws IOException
     {
@@ -63,7 +47,6 @@ public class BotPlatform {
      * Class Constructor
      *
      * @param  options
-     * @return void
      */
     public BotPlatform(Map<String, String> options) throws IOException
     {
@@ -139,8 +122,6 @@ public class BotPlatform {
 
     /**
      * Close any connections
-     *
-     * @return void
      */
     public void finish()
     {

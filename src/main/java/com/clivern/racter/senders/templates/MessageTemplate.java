@@ -12,44 +12,20 @@ import java.util.Map;
  */
 public class MessageTemplate {
 
-    /**
-     * @var String
-     */
     protected String recipient_id;
 
-    /**
-     * @var String
-     */
     protected String message_text;
 
-    /**
-     * @var Map
-     */
     protected Map<String, String> message_attachment = new HashMap<String, String>();
 
-    /**
-     * @var ArrayList
-     */
     protected ArrayList<HashMap<String, String>> message_quick_replies = new ArrayList<HashMap<String, String>>();
 
-    /**
-     * @var String
-     */
     protected String message_metadata;
 
-    /**
-     * @var String
-     */
     protected String sender_action;
 
-    /**
-     * @var String
-     */
     protected String notification_type;
 
-    /**
-     * @var String
-     */
     protected String message_string;
 
 
@@ -57,7 +33,6 @@ public class MessageTemplate {
      * Set Recipient ID
      *
      * @param recipient_id
-     * @return void
      */
     public void setRecipientId(String recipient_id)
     {
@@ -68,7 +43,6 @@ public class MessageTemplate {
      * Set Message Text
      *
      * @param message_text
-     * @return void
      */
     public void setMessageText(String message_text)
     {
@@ -79,7 +53,6 @@ public class MessageTemplate {
      * Set Message Meta Data
      *
      * @param message_metadata
-     * @return void
      */
     public void setMessageMetadata(String message_metadata)
     {
@@ -90,7 +63,6 @@ public class MessageTemplate {
      * Set Sender Action
      *
      * @param sender_action
-     * @return void
      */
     public void setSenderAction(String sender_action)
     {
@@ -101,7 +73,6 @@ public class MessageTemplate {
      * Set Notifications Type
      *
      * @param notification_type
-     * @return void
      */
     public void setNotificationType(String notification_type)
     {
@@ -114,7 +85,6 @@ public class MessageTemplate {
      * @param type
      * @param url
      * @param is_reusable
-     * @return void
      */
     public void setAttachment(String type, String url, Boolean is_reusable)
     {
@@ -130,7 +100,6 @@ public class MessageTemplate {
      * @param title
      * @param payload
      * @param image_url
-     * @return void
      */
     public void setQuickReply(String content_type, String title, String payload, String image_url)
     {
@@ -289,7 +258,6 @@ public class MessageTemplate {
      * Set or override message
      *
      * @param message_string
-     * @return void
      */
     public void setMessageString(String message_string)
     {

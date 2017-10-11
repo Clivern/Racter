@@ -18,24 +18,12 @@ import java.util.logging.Logger;
  */
 public class Log {
 
-    /**
-     * @var Logger an instance of logger class
-     */
     protected Logger log = Logger.getLogger(Log.class.getName());
 
-    /**
-     * @var Handler an instance of console handler class
-     */
     protected Handler consoleHandler;
 
-    /**
-     * @var Handler an instance of file handler class
-     */
     protected Handler fileHandler;
 
-    /**
-     * @var Config an instance of config class
-     */
     protected Config config;
 
     /**
