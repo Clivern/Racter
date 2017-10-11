@@ -20,11 +20,12 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 dependencies {
     compile 'com.sparkjava:spark-core:2.6.0'
     compile 'org.slf4j:slf4j-api:1.7.13'
     compile 'org.slf4j:slf4j-simple:1.7.13'
-    compile 'com.clivern:racter:1.0.0'
+    compile 'com.clivern:racter:1.0.1-SNAPSHOT'
 }
