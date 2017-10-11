@@ -2,7 +2,7 @@
  * Copyright (c) 2017 Clivern. <https://clivern.com>.
  */
 
-// /opt/gradle/bin/gradle -b maven-push.gradle uploadArchives
+// ./gradlew -b maven-push.gradle uploadArchives
 apply from: 'build.gradle'
 apply plugin: 'maven'
 apply plugin: 'signing'
