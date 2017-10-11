@@ -3,7 +3,7 @@ Racter
 
 Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 
-*Current Version: 1.0.1*
+*Current Version: 1.0.2*
 
 [![Build Status](https://travis-ci.org/Clivern/Racter.svg?branch=master)](https://travis-ci.org/Clivern/Racter)
 ![](https://img.shields.io/maven-central/v/com.clivern/racter.svg)
@@ -18,20 +18,20 @@ To add a dependency using Maven, use the following:
 <dependency>
   <groupId>com.clivern</groupId>
   <artifactId>racter</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:racter:1.0.1'
+  compile 'com.clivern:racter:1.0.2'
 }
 ```
 
 To add a dependency using Scala SBT, use the following:
 ```java
-libraryDependencies += "com.clivern" % "racter" % "1.0.1"
+libraryDependencies += "com.clivern" % "racter" % "1.0.2"
 ```
 
 Usage
@@ -515,6 +515,11 @@ I am still working on the following:
 
 Changelog
 ---------
+Version 1.0.2:
+```
+~
+```
+
 Version 1.0.1:
 ```
 Major enhancements in documentations.
