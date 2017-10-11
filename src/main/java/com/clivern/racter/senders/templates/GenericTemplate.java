@@ -3,6 +3,7 @@
  */
 package com.clivern.racter.senders.templates;
 
+import com.clivern.racter.contract.templates.SenderTemplate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.Map;
 /**
  * Generic Template Class
  */
-public class GenericTemplate {
+public class GenericTemplate implements SenderTemplate {
 
     protected String recipient_id;
 
@@ -23,7 +24,6 @@ public class GenericTemplate {
      * Set Recipient ID
      *
      * @param recipient_id
-
      */
     public void setRecipientId(String recipient_id)
     {

@@ -3,6 +3,7 @@
  */
 package com.clivern.racter.receivers.webhook;
 
+import com.clivern.racter.contract.templates.ReceiverTemplate;
 import java.util.HashMap;
 import java.util.Map;
 import java.lang.*;
@@ -13,7 +14,7 @@ import org.json.JSONArray;
 /**
  * Message Webhook Class
  */
-public class MessageReceivedWebhook {
+public class MessageReceivedWebhook implements ReceiverTemplate {
 
 
     protected String user_id;

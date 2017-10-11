@@ -3,6 +3,7 @@
  */
 package com.clivern.racter.senders.templates;
 
+import com.clivern.racter.contract.templates.SenderTemplate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ import java.util.Map;
 /**
  * Text Message Template Class
  */
-public class MessageTemplate {
+public class MessageTemplate implements SenderTemplate {
 
     protected String recipient_id;
 
