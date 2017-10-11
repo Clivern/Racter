@@ -21,7 +21,15 @@ public class BaseReceiver {
 
     protected JSONObject message_object;
 
-    protected Map<String, MessageReceivedWebhook> message_webhook = new HashMap<String, MessageReceivedWebhook>();
+    protected Map<String, MessageReceivedWebhook> message_received_webhook = new HashMap<String, MessageReceivedWebhook>();
+
+    protected Map<String, MessageDeliveredWebhook> message_delivered_webhook = new HashMap<String, MessageDeliveredWebhook>();
+
+    protected Map<String, MessageEchoWebhook> message_echo_webhook = new HashMap<String, MessageEchoWebhook>();
+
+    protected Map<String, MessageReadWebhook> message_read_webhook = new HashMap<String, MessageReadWebhook>();
+
+    protected Map<String, PostbackWebhook> postback_webhook = new HashMap<String, PostbackWebhook>();
 
     protected Config configs;
 
@@ -135,23 +143,23 @@ public class BaseReceiver {
                             //-----------------
                             // Message
                             //-----------------
-                            this.message_webhook.put("message." + z, new MessageReceivedWebhook());
-                            this.message_webhook.get("message." + z).setUserId(sender_id);
-                            this.message_webhook.get("message." + z).setPageId(recipient_id);
-                            this.message_webhook.get("message." + z).setTimestamp(timestamp);
+                            this.message_received_webhook.put("message." + z, new MessageReceivedWebhook());
+                            this.message_received_webhook.get("message." + z).setUserId(sender_id);
+                            this.message_received_webhook.get("message." + z).setPageId(recipient_id);
+                            this.message_received_webhook.get("message." + z).setTimestamp(timestamp);
 
                             String mid = (message.has("mid")) ? message.getString("mid") : null;
-                            this.message_webhook.get("message." + z).setMessageId(mid);
+                            this.message_received_webhook.get("message." + z).setMessageId(mid);
 
                             if ( message.has("text") ){
                                 String text = message.getString("text");
-                                this.message_webhook.get("message." + z).setMessageText(text);
+                                this.message_received_webhook.get("message." + z).setMessageText(text);
                             }
 
                             if ( message.has("quick_reply") ){
                                 JSONObject quick_reply = message.getJSONObject("quick_reply");
                                 String payload = (quick_reply.has("payload")) ? quick_reply.getString("payload") : null;
-                                this.message_webhook.get("message." + z).setQuickReplyPayload(payload);
+                                this.message_received_webhook.get("message." + z).setQuickReplyPayload(payload);
                             }
 
                             if ( message.has("attachments") ){
@@ -168,7 +176,7 @@ public class BaseReceiver {
                                             JSONObject attachment_payload = attachment.getJSONObject("payload");
                                             String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : null;
 
-                                            this.message_webhook.get("message." + z).setAttachment("audio", url);
+                                            this.message_received_webhook.get("message." + z).setAttachment("audio", url);
                                         }
 
                                     /////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,7 +189,7 @@ public class BaseReceiver {
                                         if( attachment.has("payload") ){
                                             JSONObject attachment_payload = attachment.getJSONObject("payload");
                                             String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : null;
-                                            this.message_webhook.get("message." + z).setAttachment("file", url);
+                                            this.message_received_webhook.get("message." + z).setAttachment("file", url);
                                         }
 
                                     }else if( type.equals("image") ){
@@ -189,7 +197,7 @@ public class BaseReceiver {
                                         if( attachment.has("payload") ){
                                             JSONObject attachment_payload = attachment.getJSONObject("payload");
                                             String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : null;
-                                            this.message_webhook.get("message." + z).setAttachment("image", url);
+                                            this.message_received_webhook.get("message." + z).setAttachment("image", url);
                                         }
 
                                     }else if( type.equals("video") ){
@@ -197,7 +205,7 @@ public class BaseReceiver {
                                         if( attachment.has("payload") ){
                                             JSONObject attachment_payload = attachment.getJSONObject("payload");
                                             String url = (attachment_payload.has("url")) ? attachment_payload.getString("url") : null;
-                                            this.message_webhook.get("message." + z).setAttachment("video", url);
+                                            this.message_received_webhook.get("message." + z).setAttachment("video", url);
                                         }
 
                                     }else if( type.equals("location") ){
@@ -206,7 +214,7 @@ public class BaseReceiver {
                                             JSONObject attachment_payload = attachment.getJSONObject("payload");
                                             Long coordinates_lat = (attachment_payload.has("coordinates.lat")) ? attachment_payload.getLong("coordinates.lat") : null;
                                             Long coordinates_long = (attachment_payload.has("coordinates.long")) ? attachment_payload.getLong("coordinates.long") : null;
-                                            this.message_webhook.get("message." + z).setAttachment("location", coordinates_lat, coordinates_long);
+                                            this.message_received_webhook.get("message." + z).setAttachment("location", coordinates_lat, coordinates_long);
                                         }
 
                                     }
@@ -220,7 +228,16 @@ public class BaseReceiver {
                     // Message Delivery
                     //-----------------
                     if( messaging_item.has("delivery") ){
+                        JSONObject delivery = messaging_item.getJSONObject("delivery");
 
+                        z += 1;
+
+                        this.message_delivered_webhook.put("message." + z, new MessageDeliveredWebhook());
+                        this.message_delivered_webhook.get("message." + z).setUserId(sender_id);
+                        this.message_delivered_webhook.get("message." + z).setPageId(recipient_id);
+                        //this.message_delivered_webhook.get("message." + z).setWatermark();
+                        //this.message_delivered_webhook.get("message." + z).setSeq();
+                        //this.message_delivered_webhook.get("message." + z).setMid();
 
                     }
 
@@ -228,7 +245,16 @@ public class BaseReceiver {
                     // Message Read
                     //-------------
                     if( messaging_item.has("read") ){
+                        JSONObject read = messaging_item.getJSONObject("read");
 
+                        z += 1;
+
+                        this.message_read_webhook.put("message." + z, new MessageReadWebhook());
+                        this.message_read_webhook.get("message." + z).setUserId(sender_id);
+                        this.message_read_webhook.get("message." + z).setPageId(recipient_id);
+                        this.message_read_webhook.get("message." + z).setTimestamp(timestamp);
+                        //this.message_read_webhook.get("message." + z).setWatermark();
+                        //this.message_read_webhook.get("message." + z).setSeq();
 
                     }
 
@@ -236,7 +262,15 @@ public class BaseReceiver {
                     // Post Back
                     //----------
                     if( messaging_item.has("postback") ){
+                        JSONObject postback = messaging_item.getJSONObject("postback");
 
+                        z += 1;
+
+                        this.postback_webhook.put("message." + z, new PostbackWebhook());
+                        this.postback_webhook.get("message." + z).setUserId(sender_id);
+                        this.postback_webhook.get("message." + z).setPageId(recipient_id);
+                        this.postback_webhook.get("message." + z).setTimestamp(timestamp);
+                        //this.postback_webhook.get("message." + z).setPostback();
 
                     }
                 }
@@ -253,7 +287,47 @@ public class BaseReceiver {
      */
     public Map<String, MessageReceivedWebhook> getMessages()
     {
-        return this.message_webhook;
+        return this.message_received_webhook;
+    }
+
+    /**
+     * Get delivered data
+     *
+     * @return Map<String, MessageDeliveredWebhook>
+     */
+    public Map<String, MessageDeliveredWebhook> getDelivered()
+    {
+        return this.message_delivered_webhook;
+    }
+
+    /**
+     * Get echo data
+     *
+     * @return Map<String, MessageEchoWebhook>
+     */
+    public Map<String, MessageEchoWebhook> getEcho()
+    {
+        return this.message_echo_webhook;
+    }
+
+    /**
+     * Get read data
+     *
+     * @return Map<String, MessageReadWebhook>
+     */
+    public Map<String, MessageReadWebhook> getRead()
+    {
+        return this.message_read_webhook;
+    }
+
+    /**
+     * Get postback data
+     *
+     * @return Map<String, PostbackWebhook>
+     */
+    public Map<String, PostbackWebhook> getPostback()
+    {
+        return this.postback_webhook;
     }
 
     /**
