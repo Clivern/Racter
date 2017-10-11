@@ -54,6 +54,7 @@ public class MessageReadWebhook {
      */
     protected Long timestamp;
 
+
     /**
      * Set User ID
      *

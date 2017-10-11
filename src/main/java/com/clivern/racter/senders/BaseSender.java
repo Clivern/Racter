@@ -33,6 +33,7 @@ public class BaseSender {
      */
     protected Log log;
 
+
     /**
      * Class Constructor
      *
@@ -45,7 +46,6 @@ public class BaseSender {
         this.configs = configs;
         this.log = log;
     }
-
 
     /**
      * Get Default Message Template Instance
