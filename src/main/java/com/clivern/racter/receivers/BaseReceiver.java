@@ -235,8 +235,12 @@ public class BaseReceiver {
                         this.message_delivered_webhook.put("message." + z, new MessageDeliveredWebhook());
                         this.message_delivered_webhook.get("message." + z).setUserId(sender_id);
                         this.message_delivered_webhook.get("message." + z).setPageId(recipient_id);
-                        //this.message_delivered_webhook.get("message." + z).setWatermark();
-                        //this.message_delivered_webhook.get("message." + z).setSeq();
+                        if( delivery.has("watermark") ){
+                            this.message_delivered_webhook.get("message." + z).setWatermark(delivery.getLong("watermark"));
+                        }
+                        if( delivery.has("seq") ){
+                            this.message_delivered_webhook.get("message." + z).setSeq(delivery.getInt("seq"));
+                        }
                         //this.message_delivered_webhook.get("message." + z).setMid();
 
                     }
@@ -253,9 +257,12 @@ public class BaseReceiver {
                         this.message_read_webhook.get("message." + z).setUserId(sender_id);
                         this.message_read_webhook.get("message." + z).setPageId(recipient_id);
                         this.message_read_webhook.get("message." + z).setTimestamp(timestamp);
-                        //this.message_read_webhook.get("message." + z).setWatermark();
-                        //this.message_read_webhook.get("message." + z).setSeq();
-
+                        if( read.has("watermark") ){
+                            this.message_read_webhook.get("message." + z).setWatermark(read.getLong("watermark"));
+                        }
+                        if( read.has("seq") ){
+                            this.message_read_webhook.get("message." + z).setSeq(read.getInt("seq"));
+                        }
                     }
 
                     //----------
