@@ -517,7 +517,8 @@ Changelog
 ---------
 Version 1.0.1:
 ```
-Major Enhancements.
+Major enhancements in documentations.
+Some classes refactored.
 ```
 
 Version 1.0.0:
