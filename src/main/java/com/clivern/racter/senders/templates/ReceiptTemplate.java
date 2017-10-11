@@ -185,7 +185,8 @@ public class ReceiptTemplate implements SenderTemplate {
      *
      * @return String
      */
-    public String getRecipientId(){
+    public String getRecipientId()
+    {
         return this.recipient_id;
     }
 
@@ -194,7 +195,8 @@ public class ReceiptTemplate implements SenderTemplate {
      *
      * @return String
      */
-    public String getRecipientName(){
+    public String getRecipientName()
+    {
         return this.recipient_name;
     }
 
@@ -203,7 +205,8 @@ public class ReceiptTemplate implements SenderTemplate {
      *
      * @return String
      */
-    public String getOrderNumber(){
+    public String getOrderNumber()
+    {
         return this.order_number;
     }
 
@@ -212,7 +215,8 @@ public class ReceiptTemplate implements SenderTemplate {
      *
      * @return String
      */
-    public String getCurrency(){
+    public String getCurrency()
+    {
         return this.currency;
     }
 
@@ -221,7 +225,8 @@ public class ReceiptTemplate implements SenderTemplate {
      *
      * @return String
      */
-    public String getPaymentMethod(){
+    public String getPaymentMethod()
+    {
         return this.payment_method;
     }
 
@@ -230,7 +235,8 @@ public class ReceiptTemplate implements SenderTemplate {
      *
      * @return String
      */
-    public String getOrderUrl(){
+    public String getOrderUrl()
+    {
         return this.order_url;
     }
 
@@ -239,7 +245,8 @@ public class ReceiptTemplate implements SenderTemplate {
      *
      * @return String
      */
-    public String getTimestamp(){
+    public String getTimestamp()
+    {
         return this.timestamp;
     }
 
