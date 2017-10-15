@@ -167,6 +167,51 @@ public class Main {
 }
 ```
 
+Also if we use [Spring Boot Framework](https://projects.spring.io/spring-boot/) for our bot, Our route and callback will look like the following:
+
+```java
+package com.racter.example;
+
+import org.springframework.boot.*;
+import org.springframework.boot.autoconfigure.*;
+import org.springframework.stereotype.*;
+import org.springframework.web.bind.annotation.*;
+
+import com.clivern.racter.BotPlatform;
+import com.clivern.racter.receivers.webhook.*;
+
+import com.clivern.racter.senders.*;
+import com.clivern.racter.senders.templates.*;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.io.IOException;
+import com.mashape.unirest.http.exceptions.UnirestException;
+
+@Controller
+@EnableAutoConfiguration
+public class Main {
+
+    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @ResponseBody
+    String verifyToken(@RequestParam(value="hub.mode", defaultValue="") String hub_mode, @RequestParam(value="hub.verify_token", defaultValue="") String hub_verify_token, @RequestParam(value="hub.challenge", defaultValue="") String hub_challenge ) throws IOException {
+
+        BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
+        platform.getVerifyWebhook().setHubMode(hub_mode);
+        platform.getVerifyWebhook().setHubVerifyToken(hub_verify_token);
+        platform.getVerifyWebhook().setHubChallenge(hub_challenge);
+
+        if( platform.getVerifyWebhook().challenge() ){
+            platform.finish();
+            return ( hub_challenge != "" ) ? hub_challenge : "";
+        }
+
+        platform.finish();
+        return "Verification token mismatch";
+    }
+}
+```
+
 Message Received
 ----------------
 In order to receive and parse messages, You will need to create another route that receives post requests from Facebook. Our Route should contain a code look like the following:
@@ -261,6 +306,88 @@ public class Main {
 
             return "No Messages";
         });
+    }
+}
+```
+
+Also if we use [Spring Boot Framework](https://projects.spring.io/spring-boot/) for our bot, Our route and callback will look like the following:
+
+```java
+package com.racter.example;
+
+import org.springframework.boot.*;
+import org.springframework.boot.autoconfigure.*;
+import org.springframework.stereotype.*;
+import org.springframework.web.bind.annotation.*;
+
+import com.clivern.racter.BotPlatform;
+import com.clivern.racter.receivers.webhook.*;
+
+import com.clivern.racter.senders.*;
+import com.clivern.racter.senders.templates.*;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.io.IOException;
+import com.mashape.unirest.http.exceptions.UnirestException;
+
+@Controller
+@EnableAutoConfiguration
+public class Main {
+
+    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @ResponseBody
+    String verifyToken(@RequestParam(value="hub.mode", defaultValue="") String hub_mode, @RequestParam(value="hub.verify_token", defaultValue="") String hub_verify_token, @RequestParam(value="hub.challenge", defaultValue="") String hub_challenge ) throws IOException {
+
+        BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
+        platform.getVerifyWebhook().setHubMode(hub_mode);
+        platform.getVerifyWebhook().setHubVerifyToken(hub_verify_token);
+        platform.getVerifyWebhook().setHubChallenge(hub_challenge);
+
+        if( platform.getVerifyWebhook().challenge() ){
+            platform.finish();
+            return ( hub_challenge != "" ) ? hub_challenge : "";
+        }
+
+        platform.finish();
+        return "Verification token mismatch";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @ResponseBody
+    String webHook(@RequestBody String body) throws IOException, UnirestException {
+        BotPlatform platform = new BotPlatform("config.properties");
+        platform.getBaseReceiver().set(body).parse();
+        HashMap<String, MessageReceivedWebhook> messages = (HashMap<String, MessageReceivedWebhook>) platform.getBaseReceiver().getMessages();
+        for (MessageReceivedWebhook message : messages.values()) {
+
+            String user_id = (message.hasUserId()) ? message.getUserId() : "";
+            String page_id = (message.hasPageId()) ? message.getPageId() : "";
+            String message_id = (message.hasMessageId()) ? message.getMessageId() : "";
+            String message_text = (message.hasMessageText()) ? message.getMessageText() : "";
+            String quick_reply_payload = (message.hasQuickReplyPayload()) ? message.getQuickReplyPayload() : "";
+            Long timestamp = (message.hasTimestamp()) ? message.getTimestamp() : 0;
+            HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
+
+            // Use Logger To Log Incoming Data
+            platform.getLogger().info("User ID#:" + user_id);
+            platform.getLogger().info("Page ID#:" + page_id);
+            platform.getLogger().info("Message ID#:" + message_id);
+            platform.getLogger().info("Message Text#:" + message_text);
+            platform.getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
+
+            for (String attachment : attachments.values()) {
+                platform.getLogger().info("Attachment#:" + attachment);
+            }
+
+            return "ok";
+        }
+
+        // ..
+        // Other Receive Webhooks Goes Here
+        // ..
+
+        return "No Messages";
     }
 }
 ```
