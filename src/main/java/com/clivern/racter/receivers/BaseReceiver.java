@@ -241,6 +241,7 @@ public class BaseReceiver {
                         if( delivery.has("seq") ){
                             this.message_delivered_webhook.get("message." + z).setSeq(delivery.getInt("seq"));
                         }
+
                         //this.message_delivered_webhook.get("message." + z).setMid();
 
                     }
@@ -277,6 +278,7 @@ public class BaseReceiver {
                         this.postback_webhook.get("message." + z).setUserId(sender_id);
                         this.postback_webhook.get("message." + z).setPageId(recipient_id);
                         this.postback_webhook.get("message." + z).setTimestamp(timestamp);
+
                         //this.postback_webhook.get("message." + z).setPostback();
 
                     }
