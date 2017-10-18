@@ -15,19 +15,13 @@ import java.io.IOException;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 /**
- * This controller contains an action to handle HTTP requests
- * to the application's home page.
+ * Home Controller
  */
 public class HomeController extends Controller {
 
-    /**
-     * An action that renders an HTML page with a welcome message.
-     * The configuration in the <code>routes</code> file means that
-     * this method will be called when the application receives a
-     * <code>GET</code> request with a path of <code>/</code>.
-     */
-    public Result verifyToken(String hub_mode, String hub_verify_token, String hub_challenge) throws IOException {
 
+    public Result verifyToken(String hub_mode, String hub_verify_token, String hub_challenge) throws IOException
+    {
         BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
         platform.getVerifyWebhook().setHubMode(hub_mode);
         platform.getVerifyWebhook().setHubVerifyToken(hub_verify_token);
@@ -40,10 +34,10 @@ public class HomeController extends Controller {
 
         platform.finish();
         return ok("Verification token mismatch");
-
     }
 
-    public Result webHook()  throws IOException, UnirestException {
+    public Result webHook()  throws IOException, UnirestException
+    {
         RequestBody body = request().body();
         BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
         platform.getBaseReceiver().set(body.asText()).parse();
