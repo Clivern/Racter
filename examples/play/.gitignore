@@ -4,7 +4,6 @@ bin/
 .eclipse
 /.idea
 /lib/
-/logs/
 /modules
 /project/project
 /project/target

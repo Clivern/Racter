@@ -51,7 +51,7 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Oct 18 15:43:29 EET 2017
+                  DATE: Wed Oct 18 15:52:40 EET 2017
                   SOURCE: /var/www/racter/examples/play/app/views/index.scala.html
                   HASH: 101fa511ddebe89cb9bf324b96e228b7b59b8d04
                   MATRIX: 941->1|1037->3|1065->6|1096->29|1135->31|1164->34|1220->61

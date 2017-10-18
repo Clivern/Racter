@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/var/www/racter/examples/play/conf/routes
-// @DATE:Wed Oct 18 15:47:25 EET 2017
+// @DATE:Wed Oct 18 15:52:40 EET 2017
 
 import play.api.mvc.Call
 

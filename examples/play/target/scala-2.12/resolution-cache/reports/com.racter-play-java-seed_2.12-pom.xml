@@ -7,7 +7,7 @@
 		revision="1.0-SNAPSHOT"
 		conf="pom"
 		confs="compile, runtime, test, provided, optional, universal, universal-docs, universal-src, windows, docker, linux, rpm, debian, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool, docs"
-		date="20171018154310"/>
+		date="20171018155124"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>
