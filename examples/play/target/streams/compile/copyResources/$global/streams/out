@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/var/www/racter/examples/play/conf/logback.xml,/var/www/racter/examples/play/target/scala-2.12/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/var/www/racter/examples/play/conf/routes,/var/www/racter/examples/play/target/scala-2.12/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/var/www/racter/examples/play/conf/application.conf,/var/www/racter/examples/play/target/scala-2.12/classes/application.conf)[0m
