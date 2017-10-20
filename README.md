@@ -756,11 +756,9 @@ Tutorials & Examples
 
 > For almost all supported features you can take a look at [`examples/`](https://github.com/Clivern/Racter/tree/master/examples) folder for working examples.
 
-I am still working on the following:
+Also check the following tutorials:
 
-1. [Building Your Messenger Chat Bot with Racter & SparkJava Framework.](https://github.com/Clivern/Racter)
-2. [Building Your Messenger Chat Bot with Racter & Spring Framework.](https://github.com/Clivern/Racter)
-3. [Building Your Messenger Chat Bot with Racter & Play Framework.](https://github.com/Clivern/Racter)
+1. [Building Your Messenger Chat Bot with Racter & SparkJava Framework.](http://clivern.com/how-to-create-a-facebook-messenger-bot-with-java/)
 
 
 Changelog
