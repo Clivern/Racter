@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.clivern</groupId>
   <artifactId>racter</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.2</version>
   <name>Racter</name>
   <description>A Java Framework for Building Bots on Facebook's Messenger Platform.</description>
   <url>https://github.com/clivern/racter</url>

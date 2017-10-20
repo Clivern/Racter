@@ -767,7 +767,8 @@ Changelog
 ---------
 Version 1.0.2:
 ```
-~
+Some Issues Fixed.
+PlayFramework Integration.
 ```
 
 Version 1.0.1:
