@@ -236,17 +236,18 @@ import com.mashape.unirest.http.exceptions.UnirestException;
  */
 public class HomeController extends Controller {
 
+    protected String basePath = System.getProperty("user.dir");
 
-    public Result verifyToken(String hub_mode, String hub_verify_token, String hub_challenge) throws IOException
+    public Result verifyToken() throws IOException
     {
-        BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
-        platform.getVerifyWebhook().setHubMode(hub_mode);
-        platform.getVerifyWebhook().setHubVerifyToken(hub_verify_token);
-        platform.getVerifyWebhook().setHubChallenge(hub_challenge);
+        BotPlatform platform = new BotPlatform(this.basePath + "/conf/racter.properties");
+        platform.getVerifyWebhook().setHubMode(request().getQueryString("hub.mode"));
+        platform.getVerifyWebhook().setHubVerifyToken(request().getQueryString("hub.verify_token"));
+        platform.getVerifyWebhook().setHubChallenge(request().getQueryString("hub.challenge"));
 
         if( platform.getVerifyWebhook().challenge() ){
             platform.finish();
-            return ( hub_challenge != "" ) ? ok(hub_challenge) : ok();
+            return ( request().getQueryString("hub.challenge") != null ) ? ok(request().getQueryString("hub.challenge")) : ok();
         }
 
         platform.finish();
@@ -459,17 +460,18 @@ import com.mashape.unirest.http.exceptions.UnirestException;
  */
 public class HomeController extends Controller {
 
+    protected String basePath = System.getProperty("user.dir");
 
-    public Result verifyToken(String hub_mode, String hub_verify_token, String hub_challenge) throws IOException
+    public Result verifyToken() throws IOException
     {
-        BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
-        platform.getVerifyWebhook().setHubMode(hub_mode);
-        platform.getVerifyWebhook().setHubVerifyToken(hub_verify_token);
-        platform.getVerifyWebhook().setHubChallenge(hub_challenge);
+        BotPlatform platform = new BotPlatform(this.basePath + "/conf/racter.properties");
+        platform.getVerifyWebhook().setHubMode(request().getQueryString("hub.mode"));
+        platform.getVerifyWebhook().setHubVerifyToken(request().getQueryString("hub.verify_token"));
+        platform.getVerifyWebhook().setHubChallenge(request().getQueryString("hub.challenge"));
 
         if( platform.getVerifyWebhook().challenge() ){
             platform.finish();
-            return ( hub_challenge != "" ) ? ok(hub_challenge) : ok();
+            return ( request().getQueryString("hub.challenge") != null ) ? ok(request().getQueryString("hub.challenge")) : ok();
         }
 
         platform.finish();
@@ -478,8 +480,8 @@ public class HomeController extends Controller {
 
     public Result webHook()  throws IOException, UnirestException
     {
-        RequestBody body = request().body();
-        BotPlatform platform = new BotPlatform("src/main/java/resources/config.properties");
+        String body = request().body().asJson().toString();
+        BotPlatform platform = new BotPlatform(this.basePath + "/conf/racter.properties");
         platform.getBaseReceiver().set(body.asText()).parse();
         HashMap<String, MessageReceivedWebhook> messages = (HashMap<String, MessageReceivedWebhook>) platform.getBaseReceiver().getMessages();
         for (MessageReceivedWebhook message : messages.values()) {

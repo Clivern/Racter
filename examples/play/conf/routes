@@ -2,7 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET      /                           controllers.HomeController.verifyToken(hub_mode ?= "", hub_verify_token ?= "", hub_challenge ?= "")
+GET      /                           controllers.HomeController.verifyToken
 POST     /                           controllers.HomeController.webHook
 
 # Map static resources from the /public folder to the /assets URL path
