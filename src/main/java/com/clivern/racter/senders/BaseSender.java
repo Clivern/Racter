@@ -18,12 +18,25 @@ import com.mashape.unirest.request.HttpRequest;
  */
 public class BaseSender {
 
+    public static final String NOTIFICATION_TYPE_REGULAR = "REGULAR";
+    public static final String NOTIFICATION_TYPE_SILENT_PUSH = "SILENT_PUSH";
+    public static final String NOTIFICATION_TYPE_NO_PUSH = "NO_PUSH";
+
+    public static final String SENDER_ACTION_TYPING_ON = "typing_on";
+    public static final String SENDER_ACTION_TYPING_OFF = "typing_off";
+    public static final String SENDER_ACTION_MARK_SEEN = "mark_seen";
+
+    public static final String ATTACHMENT_TYPE_IMAGE = "image";
+    public static final String ATTACHMENT_TYPE_AUDIO = "audio";
+    public static final String ATTACHMENT_TYPE_VIDEO = "video";
+    public static final String ATTACHMENT_TYPE_FILE = "file";
+    public static final String ATTACHMENT_TYPE_TEMPLATE = "template";
+
     protected String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
 
     protected Config configs;
 
     protected Log log;
-
 
     /**
      * Class Constructor
