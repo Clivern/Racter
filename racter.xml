@@ -10,8 +10,8 @@
   <url>https://github.com/clivern/racter</url>
   <licenses>
     <license>
-      <name>MIT License</name>
-      <url>https://raw.githubusercontent.com/Clivern/racter/master/LICENSE</url>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
