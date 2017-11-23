@@ -41,7 +41,7 @@ After adding the package as a dependency, Please read the following steps:
 ### Basic Configurations
 In order to cofigure the package create `config.properties` file with the following data
 
-```
+```java
 app_id=App ID Goes Here
 verify_token=Verify Token Goes Here
 page_access_token=Page Access Token Goes Here
