@@ -751,6 +751,17 @@ platform.getBaseSender().send(receipt_message_tpl);
 Misc
 ====
 
+Contributing
+------------
+In case you want to share some love or show your awesomeness:
+
+1. Check the [Messenger Platform Documentations](https://developers.facebook.com/docs/messenger-platform/).
+1. Fork the master branch or latest version branch.
+2. Create a feature branch `git checkout -b my-feature`.
+3. Commit your changes `git commit -am 'new awesome feature'`.
+4. Push to the branch `git push origin my-feature`.
+5. Create new Pull Request.
+
 Tutorials & Examples
 --------------------
 
