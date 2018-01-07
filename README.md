@@ -755,12 +755,16 @@ Contributing
 ------------
 In case you want to share some love or show your awesomeness:
 
-1. Check the [Messenger Platform Documentations](https://developers.facebook.com/docs/messenger-platform/).
-1. Fork the master branch or latest version branch.
-2. Create a feature branch `git checkout -b my-feature`.
-3. Commit your changes `git commit -am 'new awesome feature'`.
-4. Push to the branch `git push origin my-feature`.
-5. Create new Pull Request.
+- Check the [Messenger Platform Documentations](https://developers.facebook.com/docs/messenger-platform/).
+- Fork the master branch or latest version branch.
+- Create a feature branch `git branch my-feature`.
+- Move to your branch `git checkout my-feature`.
+- Do Your Changes.
+- It will be great if you write some tests to your feature and check `./gradlew test` but not required ;).
+- Track the changes `git add --all`.
+- Commit your changes `git commit -m 'new awesome feature'`.
+- Push to your newly created branch `git push origin my-feature`.
+- Create a new Pull Request.
 
 Tutorials & Examples
 --------------------
