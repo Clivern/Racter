@@ -17,11 +17,7 @@ import com.clivern.racter.senders.templates.*;
 import com.clivern.racter.utils.Config;
 import com.clivern.racter.utils.Log;
 import com.mashape.unirest.http.*;
-import com.mashape.unirest.http.async.Callback;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import com.mashape.unirest.http.options.Options;
-import com.mashape.unirest.request.GetRequest;
-import com.mashape.unirest.request.HttpRequest;
 
 /**
  * Base Sender Class

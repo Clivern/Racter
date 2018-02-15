@@ -16,7 +16,6 @@ package com.clivern.racter.senders.templates;
 import com.clivern.racter.contract.templates.SenderTemplate;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Receipt Template Class

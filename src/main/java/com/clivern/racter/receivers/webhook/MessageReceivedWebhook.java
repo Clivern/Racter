@@ -16,10 +16,6 @@ package com.clivern.racter.receivers.webhook;
 import com.clivern.racter.contract.templates.ReceiverTemplate;
 import java.util.HashMap;
 import java.util.Map;
-import java.lang.*;
-import java.util.ArrayList;
-import org.json.JSONObject;
-import org.json.JSONArray;
 
 /**
  * Message Webhook Class

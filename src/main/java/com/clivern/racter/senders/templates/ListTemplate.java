@@ -16,7 +16,6 @@ package com.clivern.racter.senders.templates;
 import com.clivern.racter.contract.templates.SenderTemplate;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * List Template Class
@@ -101,7 +100,6 @@ public class ListTemplate implements SenderTemplate {
      */
     public Integer setElement(String title, String image_url, String subtitle)
     {
-        Integer index = 0;
         HashMap<String, Object> element = new HashMap<String, Object>();
 
         element.put("title", title);

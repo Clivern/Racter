@@ -13,7 +13,6 @@
  */
 package com.clivern.racter;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
 import com.clivern.racter.utils.Config;
