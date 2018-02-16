@@ -17,7 +17,7 @@ import com.clivern.racter.receivers.webhook.*;
 import java.util.HashMap;
 import java.util.Map;
 import com.clivern.racter.utils.Config;
-import com.clivern.racter.utils.Log;
+import org.pmw.tinylog.Logger;
 import org.json.JSONObject;
 import org.json.JSONArray;
 
@@ -43,19 +43,15 @@ public class BaseReceiver {
 
     protected Config configs;
 
-    protected Log log;
-
 
     /**
      * Class Constructor
      *
      * @param configs
-     * @param log
      */
-    public BaseReceiver(Config configs, Log log)
+    public BaseReceiver(Config configs)
     {
         this.configs = configs;
-        this.log = log;
     }
 
     /**

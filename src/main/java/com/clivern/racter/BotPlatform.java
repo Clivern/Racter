@@ -16,7 +16,6 @@ package com.clivern.racter;
 import java.util.Map;
 import java.io.IOException;
 import com.clivern.racter.utils.Config;
-import com.clivern.racter.utils.Log;
 import com.clivern.racter.receivers.BaseReceiver;
 import com.clivern.racter.receivers.VerifyWebhook;
 import com.clivern.racter.senders.BaseSender;
@@ -34,8 +33,6 @@ public class BotPlatform {
 
     protected BaseSender base_sender;
 
-    protected Log log;
-
 
     /**
      * Class Constructor
@@ -46,10 +43,10 @@ public class BotPlatform {
     {
         this.configs = new Config();
         this.configs.loadPropertiesFile(poperties_file_path);
-        this.log = new Log(this.configs);
-        this.base_receiver = new BaseReceiver(this.configs, this.log);
-        this.base_sender = new BaseSender(this.configs, this.log);
-        this.verify_webhook = new VerifyWebhook(this.configs, this.log);
+        configs.configLogger();
+        this.base_receiver = new BaseReceiver(this.configs);
+        this.base_sender = new BaseSender(this.configs);
+        this.verify_webhook = new VerifyWebhook(this.configs);
     }
 
     /**
@@ -63,10 +60,10 @@ public class BotPlatform {
         for (Map.Entry<String, String> entry : options.entrySet()) {
             this.configs.set(entry.getKey(), options.get(entry.getKey()));
         }
-        this.log = new Log(this.configs);
-        this.base_receiver = new BaseReceiver(this.configs, this.log);
-        this.base_sender = new BaseSender(this.configs, this.log);
-        this.verify_webhook = new VerifyWebhook(this.configs, this.log);
+        configs.configLogger();
+        this.base_receiver = new BaseReceiver(this.configs);
+        this.base_sender = new BaseSender(this.configs);
+        this.verify_webhook = new VerifyWebhook(this.configs);
     }
 
     /**
@@ -110,16 +107,6 @@ public class BotPlatform {
     }
 
     /**
-     * Get Logger
-     *
-     * @return Log
-     */
-    public Log getLogger()
-    {
-        return this.log;
-    }
-
-    /**
      * Get Package Name
      *
      * @return String
@@ -127,13 +114,5 @@ public class BotPlatform {
     public String getName()
     {
         return "Racter";
-    }
-
-    /**
-     * Close any connections
-     */
-    public void finish()
-    {
-        this.log.close();
     }
 }

@@ -15,7 +15,7 @@ package com.clivern.racter.senders;
 
 import com.clivern.racter.senders.templates.*;
 import com.clivern.racter.utils.Config;
-import com.clivern.racter.utils.Log;
+import org.pmw.tinylog.Logger;
 import com.mashape.unirest.http.*;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
@@ -42,18 +42,14 @@ public class BaseSender {
 
     protected Config configs;
 
-    protected Log log;
-
     /**
      * Class Constructor
      *
      * @param configs
-     * @param log
      */
-    public BaseSender(Config configs, Log log)
+    public BaseSender(Config configs)
     {
         this.configs = configs;
-        this.log = log;
     }
 
     /**
@@ -117,7 +113,7 @@ public class BaseSender {
     {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
-        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        Logger.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
         HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
         return true;
@@ -134,7 +130,7 @@ public class BaseSender {
     {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
-        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        Logger.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
         HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
         return true;
@@ -151,7 +147,7 @@ public class BaseSender {
     {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
-        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        Logger.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
         HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
         return true;
@@ -168,7 +164,7 @@ public class BaseSender {
     {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
-        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        Logger.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
         HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
         return true;
@@ -185,7 +181,7 @@ public class BaseSender {
     {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
-        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        Logger.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
         HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
         return true;
@@ -201,7 +197,7 @@ public class BaseSender {
     public Boolean send(String body) throws UnirestException
     {
         String url = this.remote_url + this.configs.get("page_access_token", "");
-        this.log.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
+        Logger.info("curl -X POST -H \"Content-Type: application/json\" -d '" + body + "' \"" + url + "\"");
         HttpResponse<String> response = Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
 
         return true;

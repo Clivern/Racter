@@ -3,7 +3,7 @@ Racter
 
 Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 
-*Current Version: 1.0.2*
+*Current Version: 1.0.3*
 
 [![Build Status](https://travis-ci.org/Clivern/Racter.svg?branch=master)](https://travis-ci.org/Clivern/Racter)
 ![](https://img.shields.io/maven-central/v/com.clivern/racter.svg)
@@ -18,20 +18,20 @@ To add a dependency using Maven, use the following:
 <dependency>
   <groupId>com.clivern</groupId>
   <artifactId>racter</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:racter:1.0.2'
+  compile 'com.clivern:racter:1.0.3'
 }
 ```
 
 To add a dependency using Scala SBT, use the following:
 ```java
-libraryDependencies += "com.clivern" % "racter" % "1.0.2"
+libraryDependencies += "com.clivern" % "racter" % "1.0.3"
 ```
 
 Usage
@@ -45,14 +45,13 @@ In order to cofigure the package create `config.properties` file with the follow
 app_id=App ID Goes Here
 verify_token=Verify Token Goes Here
 page_access_token=Page Access Token Goes Here
-log_console_status=true or false
-log_console_level=ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF
-log_file_status=true or false
-log_file_level=ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF
-log_file_path=app.log
-log_file_limit=1
-log_file_count=200000
-log_file_append=true or false
+logging_level=debug
+logging_file_path=src/main/java/resources/
+logging_file_format=current_date
+logging_log_type=file
+logging_current_date_format=yyyy-MM-dd
+logging_append=true
+logging_buffered=false
 ```
 
 Then import all required classes
@@ -84,14 +83,14 @@ Map<String, String> options = new HashMap<String, String>();
 options.put("app_id", "App ID Goes Here");
 options.put("verify_token", "Verify Token Goes Here");
 options.put("page_access_token", "Page Access Token Goes Here");
-options.put("log_console_status", "true or false");
-options.put("log_console_level", "ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF");
-options.put("log_file_status", "true or false");
-options.put("log_file_level", "ALL, CONFIG, FINE, FINER, FINEST, INFO, SEVERE, WARNING or OFF");
-options.put("log_file_path", "app.log");
-options.put("log_file_limit", "1");
-options.put("log_file_count", "200000");
-options.put("log_file_append", "true or false");
+
+options.put("logging_level", "tarce < debug or info or warning or error");
+options.put("logging_file_path", "src/main/java/resources/");
+options.put("logging_file_format", "current_date or app");
+options.put("logging_log_type", "file or console or both");
+options.put("logging_current_date_format", "yyyy-MM-dd");
+options.put("logging_append", "true or false");
+options.put("logging_buffered", "true or false");
 
 BotPlatform platform = new BotPlatform(options);
 ```
@@ -282,6 +281,8 @@ So let's say we use [Spark Java Framework](http://sparkjava.com/) for our bot, O
 
 ```java
 import static spark.Spark.*;
+import org.pmw.tinylog.Logger;
+
 import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.*;
 import com.clivern.racter.receivers.webhook.*;
@@ -331,14 +332,14 @@ public class Main {
                 HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
 
                 // Use Logger To Log Incoming Data
-                platform.getLogger().info("User ID#:" + user_id);
-                platform.getLogger().info("Page ID#:" + page_id);
-                platform.getLogger().info("Message ID#:" + message_id);
-                platform.getLogger().info("Message Text#:" + message_text);
-                platform.getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
+                Logger.info("User ID#:" + user_id);
+                Logger.info("Page ID#:" + page_id);
+                Logger.info("Message ID#:" + message_id);
+                Logger.info("Message Text#:" + message_text);
+                Logger.info("Quick Reply Payload#:" + quick_reply_payload);
 
                 for (String attachment : attachments.values()) {
-                    platform.getLogger().info("Attachment#:" + attachment);
+                    Logger.info("Attachment#:" + attachment);
                 }
 
                 return "ok";
@@ -363,6 +364,7 @@ import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
+import org.pmw.tinylog.Logger;
 
 import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.webhook.*;
@@ -414,14 +416,14 @@ public class Main {
             HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
 
             // Use Logger To Log Incoming Data
-            platform.getLogger().info("User ID#:" + user_id);
-            platform.getLogger().info("Page ID#:" + page_id);
-            platform.getLogger().info("Message ID#:" + message_id);
-            platform.getLogger().info("Message Text#:" + message_text);
-            platform.getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
+            Logger.info("User ID#:" + user_id);
+            Logger.info("Page ID#:" + page_id);
+            Logger.info("Message ID#:" + message_id);
+            Logger.info("Message Text#:" + message_text);
+            Logger.info("Quick Reply Payload#:" + quick_reply_payload);
 
             for (String attachment : attachments.values()) {
-                platform.getLogger().info("Attachment#:" + attachment);
+                Logger.info("Attachment#:" + attachment);
             }
 
             return "ok";
@@ -443,6 +445,7 @@ package controllers;
 
 import play.mvc.*;
 import play.mvc.Http.RequestBody;
+import org.pmw.tinylog.Logger;
 
 import com.clivern.racter.BotPlatform;
 import com.clivern.racter.receivers.webhook.*;
@@ -494,14 +497,14 @@ public class HomeController extends Controller {
             Long timestamp = (message.hasTimestamp()) ? message.getTimestamp() : 0;
             HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
 
-            platform.getLogger().info("User ID#:" + user_id);
-            platform.getLogger().info("Page ID#:" + page_id);
-            platform.getLogger().info("Message ID#:" + message_id);
-            platform.getLogger().info("Message Text#:" + message_text);
-            platform.getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
+            Logger.info("User ID#:" + user_id);
+            Logger.info("Page ID#:" + page_id);
+            Logger.info("Message ID#:" + message_id);
+            Logger.info("Message Text#:" + message_text);
+            Logger.info("Quick Reply Payload#:" + quick_reply_payload);
 
             for (String attachment : attachments.values()) {
-                platform.getLogger().info("Attachment#:" + attachment);
+                Logger.info("Attachment#:" + attachment);
             }
 
             return ok("ok");
@@ -778,6 +781,12 @@ Also check the following tutorials:
 
 Changelog
 ---------
+Version 1.0.3:
+```
+Update logging package.
+Update Configurations.
+```
+
 Version 1.0.2:
 ```
 Some Issues Fixed.

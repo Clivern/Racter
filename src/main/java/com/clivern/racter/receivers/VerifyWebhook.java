@@ -14,7 +14,7 @@
 package com.clivern.racter.receivers;
 
 import com.clivern.racter.utils.Config;
-import com.clivern.racter.utils.Log;
+import org.pmw.tinylog.Logger;
 
 /**
  * Verify Webhook Class
@@ -29,19 +29,15 @@ public class VerifyWebhook {
 
     protected Config configs;
 
-    protected Log log;
-
 
     /**
      * Class Constructor
      *
      * @param  configs
-     * @param  log
      */
-    public VerifyWebhook(Config configs, Log log)
+    public VerifyWebhook(Config configs)
     {
         this.configs = configs;
-        this.log = log;
     }
 
     /**
@@ -112,11 +108,11 @@ public class VerifyWebhook {
     public Boolean challenge()
     {
         if( (this.hub_mode.equals("subscribe")) && (this.hub_verify_token.equals(this.configs.get("verify_token", ""))) ){
-            this.log.info("Verify token validated successfully.");
+            Logger.info("Verify token validated successfully.");
             return true;
         }
 
-        this.log.severe("Error validating verify token.");
+        Logger.error("Error validating verify token.");
         return false;
     }
 }

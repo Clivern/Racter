@@ -18,9 +18,15 @@ import java.util.Map;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Properties;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Properties;
+import org.pmw.tinylog.*;
+import org.pmw.tinylog.Logger;
+import org.pmw.tinylog.writers.*;
 
 /**
  * Config Utils Class
@@ -118,5 +124,48 @@ public class Config {
     public Map<String, String> getAll()
     {
         return configs;
+    }
+
+    /**
+     * Configure Logger
+     */
+    public void configLogger()
+    {
+        Map<String, Level> logLevels = new HashMap<String, Level>();
+        logLevels.put("trace", Level.TRACE);
+        logLevels.put("debug", Level.DEBUG);
+        logLevels.put("info", Level.INFO);
+        logLevels.put("warning", Level.WARNING);
+        logLevels.put("error", Level.ERROR);
+
+        if( this.get("logging_log_type", "file").equals("file") ){
+
+            DateFormat dateFormat = new SimpleDateFormat(this.get("logging_current_date_format","yyyy-MM-dd"));
+            Date date = new Date();
+            String logFileName = (this.get("logging_file_format", "current_date").equals("current_date")) ? dateFormat.format(date) + ".log" : this.get("logging_file_format", "current_date") + ".log";
+            Configurator.defaultConfig()
+                .writer(new FileWriter(this.get("logging_file_path", "src/main/java/resources/") + logFileName, (this.get("logging_buffered", "false").equals("true")) ? true : false, (this.get("logging_append", "true").equals("true")) ? true : false))
+                .level((logLevels.containsKey(this.get("logging_level","debug"))) ? logLevels.get(this.get("logging_level","debug")) : Level.INFO)
+                .activate();
+
+        }else if( this.get("logging_log_type", "file").equals("both") ){
+
+            DateFormat dateFormat = new SimpleDateFormat(this.get("logging_current_date_format","yyyy-MM-dd"));
+            Date date = new Date();
+            String logFileName = (this.get("logging_file_format", "current_date").equals("current_date")) ? dateFormat.format(date) + ".log" : this.get("logging_file_format", "current_date") + ".log";
+            Configurator.defaultConfig()
+                .writer(new ConsoleWriter())
+                .addWriter(new FileWriter(this.get("logging_file_path", "src/main/java/resources/") + logFileName))
+                .level((logLevels.containsKey(this.get("logging_level","debug"))) ? logLevels.get(this.get("logging_level","debug")) : Level.INFO)
+                .activate();
+
+        }else{
+
+            Configurator.defaultConfig()
+                .writer(new ConsoleWriter())
+                .level((logLevels.containsKey(this.get("logging_level","debug"))) ? logLevels.get(this.get("logging_level","debug")) : Level.INFO)
+                .activate();
+
+        }
     }
 }
