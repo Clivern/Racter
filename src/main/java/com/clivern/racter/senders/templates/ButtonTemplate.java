@@ -35,6 +35,8 @@ public class ButtonTemplate implements SenderTemplate {
 
     /**
      * Set Recipient ID
+     *
+     * @param recipient_id the recipient id
      */
     public void setRecipientId(String recipient_id)
     {
@@ -44,7 +46,7 @@ public class ButtonTemplate implements SenderTemplate {
     /**
      * Set Message Text
      *
-     * @param message_text
+     * @param message_text the message text
      */
     public void setMessageText(String message_text)
     {
@@ -54,10 +56,10 @@ public class ButtonTemplate implements SenderTemplate {
     /**
      * Set Button
      *
-     * @param type
-     * @param title
-     * @param url
-     * @param payload
+     * @param type the button type
+     * @param title the button title
+     * @param url the button url
+     * @param payload the button payload
      */
     public void setButton(String type, String title, String url, String payload)
     {
@@ -72,7 +74,7 @@ public class ButtonTemplate implements SenderTemplate {
     /**
      * Get Recipient ID
      *
-     * @return String
+     * @return String the recipient id
      */
     public String getRecipientId()
     {
@@ -82,7 +84,7 @@ public class ButtonTemplate implements SenderTemplate {
     /**
      * Get message text
      *
-     * @return String
+     * @return String the message text
      */
     public String getMessageText()
     {
@@ -92,7 +94,7 @@ public class ButtonTemplate implements SenderTemplate {
     /**
      * Get Buttons
      *
-     * @return ArrayList
+     * @return ArrayList the list of buttons
      */
     public ArrayList<HashMap<String, String>> getButton()
     {
@@ -102,7 +104,7 @@ public class ButtonTemplate implements SenderTemplate {
     /**
      * Build and get message as a string
      *
-     * @return String
+     * @return String the final message
      */
     public String build()
     {
@@ -155,7 +157,7 @@ public class ButtonTemplate implements SenderTemplate {
     /**
      * Set or override message
      *
-     * @param message_string
+     * @param message_string the final message
      */
     public void setMessageString(String message_string)
     {
@@ -165,7 +167,7 @@ public class ButtonTemplate implements SenderTemplate {
     /**
      * Get message as a string
      *
-     * @return String
+     * @return String the final message
      */
     public String getMessageString()
     {
