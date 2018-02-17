@@ -17,7 +17,7 @@ apply plugin: 'java-library'
 apply plugin: 'maven'
 
 archivesBaseName = "racter"
-version = '1.0.3'
+version = '1.0.4'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -35,7 +35,7 @@ task updatePom {
             project {
                 groupId 'com.clivern'
                 artifactId 'racter'
-                version '1.0.3'
+                version '1.0.4'
                 name 'Racter'
                 description "A Java Framework for Building Bots on Facebook's Messenger Platform."
                 url 'https://github.com/clivern/racter'
