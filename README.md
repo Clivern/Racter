@@ -84,7 +84,7 @@ options.put("app_id", "App ID Goes Here");
 options.put("verify_token", "Verify Token Goes Here");
 options.put("page_access_token", "Page Access Token Goes Here");
 
-options.put("logging_level", "tarce < debug or info or warning or error");
+options.put("logging_level", "tarce or debug or info or warning or error");
 options.put("logging_file_path", "src/main/java/resources/");
 options.put("logging_file_format", "current_date or app");
 options.put("logging_log_type", "file or console or both");
