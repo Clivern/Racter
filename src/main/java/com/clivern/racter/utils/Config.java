@@ -42,7 +42,7 @@ public class Config {
      *
      * @param path relative path to the config file
      * @return Boolean whether config file loaded or not
-     * @throws IOException
+     * @throws IOException May throw IOException if it cannot open configs file
      */
     public Boolean loadPropertiesFile(String path) throws IOException
     {
@@ -70,7 +70,7 @@ public class Config {
      *
      * @param path relative path to the config file
      * @return Boolean whether config file stored or not
-     * @throws IOException
+     * @throws IOException May throw IOException if it cannot open configs file
      */
     public Boolean storePropertiesFile(String path) throws IOException
     {

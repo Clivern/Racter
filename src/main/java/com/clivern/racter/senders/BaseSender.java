@@ -109,7 +109,7 @@ public class BaseSender {
      *
      * @param  template an instance of message template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException
+     * @throws UnirestException Throws exception in case it fails to perform the request
      */
     public Boolean send(MessageTemplate template) throws UnirestException
     {
@@ -126,7 +126,7 @@ public class BaseSender {
      *
      * @param  template an instance of button template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException
+     * @throws UnirestException Throws exception in case it fails to perform the request
      */
     public Boolean send(ButtonTemplate template) throws UnirestException
     {
@@ -143,7 +143,7 @@ public class BaseSender {
      *
      * @param  template an instance of list template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException
+     * @throws UnirestException Throws exception in case it fails to perform the request
      */
     public Boolean send(ListTemplate template) throws UnirestException
     {
@@ -160,7 +160,7 @@ public class BaseSender {
      *
      * @param  template an instance of generic template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException
+     * @throws UnirestException Throws exception in case it fails to perform the request
      */
     public Boolean send(GenericTemplate template) throws UnirestException
     {
@@ -177,7 +177,7 @@ public class BaseSender {
      *
      * @param  template an instance of receipt template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException
+     * @throws UnirestException Throws exception in case it fails to perform the request
      */
     public Boolean send(ReceiptTemplate template) throws UnirestException
     {
@@ -194,7 +194,7 @@ public class BaseSender {
      *
      * @param  body the message body
      * @return Boolean whether the message sent or not
-     * @throws UnirestException
+     * @throws UnirestException Throws exception in case it fails to perform the request
      */
     public Boolean send(String body) throws UnirestException
     {

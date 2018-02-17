@@ -40,6 +40,7 @@ public class BotPlatform {
      * Class Constructor
      *
      * @param  poperties_file_path realtive path to .properties file
+     * @throws IOException May throw IOException if it cannot open configs file
      */
     public BotPlatform(String poperties_file_path) throws IOException
     {
@@ -55,6 +56,7 @@ public class BotPlatform {
      * Class Constructor
      *
      * @param  options racter package configs
+     * @throws IOException May throw IOException if it cannot open configs file
      */
     public BotPlatform(Map<String, String> options) throws IOException
     {
