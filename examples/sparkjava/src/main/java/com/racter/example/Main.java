@@ -20,6 +20,7 @@ import com.clivern.racter.receivers.webhook.*;
 import com.clivern.racter.senders.*;
 import com.clivern.racter.senders.templates.*;
 
+import org.pmw.tinylog.Logger;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
@@ -65,14 +66,14 @@ public class Main {
                 Long timestamp = (message.hasTimestamp()) ? message.getTimestamp() : 0;
                 HashMap<String, String> attachments = (message.hasAttachment()) ? (HashMap<String, String>) message.getAttachment() : new HashMap<String, String>();
 
-                platform.getLogger().info("User ID#:" + user_id);
-                platform.getLogger().info("Page ID#:" + page_id);
-                platform.getLogger().info("Message ID#:" + message_id);
-                platform.getLogger().info("Message Text#:" + message_text);
-                platform.getLogger().info("Quick Reply Payload#:" + quick_reply_payload);
+                Logger.info("User ID#:" + user_id);
+                Logger.info("Page ID#:" + page_id);
+                Logger.info("Message ID#:" + message_id);
+                Logger.info("Message Text#:" + message_text);
+                Logger.info("Quick Reply Payload#:" + quick_reply_payload);
 
                 for (String attachment : attachments.values()) {
-                    platform.getLogger().info("Attachment#:" + attachment);
+                    Logger.info("Attachment#:" + attachment);
                 }
 
                 String text = message.getMessageText();
