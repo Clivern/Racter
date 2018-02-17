@@ -30,6 +30,8 @@ import org.pmw.tinylog.writers.*;
 
 /**
  * Config Utils Class
+ *
+ * @since 1.0.0
  */
 public class Config {
 
@@ -38,8 +40,8 @@ public class Config {
     /**
      * Load Properties File
      *
-     * @param path
-     * @return Boolean
+     * @param path relative path to the config file
+     * @return Boolean whether config file loaded or not
      * @throws IOException
      */
     public Boolean loadPropertiesFile(String path) throws IOException
@@ -66,8 +68,8 @@ public class Config {
     /**
      * Store Configs in Properties File
      *
-     * @param path
-     * @return Boolean
+     * @param path relative path to the config file
+     * @return Boolean whether config file stored or not
      * @throws IOException
      */
     public Boolean storePropertiesFile(String path) throws IOException
@@ -92,8 +94,8 @@ public class Config {
     /**
      * Set Config
      *
-     * @param key
-     * @param value
+     * @param key the config item key
+     * @param value the config item value
      */
     public void set(String key, String value)
     {
@@ -103,9 +105,9 @@ public class Config {
     /**
      * Get Config
      *
-     * @param key
-     * @param defaultValue
-     * @return String
+     * @param key the config item key
+     * @param defaultValue the config item default value
+     * @return String the config item value
      */
     public String get(String key, String defaultValue)
     {
@@ -119,7 +121,7 @@ public class Config {
     /**
      * Get All Configs
      *
-     * @return Map<String, String>
+     * @return Map list of all configs
      */
     public Map<String, String> getAll()
     {

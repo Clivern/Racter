@@ -21,6 +21,8 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 /**
  * Base Sender Class
+ *
+ * @since 1.0.0
  */
 public class BaseSender {
 
@@ -45,7 +47,7 @@ public class BaseSender {
     /**
      * Class Constructor
      *
-     * @param configs
+     * @param configs an instance of configs classß
      */
     public BaseSender(Config configs)
     {
@@ -55,7 +57,7 @@ public class BaseSender {
     /**
      * Get Default Message Template Instance
      *
-     * @return MessageTemplate
+     * @return MessageTemplate a new instance of message template
      */
     public MessageTemplate getMessageTemplate()
     {
@@ -65,7 +67,7 @@ public class BaseSender {
     /**
      * Get Button Message Template Instance
      *
-     * @return ButtonTemplate
+     * @return ButtonTemplate a new instance of button template
      */
     public ButtonTemplate getButtonTemplate()
     {
@@ -75,7 +77,7 @@ public class BaseSender {
     /**
      * Get List Message Template Instance
      *
-     * @return ListTemplate
+     * @return ListTemplate a new instance of list template
      */
     public ListTemplate getListTemplate()
     {
@@ -85,7 +87,7 @@ public class BaseSender {
     /**
      * Get Generic Message Template Instance
      *
-     * @return GenericTemplate
+     * @return GenericTemplate a new instance of generic template
      */
     public GenericTemplate getGenericTemplate()
     {
@@ -95,7 +97,7 @@ public class BaseSender {
     /**
      * Get Receipt Message Template Instance
      *
-     * @return ReceiptTemplate
+     * @return ReceiptTemplate a new instance of receipt template
      */
     public ReceiptTemplate getReceiptTemplate()
     {
@@ -105,8 +107,8 @@ public class BaseSender {
     /**
      * Send Default Message
      *
-     * @param  template
-     * @return Boolean
+     * @param  template an instance of message template
+     * @return Boolean whether the message sent or not
      * @throws UnirestException
      */
     public Boolean send(MessageTemplate template) throws UnirestException
@@ -122,8 +124,8 @@ public class BaseSender {
     /**
      * Send Button Message
      *
-     * @param  template
-     * @return Boolean
+     * @param  template an instance of button template
+     * @return Boolean whether the message sent or not
      * @throws UnirestException
      */
     public Boolean send(ButtonTemplate template) throws UnirestException
@@ -139,8 +141,8 @@ public class BaseSender {
     /**
      * Send List Message
      *
-     * @param  template
-     * @return Boolean
+     * @param  template an instance of list template
+     * @return Boolean whether the message sent or not
      * @throws UnirestException
      */
     public Boolean send(ListTemplate template) throws UnirestException
@@ -156,8 +158,8 @@ public class BaseSender {
     /**
      * Send Generic Message
      *
-     * @param  template
-     * @return Boolean
+     * @param  template an instance of generic template
+     * @return Boolean whether the message sent or not
      * @throws UnirestException
      */
     public Boolean send(GenericTemplate template) throws UnirestException
@@ -173,8 +175,8 @@ public class BaseSender {
     /**
      * Send Receipt Message
      *
-     * @param  template
-     * @return Boolean
+     * @param  template an instance of receipt template
+     * @return Boolean whether the message sent or not
      * @throws UnirestException
      */
     public Boolean send(ReceiptTemplate template) throws UnirestException
@@ -190,8 +192,8 @@ public class BaseSender {
     /**
      * Send Plain Message JSON
      *
-     * @param  body
-     * @return Boolean
+     * @param  body the message body
+     * @return Boolean whether the message sent or not
      * @throws UnirestException
      */
     public Boolean send(String body) throws UnirestException

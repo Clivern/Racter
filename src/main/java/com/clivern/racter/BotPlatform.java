@@ -22,6 +22,8 @@ import com.clivern.racter.senders.BaseSender;
 
 /**
  * Bot Platform Base Class
+ *
+ * @since 1.0.0
  */
 public class BotPlatform {
 
@@ -37,7 +39,7 @@ public class BotPlatform {
     /**
      * Class Constructor
      *
-     * @param  poperties_file_path
+     * @param  poperties_file_path realtive path to .properties file
      */
     public BotPlatform(String poperties_file_path) throws IOException
     {
@@ -52,7 +54,7 @@ public class BotPlatform {
     /**
      * Class Constructor
      *
-     * @param  options
+     * @param  options racter package configs
      */
     public BotPlatform(Map<String, String> options) throws IOException
     {
@@ -69,7 +71,7 @@ public class BotPlatform {
     /**
      * Get Configs
      *
-     * @return Config
+     * @return an instance of config class
      */
     public Config getConfigs()
     {
@@ -79,7 +81,7 @@ public class BotPlatform {
     /**
      * Get Verify Webhook
      *
-     * @return VerifyWebhook
+     * @return VerifyWebhook an instance of verify webhook
      */
     public VerifyWebhook getVerifyWebhook()
     {
@@ -89,7 +91,7 @@ public class BotPlatform {
     /**
      * Get Base Receiver
      *
-     * @return BaseReceiver
+     * @return BaseReceiver an instance of base receiver
      */
     public BaseReceiver getBaseReceiver()
     {
@@ -99,7 +101,7 @@ public class BotPlatform {
     /**
      * Get Base Sender
      *
-     * @return BaseSender
+     * @return BaseSender an instance of base sender
      */
     public BaseSender getBaseSender()
     {
@@ -109,7 +111,7 @@ public class BotPlatform {
     /**
      * Get Package Name
      *
-     * @return String
+     * @return String the package name
      */
     public String getName()
     {
