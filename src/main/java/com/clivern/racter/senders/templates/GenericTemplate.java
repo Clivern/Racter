@@ -19,6 +19,8 @@ import java.util.HashMap;
 
 /**
  * Generic Template Class
+ *
+ * @since 1.0.0
  */
 public class GenericTemplate implements SenderTemplate {
 
@@ -32,7 +34,7 @@ public class GenericTemplate implements SenderTemplate {
     /**
      * Set Recipient ID
      *
-     * @param recipient_id
+     * @param recipient_id the recipient id
      */
     public void setRecipientId(String recipient_id)
     {
@@ -42,7 +44,7 @@ public class GenericTemplate implements SenderTemplate {
     /**
      * Get Recipient ID
      *
-     * @return String
+     * @return String the recipient id
      */
     public String getRecipientId()
     {
@@ -52,10 +54,10 @@ public class GenericTemplate implements SenderTemplate {
     /**
      * Set Element
      *
-     * @param  title
-     * @param  image_url
-     * @param  subtitle
-     * @return Integer
+     * @param  title the element title
+     * @param  image_url the element image url
+     * @param  subtitle the element subtitle
+     * @return Integer the element index
      */
     public Integer setElement(String title, String image_url, String subtitle)
     {
@@ -72,12 +74,12 @@ public class GenericTemplate implements SenderTemplate {
     /**
      * Set Element Default Action
      *
-     * @param index
-     * @param type
-     * @param url
-     * @param messenger_extensions
-     * @param webview_height_ratio
-     * @param fallback_url
+     * @param index the element index
+     * @param type the element type
+     * @param url the element url
+     * @param messenger_extensions the messenger extensions
+     * @param webview_height_ratio the webview height ratio
+     * @param fallback_url the fallback url
      */
     public void setElementDefaultAction(Integer index, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
     {
@@ -91,13 +93,13 @@ public class GenericTemplate implements SenderTemplate {
     /**
      * Set Element Button
      *
-     * @param index
-     * @param title
-     * @param type
-     * @param url
-     * @param messenger_extensions
-     * @param webview_height_ratio
-     * @param fallback_url
+     * @param index the element index
+     * @param title the element title
+     * @param type the element type
+     * @param url the element url
+     * @param messenger_extensions the messenger extensions
+     * @param webview_height_ratio the webview height ratio
+     * @param fallback_url the fallback url
      */
     public void setElementButton(Integer index, String title, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
     {
@@ -130,7 +132,7 @@ public class GenericTemplate implements SenderTemplate {
     /**
      * Build and get message as a string
      *
-     * @return String
+     * @return String the final message
      */
     public String build()
     {
@@ -252,7 +254,7 @@ public class GenericTemplate implements SenderTemplate {
     /**
      * Set or override message
      *
-     * @param message_string
+     * @param message_string the final message
      */
     public void setMessageString(String message_string)
     {
@@ -262,7 +264,7 @@ public class GenericTemplate implements SenderTemplate {
     /**
      * Get message as a string
      *
-     * @return String
+     * @return String the final message
      */
     public String getMessageString()
     {

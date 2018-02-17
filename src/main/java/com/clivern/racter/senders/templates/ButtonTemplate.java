@@ -19,6 +19,8 @@ import java.util.HashMap;
 
 /**
  * Button Template Class
+ *
+ * @since 1.0.0
  */
 public class ButtonTemplate implements SenderTemplate {
 

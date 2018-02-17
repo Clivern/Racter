@@ -20,6 +20,8 @@ import java.util.Map;
 
 /**
  * Text Message Template Class
+ *
+ * @since 1.0.0
  */
 public class MessageTemplate implements SenderTemplate {
 
@@ -43,7 +45,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Set Recipient ID
      *
-     * @param recipient_id
+     * @param recipient_id the recipient id
      */
     public void setRecipientId(String recipient_id)
     {
@@ -53,7 +55,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Set Message Text
      *
-     * @param message_text
+     * @param message_text the message text
      */
     public void setMessageText(String message_text)
     {
@@ -63,7 +65,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Set Message Meta Data
      *
-     * @param message_metadata
+     * @param message_metadata the message meta data
      */
     public void setMessageMetadata(String message_metadata)
     {
@@ -73,7 +75,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Set Sender Action
      *
-     * @param sender_action
+     * @param sender_action the sender action
      */
     public void setSenderAction(String sender_action)
     {
@@ -83,7 +85,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Set Notifications Type
      *
-     * @param notification_type
+     * @param notification_type the notification type
      */
     public void setNotificationType(String notification_type)
     {
@@ -93,9 +95,9 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Set Attachment
      *
-     * @param type
-     * @param url
-     * @param is_reusable
+     * @param type the attachment type
+     * @param url the attachment url
+     * @param is_reusable whether to be reusable or not
      */
     public void setAttachment(String type, String url, Boolean is_reusable)
     {
@@ -107,10 +109,10 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Set Quick Reply
      *
-     * @param content_type
-     * @param title
-     * @param payload
-     * @param image_url
+     * @param content_type the content type
+     * @param title the title
+     * @param payload the payload flag
+     * @param image_url the image URL
      */
     public void setQuickReply(String content_type, String title, String payload, String image_url)
     {
@@ -125,7 +127,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Get Recipient ID
      *
-     * @return String
+     * @return String the recipient id
      */
     public String getRecipientId()
     {
@@ -135,7 +137,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Get Message Text
      *
-     * @return String
+     * @return String the message text
      */
     public String getMessageText()
     {
@@ -145,7 +147,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Get Message Meta Data
      *
-     * @return String
+     * @return String the message meta data
      */
     public String getMessageMetadata()
     {
@@ -155,7 +157,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Get Sender Action
      *
-     * @return String
+     * @return String the sender action
      */
     public String getSenderAction()
     {
@@ -165,7 +167,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Get Notification Type
      *
-     * @return String
+     * @return String the notification type
      */
     public String getNotificationType()
     {
@@ -175,7 +177,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Get Attachment
      *
-     * @return Map
+     * @return Map a list of attachments
      */
     public Map<String, String> getAttachment()
     {
@@ -185,7 +187,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Get Quick Reply
      *
-     * @return ArrayList
+     * @return ArrayList a list of quick reply
      */
     public ArrayList<HashMap<String, String>> getQuickReply()
     {
@@ -195,7 +197,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Build and get message as a string
      *
-     * @return String
+     * @return String the final message
      */
     public String build()
     {
@@ -268,7 +270,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Set or override message
      *
-     * @param message_string
+     * @param message_string the message text
      */
     public void setMessageString(String message_string)
     {
@@ -278,7 +280,7 @@ public class MessageTemplate implements SenderTemplate {
     /**
      * Get message as a string
      *
-     * @return String
+     * @return String the message text
      */
     public String getMessageString()
     {
