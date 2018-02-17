@@ -99,6 +99,7 @@ public class ListTemplate implements SenderTemplate {
      * @param  title the element title
      * @param  image_url the element image url
      * @param  subtitle the element subtitle
+     * @return Integer index of the element
      */
     public Integer setElement(String title, String image_url, String subtitle)
     {
