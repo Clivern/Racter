@@ -67,6 +67,13 @@ task updatePom {
     }
 }
 
+test {
+    //we want display the following test events
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
+}
+
 dependencies {
     testImplementation 'junit:junit:4.12'
     compile 'com.mashape.unirest:unirest-java:1.4.9'
