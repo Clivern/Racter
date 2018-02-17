@@ -37,12 +37,10 @@ public class Main {
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
 
             if( platform.getVerifyWebhook().challenge() ){
-                platform.finish();
                 response.status(200);
                 return ( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "";
             }
 
-            platform.finish();
             response.status(403);
             return "Verification token mismatch";
         });

@@ -44,11 +44,9 @@ public class Main {
         platform.getVerifyWebhook().setHubChallenge(hub_challenge);
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( hub_challenge != "" ) ? hub_challenge : "";
         }
 
-        platform.finish();
         return "Verification token mismatch";
     }
 

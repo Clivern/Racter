@@ -112,14 +112,11 @@ platform.getVerifyWebhook().setHubVerifyToken(hubVerifyToken);
 platform.getVerifyWebhook().setHubChallenge(hubChallenge);
 
 if( platform.getVerifyWebhook().challenge() ){
-    platform.finish();
 
     // Set Response to be hubChallenge value and status code is 200 like
     // response.status(200);
     // return ( hubChallenge != null ) ? hubChallenge : "";
 }
-
-platform.finish();
 
 // Set Response to be 'Verification token mismatch' and status code is 403 like
 // response.status(403);
@@ -153,12 +150,10 @@ public class Main {
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
 
             if( platform.getVerifyWebhook().challenge() ){
-                platform.finish();
                 response.status(200);
                 return ( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "";
             }
 
-            platform.finish();
             response.status(403);
             return "Verification token mismatch";
         });
@@ -201,11 +196,9 @@ public class Main {
         platform.getVerifyWebhook().setHubChallenge(hub_challenge);
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( hub_challenge != "" ) ? hub_challenge : "";
         }
 
-        platform.finish();
         return "Verification token mismatch";
     }
 }
@@ -245,11 +238,9 @@ public class HomeController extends Controller {
         platform.getVerifyWebhook().setHubChallenge(request().getQueryString("hub.challenge"));
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( request().getQueryString("hub.challenge") != null ) ? ok(request().getQueryString("hub.challenge")) : ok();
         }
 
-        platform.finish();
         return ok("Verification token mismatch");
     }
 }
@@ -306,12 +297,10 @@ public class Main {
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
 
             if( platform.getVerifyWebhook().challenge() ){
-                platform.finish();
                 response.status(200);
                 return ( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "";
             }
 
-            platform.finish();
             response.status(403);
             return "Verification token mismatch";
         });
@@ -391,11 +380,8 @@ public class Main {
         platform.getVerifyWebhook().setHubChallenge(hub_challenge);
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( hub_challenge != "" ) ? hub_challenge : "";
         }
-
-        platform.finish();
         return "Verification token mismatch";
     }
 
@@ -473,11 +459,8 @@ public class HomeController extends Controller {
         platform.getVerifyWebhook().setHubChallenge(request().getQueryString("hub.challenge"));
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( request().getQueryString("hub.challenge") != null ) ? ok(request().getQueryString("hub.challenge")) : ok();
         }
-
-        platform.finish();
         return ok("Verification token mismatch");
     }
 
