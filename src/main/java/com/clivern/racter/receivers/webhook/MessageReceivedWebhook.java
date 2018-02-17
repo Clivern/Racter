@@ -24,7 +24,6 @@ import java.util.Map;
  */
 public class MessageReceivedWebhook implements ReceiverTemplate {
 
-
     protected String user_id;
 
     protected String page_id;
@@ -43,7 +42,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Set User ID
      *
-     * @param user_id
+     * @param user_id the user id
      */
     public void setUserId(String user_id)
     {
@@ -53,7 +52,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Set Page ID or Receiver ID
      *
-     * @param page_id
+     * @param page_id the page id
      */
     public void setPageId(String page_id)
     {
@@ -63,7 +62,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Set Timestamp
      *
-     * @param timestamp
+     * @param timestamp the timestamp
      */
     public void setTimestamp(Long timestamp)
     {
@@ -73,7 +72,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Set Message ID
      *
-     * @param message_id
+     * @param message_id the message id
      */
     public void setMessageId(String message_id)
     {
@@ -83,7 +82,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Set Message Text
      *
-     * @param message_text
+     * @param message_text the message text
      */
     public void setMessageText(String message_text)
     {
@@ -93,7 +92,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Set Quick Reply Payload
      *
-     * @param quick_reply_payload
+     * @param quick_reply_payload the quick reply payload
      */
     public void setQuickReplyPayload(String quick_reply_payload)
     {
@@ -103,8 +102,8 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Set Attachment
      *
-     * @param type
-     * @param payload
+     * @param type the attachment type
+     * @param payload the attachment payload
      */
     public void setAttachment(String type, String payload)
     {
@@ -114,9 +113,9 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Set Attachment
      *
-     * @param type
-     * @param loc_lat
-     * @param loc_long
+     * @param type the attachment type
+     * @param loc_lat the attachment location latitude
+     * @param loc_long the attachment location longitude
      */
     public void setAttachment(String type, Long loc_lat, Long loc_long)
     {
@@ -126,7 +125,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Check if User ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a user id
      */
     public Boolean hasUserId()
     {
@@ -136,7 +135,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Check if Page ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a page id
      */
     public Boolean hasPageId()
     {
@@ -146,7 +145,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Check if Timestamp Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a timestamp
      */
     public Boolean hasTimestamp()
     {
@@ -156,7 +155,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Check if Message ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a message id
      */
     public Boolean hasMessageId()
     {
@@ -166,7 +165,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Check if Message Text Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a message text
      */
     public Boolean hasMessageText()
     {
@@ -176,7 +175,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Check if Quick Reply Payload Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a quick reply payload
      */
     public Boolean hasQuickReplyPayload()
     {
@@ -186,7 +185,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Check if Attachment Exist
      *
-     * @return Boolean
+     * @return Boolean whether has an attachment
      */
     public Boolean hasAttachment()
     {
@@ -196,7 +195,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Get User ID
      *
-     * @return String
+     * @return String the user id
      */
     public String getUserId()
     {
@@ -206,7 +205,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Get Page ID
      *
-     * @return String
+     * @return String the page id
      */
     public String getPageId()
     {
@@ -216,7 +215,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Get Timestamp
      *
-     * @return Long
+     * @return Long the timestamp
      */
     public Long getTimestamp()
     {
@@ -226,7 +225,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Get Message ID
      *
-     * @return String
+     * @return String the message id
      */
     public String getMessageId()
     {
@@ -236,7 +235,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Get Message Text
      *
-     * @return String
+     * @return String the message text
      */
     public String getMessageText()
     {
@@ -246,7 +245,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Get Quick Reply Payload
      *
-     * @return String
+     * @return String the quick reply payload
      */
     public String getQuickReplyPayload()
     {
@@ -256,7 +255,7 @@ public class MessageReceivedWebhook implements ReceiverTemplate {
     /**
      * Get Attachment
      *
-     * @return Map<String, String>
+     * @return Map the attachments
      */
     public Map<String, String> getAttachment()
     {

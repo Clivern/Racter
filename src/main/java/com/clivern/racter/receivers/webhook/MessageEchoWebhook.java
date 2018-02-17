@@ -22,7 +22,6 @@ import com.clivern.racter.contract.templates.ReceiverTemplate;
  */
 public class MessageEchoWebhook implements ReceiverTemplate {
 
-
     protected String user_id;
 
     protected String page_id;
@@ -31,7 +30,7 @@ public class MessageEchoWebhook implements ReceiverTemplate {
     /**
      * Set User ID
      *
-     * @param user_id
+     * @param user_id the user id
      */
     public void setUserId(String user_id)
     {
@@ -41,7 +40,7 @@ public class MessageEchoWebhook implements ReceiverTemplate {
     /**
      * Set Page ID or Receiver ID
      *
-     * @param page_id
+     * @param page_id the page id
      */
     public void setPageId(String page_id)
     {
@@ -51,7 +50,7 @@ public class MessageEchoWebhook implements ReceiverTemplate {
     /**
      * Check if User ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a user id
      */
     public Boolean hasUserId()
     {
@@ -61,7 +60,7 @@ public class MessageEchoWebhook implements ReceiverTemplate {
     /**
      * Check if Page ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a page id
      */
     public Boolean hasPageId()
     {
@@ -71,7 +70,7 @@ public class MessageEchoWebhook implements ReceiverTemplate {
     /**
      * Get User ID
      *
-     * @return String
+     * @return String the user id
      */
     public String getUserId()
     {
@@ -81,7 +80,7 @@ public class MessageEchoWebhook implements ReceiverTemplate {
     /**
      * Get Page ID
      *
-     * @return String
+     * @return String the page id
      */
     public String getPageId()
     {

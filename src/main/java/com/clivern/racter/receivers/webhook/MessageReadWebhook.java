@@ -36,7 +36,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Set User ID
      *
-     * @param user_id
+     * @param user_id the user id
      */
     public void setUserId(String user_id)
     {
@@ -46,7 +46,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Set Page ID or Receiver ID
      *
-     * @param page_id
+     * @param page_id the page id
      */
     public void setPageId(String page_id)
     {
@@ -56,7 +56,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Set Watermark
      *
-     * @param watermark
+     * @param watermark the watermark
      */
     public void setWatermark(Long watermark)
     {
@@ -66,7 +66,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Set Seq
      *
-     * @param seq
+     * @param seq the seq
      */
     public void setSeq(Integer seq)
     {
@@ -76,7 +76,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Set Timestamp
      *
-     * @param timestamp
+     * @param timestamp the timestamp
      */
     public void setTimestamp(Long timestamp)
     {
@@ -86,7 +86,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Check if User ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a user id
      */
     public Boolean hasUserId()
     {
@@ -96,7 +96,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Check if Page ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a page id
      */
     public Boolean hasPageId()
     {
@@ -106,7 +106,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Check if Watermark Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a watermark
      */
     public Boolean hasWatermark()
     {
@@ -116,7 +116,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Check if Seq Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a seq
      */
     public Boolean hasSeq()
     {
@@ -126,7 +126,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Check if Timestamp Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a timestamp
      */
     public Boolean hasTimestamp()
     {
@@ -136,7 +136,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Get User ID
      *
-     * @return String
+     * @return String the user id
      */
     public String getUserId()
     {
@@ -146,7 +146,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Get Page ID
      *
-     * @return String
+     * @return String the page id
      */
     public String getPageId()
     {
@@ -156,7 +156,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Get Watermark
      *
-     * @return Long
+     * @return Long the watermark
      */
     public Long getWatermark()
     {
@@ -166,7 +166,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Get Seq
      *
-     * @return Integer
+     * @return Integer the seq
      */
     public Integer getSeq()
     {
@@ -176,7 +176,7 @@ public class MessageReadWebhook implements ReceiverTemplate {
     /**
      * Get Timestamp
      *
-     * @return Long
+     * @return Long the timestamp
      */
     public Long getTimestamp()
     {
