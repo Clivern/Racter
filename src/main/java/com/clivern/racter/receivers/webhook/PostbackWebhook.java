@@ -36,7 +36,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Set User ID
      *
-     * @param user_id
+     * @param user_id the user id
      */
     public void setUserId(String user_id)
     {
@@ -46,7 +46,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Set Page ID or Receiver ID
      *
-     * @param page_id
+     * @param page_id the page id
      */
     public void setPageId(String page_id)
     {
@@ -56,7 +56,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Set Timestamp
      *
-     * @param timestamp
+     * @param timestamp the timestamp
      */
     public void setTimestamp(Long timestamp)
     {
@@ -66,8 +66,8 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Set Postback
      *
-     * @param key
-     * @param value
+     * @param key the postback key
+     * @param value the postback value
      */
     public void setPostback(String key, String value)
     {
@@ -77,7 +77,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Check if User ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a user id
      */
     public Boolean hasUserId()
     {
@@ -87,7 +87,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Check if Page ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a page id
      */
     public Boolean hasPageId()
     {
@@ -97,7 +97,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Check if Timestamp Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a timestamp
      */
     public Boolean hasTimestamp()
     {
@@ -107,7 +107,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Check if Postback Exist
      *
-     * @return Boolean
+     * @return Boolean whether has a postback
      */
     public Boolean hasPostback()
     {
@@ -117,7 +117,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Get User ID
      *
-     * @return String
+     * @return String the user id
      */
     public String getUserId()
     {
@@ -127,7 +127,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Get Page ID
      *
-     * @return String
+     * @return String the page id
      */
     public String getPageId()
     {
@@ -137,7 +137,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Get Timestamp
      *
-     * @return Long
+     * @return Long the timestamp
      */
     public Long getTimestamp()
     {
@@ -147,7 +147,7 @@ public class PostbackWebhook implements ReceiverTemplate {
     /**
      * Get Postback
      *
-     * @return Map<String, String>
+     * @return Map the postback data
      */
     public Map<String, String> getPostback()
     {
