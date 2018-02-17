@@ -50,7 +50,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Recipient ID
      *
-     * @param recipient_id
+     * @param recipient_id the recipient id
      */
     public void setRecipientId(String recipient_id)
     {
@@ -60,7 +60,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Recipient Name
      *
-     * @param recipient_name
+     * @param recipient_name the recipient name
      */
     public void setRecipientName(String recipient_name)
     {
@@ -70,7 +70,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Order Number
      *
-     * @param order_number
+     * @param order_number the order number
      */
     public void setOrderNumber(String order_number)
     {
@@ -80,7 +80,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Currency
      *
-     * @param currency
+     * @param currency the currency
      */
     public void setCurrency(String currency)
     {
@@ -90,7 +90,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Payment Method
      *
-     * @param payment_method
+     * @param payment_method the payment method
      */
     public void setPaymentMethod(String payment_method)
     {
@@ -100,7 +100,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Order URL
      *
-     * @param order_url
+     * @param order_url the order url
      */
     public void setOrderUrl(String order_url)
     {
@@ -110,7 +110,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Timestamp
      *
-     * @param timestamp
+     * @param timestamp the timestamp
      */
     public void setTimestamp(String timestamp)
     {
@@ -120,12 +120,12 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Element
      *
-     * @param title
-     * @param subtitle
-     * @param quantity
-     * @param price
-     * @param currency
-     * @param image_url
+     * @param title the receipt element title
+     * @param subtitle the receipt element subtitle
+     * @param quantity the receipt element quantity
+     * @param price the receipt element price
+     * @param currency the receipt element currency
+     * @param image_url the receipt element image url
      */
     public void setElement(String title, String subtitle, String quantity, String price, String currency, String image_url)
     {
@@ -142,12 +142,12 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Address
      *
-     * @param street_1
-     * @param street_2
-     * @param city
-     * @param postal_code
-     * @param state
-     * @param country
+     * @param street_1 the street address 1
+     * @param street_2 the street address 2
+     * @param city the city 
+     * @param postal_code the postal code
+     * @param state the state
+     * @param country the country
      */
     public void setAddress(String street_1, String street_2, String city, String postal_code, String state, String country)
     {
@@ -162,10 +162,10 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Summary
      *
-     * @param subtotal
-     * @param shipping_cost
-     * @param total_tax
-     * @param total_cost
+     * @param subtotal the receipt sub-total
+     * @param shipping_cost the receipt shipping cost
+     * @param total_tax the receipt total tax
+     * @param total_cost the receipt total cost
      */
     public void setSummary(String subtotal, String shipping_cost, String total_tax, String total_cost)
     {
@@ -178,8 +178,8 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set Adjustment
      *
-     * @param name
-     * @param amount
+     * @param name the adjustment name
+     * @param amount the adjustment amount
      */
     public void setAdjustment(String name, String amount)
     {
@@ -192,7 +192,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Recipient ID
      *
-     * @return String
+     * @return String the recipient id
      */
     public String getRecipientId()
     {
@@ -202,7 +202,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Recipient Name
      *
-     * @return String
+     * @return String the recipient name
      */
     public String getRecipientName()
     {
@@ -212,7 +212,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Order Number
      *
-     * @return String
+     * @return String the order number
      */
     public String getOrderNumber()
     {
@@ -222,7 +222,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Currency
      *
-     * @return String
+     * @return String the currency
      */
     public String getCurrency()
     {
@@ -232,7 +232,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Payment Method
      *
-     * @return String
+     * @return String the payment method
      */
     public String getPaymentMethod()
     {
@@ -242,7 +242,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Order URL
      *
-     * @return String
+     * @return String the order url
      */
     public String getOrderUrl()
     {
@@ -252,7 +252,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Timestamp
      *
-     * @return String
+     * @return String the timestamp
      */
     public String getTimestamp()
     {
@@ -262,7 +262,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Elements
      *
-     * @return ArrayList
+     * @return ArrayList a list of all elements
      */
     public ArrayList<HashMap<String, String>> getElements()
     {
@@ -272,7 +272,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Adjustments
      *
-     * @return ArrayList
+     * @return ArrayList a list of adjustment data
      */
     public ArrayList<HashMap<String, String>> getAdjustments()
     {
@@ -282,7 +282,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Address
      *
-     * @return HashMap
+     * @return HashMap the address
      */
     public HashMap<String, String> getAddress()
     {
@@ -292,7 +292,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get Summary
      *
-     * @return HashMap
+     * @return HashMap the summary
      */
     public HashMap<String, String> getSummary()
     {
@@ -302,7 +302,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Build and get message as a string
      *
-     * @return String
+     * @return String the final message body
      */
     public String build()
     {
@@ -456,7 +456,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Set or override message
      *
-     * @param message_string
+     * @param message_string the message body
      */
     public void setMessageString(String message_string)
     {
@@ -466,7 +466,7 @@ public class ReceiptTemplate implements SenderTemplate {
     /**
      * Get message as a string
      *
-     * @return String
+     * @return String the message body
      */
     public String getMessageString()
     {

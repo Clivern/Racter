@@ -47,7 +47,7 @@ public class BaseSender {
     /**
      * Class Constructor
      *
-     * @param configs an instance of configs classß
+     * @param configs an instance of configs class
      */
     public BaseSender(Config configs)
     {
