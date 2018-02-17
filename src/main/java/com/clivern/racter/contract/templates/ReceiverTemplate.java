@@ -15,48 +15,50 @@ package com.clivern.racter.contract.templates;
 
 /**
  * Receiver Template Interface
+ *
+ * @since 1.0.0
  */
 public interface ReceiverTemplate {
 
     /**
      * Set User ID
      *
-     * @param user_id
+     * @param user_id the user id
      */
     public void setUserId(String user_id);
 
     /**
      * Set Page ID or Receiver ID
      *
-     * @param page_id
+     * @param page_id the page id
      */
     public void setPageId(String page_id);
 
     /**
      * Check if User ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has user id
      */
     public Boolean hasUserId();
 
     /**
      * Check if Page ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has page id
      */
     public Boolean hasPageId();
 
     /**
      * Get User ID
      *
-     * @return String
+     * @return String the user id
      */
     public String getUserId();
 
     /**
      * Get Page ID
      *
-     * @return String
+     * @return String the page id
      */
     public String getPageId();
 }
