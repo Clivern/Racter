@@ -3,7 +3,7 @@ Racter
 
 Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 
-*Current Version: 1.0.3*
+*Current Version: 1.0.4*
 
 [![Build Status](https://travis-ci.org/Clivern/Racter.svg?branch=master)](https://travis-ci.org/Clivern/Racter)
 ![](https://img.shields.io/maven-central/v/com.clivern/racter.svg)
@@ -18,20 +18,20 @@ To add a dependency using Maven, use the following:
 <dependency>
   <groupId>com.clivern</groupId>
   <artifactId>racter</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:racter:1.0.3'
+  compile 'com.clivern:racter:1.0.4'
 }
 ```
 
 To add a dependency using Scala SBT, use the following:
 ```java
-libraryDependencies += "com.clivern" % "racter" % "1.0.3"
+libraryDependencies += "com.clivern" % "racter" % "1.0.4"
 ```
 
 Usage
@@ -112,14 +112,11 @@ platform.getVerifyWebhook().setHubVerifyToken(hubVerifyToken);
 platform.getVerifyWebhook().setHubChallenge(hubChallenge);
 
 if( platform.getVerifyWebhook().challenge() ){
-    platform.finish();
 
     // Set Response to be hubChallenge value and status code is 200 like
     // response.status(200);
     // return ( hubChallenge != null ) ? hubChallenge : "";
 }
-
-platform.finish();
 
 // Set Response to be 'Verification token mismatch' and status code is 403 like
 // response.status(403);
@@ -153,12 +150,10 @@ public class Main {
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
 
             if( platform.getVerifyWebhook().challenge() ){
-                platform.finish();
                 response.status(200);
                 return ( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "";
             }
 
-            platform.finish();
             response.status(403);
             return "Verification token mismatch";
         });
@@ -201,11 +196,9 @@ public class Main {
         platform.getVerifyWebhook().setHubChallenge(hub_challenge);
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( hub_challenge != "" ) ? hub_challenge : "";
         }
 
-        platform.finish();
         return "Verification token mismatch";
     }
 }
@@ -245,11 +238,9 @@ public class HomeController extends Controller {
         platform.getVerifyWebhook().setHubChallenge(request().getQueryString("hub.challenge"));
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( request().getQueryString("hub.challenge") != null ) ? ok(request().getQueryString("hub.challenge")) : ok();
         }
 
-        platform.finish();
         return ok("Verification token mismatch");
     }
 }
@@ -306,12 +297,10 @@ public class Main {
             platform.getVerifyWebhook().setHubChallenge(( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "");
 
             if( platform.getVerifyWebhook().challenge() ){
-                platform.finish();
                 response.status(200);
                 return ( request.queryParams("hub.challenge") != null ) ? request.queryParams("hub.challenge") : "";
             }
 
-            platform.finish();
             response.status(403);
             return "Verification token mismatch";
         });
@@ -391,11 +380,8 @@ public class Main {
         platform.getVerifyWebhook().setHubChallenge(hub_challenge);
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( hub_challenge != "" ) ? hub_challenge : "";
         }
-
-        platform.finish();
         return "Verification token mismatch";
     }
 
@@ -473,11 +459,8 @@ public class HomeController extends Controller {
         platform.getVerifyWebhook().setHubChallenge(request().getQueryString("hub.challenge"));
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( request().getQueryString("hub.challenge") != null ) ? ok(request().getQueryString("hub.challenge")) : ok();
         }
-
-        platform.finish();
         return ok("Verification token mismatch");
     }
 
@@ -781,6 +764,11 @@ Also check the following tutorials:
 
 Changelog
 ---------
+Version 1.0.4:
+```
+Logger issue fixed.
+```
+
 Version 1.0.3:
 ```
 Update logging package.

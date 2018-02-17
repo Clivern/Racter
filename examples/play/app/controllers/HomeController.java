@@ -30,11 +30,9 @@ public class HomeController extends Controller {
         platform.getVerifyWebhook().setHubChallenge(request().getQueryString("hub.challenge"));
 
         if( platform.getVerifyWebhook().challenge() ){
-            platform.finish();
             return ( request().getQueryString("hub.challenge") != null ) ? ok(request().getQueryString("hub.challenge")) : ok();
         }
 
-        platform.finish();
         return ok("Verification token mismatch");
     }
 
