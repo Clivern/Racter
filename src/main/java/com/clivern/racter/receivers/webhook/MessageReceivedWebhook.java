@@ -19,6 +19,8 @@ import java.util.Map;
 
 /**
  * Message Webhook Class
+ *
+ * @since 1.0.0
  */
 public class MessageReceivedWebhook implements ReceiverTemplate {
 

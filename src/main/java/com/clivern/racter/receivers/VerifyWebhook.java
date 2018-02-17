@@ -18,6 +18,8 @@ import org.pmw.tinylog.Logger;
 
 /**
  * Verify Webhook Class
+ *
+ * @since 1.0.0
  */
 public class VerifyWebhook {
 
@@ -33,7 +35,7 @@ public class VerifyWebhook {
     /**
      * Class Constructor
      *
-     * @param  configs
+     * @param  configs an instance of configs classs
      */
     public VerifyWebhook(Config configs)
     {
@@ -43,7 +45,7 @@ public class VerifyWebhook {
     /**
      * Set Hub Mode
      *
-     * @param hub_mode
+     * @param hub_mode the hub mode
      */
     public void setHubMode(String hub_mode)
     {
@@ -53,7 +55,7 @@ public class VerifyWebhook {
     /**
      * Set Hub Verify Token
      *
-     * @param hub_verify_token
+     * @param hub_verify_token the hub verify token
      */
     public void setHubVerifyToken(String hub_verify_token)
     {
@@ -63,7 +65,7 @@ public class VerifyWebhook {
     /**
      * Set Hub Challenge
      *
-     * @param hub_challenge
+     * @param hub_challenge the hub challenge
      */
     public void setHubChallenge(String hub_challenge)
     {
@@ -73,7 +75,7 @@ public class VerifyWebhook {
     /**
      * Get Hub Mode
      *
-     * @return String
+     * @return String the hub mode
      */
     public String getHubMode()
     {
@@ -83,7 +85,7 @@ public class VerifyWebhook {
     /**
      * Get Hub Verify Token
      *
-     * @return String
+     * @return String the hub verify token
      */
     public String getHubVerifyToken()
     {
@@ -93,7 +95,7 @@ public class VerifyWebhook {
     /**
      * Get Hub Challenge
      *
-     * @return String
+     * @return String the hub challenge
      */
     public String getHubChallenge()
     {
@@ -103,7 +105,7 @@ public class VerifyWebhook {
     /**
      * Verify Challenge Data
      *
-     * @return boolean
+     * @return boolean whether challenge passed or not
      */
     public Boolean challenge()
     {

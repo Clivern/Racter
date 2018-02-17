@@ -23,9 +23,10 @@ import org.json.JSONArray;
 
 /**
  * Base Receiver Class
+ *
+ * @since 1.0.0
  */
 public class BaseReceiver {
-
 
     protected String message_string;
 
@@ -47,7 +48,7 @@ public class BaseReceiver {
     /**
      * Class Constructor
      *
-     * @param configs
+     * @param configs an instance of configs class
      */
     public BaseReceiver(Config configs)
     {
@@ -57,8 +58,8 @@ public class BaseReceiver {
     /**
      * Set Incoming Message
      *
-     * @param  message_string
-     * @return BaseReceiver
+     * @param  message_string the incoming message string
+     * @return BaseReceiver an instance of BaseReceiver class
      */
     public BaseReceiver set(String message_string)
     {
@@ -71,7 +72,7 @@ public class BaseReceiver {
     /**
      * Parse Incoming Message
      *
-     * @return BaseReceiver
+     * @return BaseReceiver an instance of BaseReceiver class
      */
     public BaseReceiver parse()
     {
@@ -298,7 +299,7 @@ public class BaseReceiver {
     /**
      * Get parsed message
      *
-     * @return Map<String, MessageReceivedWebhook>
+     * @return Map a list of message received webhook
      */
     public Map<String, MessageReceivedWebhook> getMessages()
     {
@@ -308,7 +309,7 @@ public class BaseReceiver {
     /**
      * Get delivered data
      *
-     * @return Map<String, MessageDeliveredWebhook>
+     * @return Map a list message delivered webhook
      */
     public Map<String, MessageDeliveredWebhook> getDelivered()
     {
@@ -318,7 +319,7 @@ public class BaseReceiver {
     /**
      * Get echo data
      *
-     * @return Map<String, MessageEchoWebhook>
+     * @return Map a list of message echo webhook
      */
     public Map<String, MessageEchoWebhook> getEcho()
     {
@@ -328,7 +329,7 @@ public class BaseReceiver {
     /**
      * Get read data
      *
-     * @return Map<String, MessageReadWebhook>
+     * @return Map a list of message read webhook
      */
     public Map<String, MessageReadWebhook> getRead()
     {
@@ -338,7 +339,7 @@ public class BaseReceiver {
     /**
      * Get postback data
      *
-     * @return Map<String, PostbackWebhook>
+     * @return Map a list of post back webhook
      */
     public Map<String, PostbackWebhook> getPostback()
     {
@@ -348,7 +349,7 @@ public class BaseReceiver {
     /**
      * Get message as a string
      *
-     * @return String
+     * @return String the final message string
      */
     public String getMessageString()
     {
@@ -358,7 +359,7 @@ public class BaseReceiver {
     /**
      * Get message as an object
      *
-     * @return JSONObject
+     * @return JSONObject the final message object
      */
     public JSONObject getMessageObject()
     {

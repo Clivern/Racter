@@ -17,6 +17,8 @@ import com.clivern.racter.contract.templates.ReceiverTemplate;
 
 /**
  * Message Echo Webhook
+ *
+ * @since 1.0.0
  */
 public class MessageEchoWebhook implements ReceiverTemplate {
 

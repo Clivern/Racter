@@ -17,24 +17,10 @@ import com.clivern.racter.contract.templates.ReceiverTemplate;
 
 /**
  * Message Read Webhook
+ *
+ * @since 1.0.0
  */
 public class MessageReadWebhook implements ReceiverTemplate {
-
-    /*
-    {
-        "sender":{
-            "id":"USER_ID"
-        },
-        "recipient":{
-            "id":"PAGE_ID"
-        },
-        "timestamp":1458668856463,
-        "read":{
-            "watermark":1458668856253,
-            "seq":38
-        }
-    }
-    */
 
     protected String user_id;
 

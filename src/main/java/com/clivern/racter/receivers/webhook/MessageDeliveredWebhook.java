@@ -18,26 +18,10 @@ import java.util.ArrayList;
 
 /**
  * Message Delivered Webhook Class
+ *
+ * @since 1.0.0
  */
 public class MessageDeliveredWebhook implements ReceiverTemplate {
-
-    /*
-    {
-        "sender":{
-            "id":"USER_ID"
-        },
-        "recipient":{
-            "id":"PAGE_ID"
-        },
-        "delivery":{
-            "mids":[
-                "mid.1458668856218:ed81099e15d3f4f233"
-            ],
-            "watermark":1458668856253,
-            "seq":37
-        }
-    }
-    */
 
     protected String user_id;
 
@@ -53,7 +37,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Set User ID
      *
-     * @param user_id
+     * @param user_id the user id
      */
     public void setUserId(String user_id)
     {
@@ -63,7 +47,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Set Page ID or Receiver ID
      *
-     * @param page_id
+     * @param page_id the page id
      */
     public void setPageId(String page_id)
     {
@@ -73,7 +57,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Set Watermark
      *
-     * @param watermark
+     * @param watermark the watermark
      */
     public void setWatermark(Long watermark)
     {
@@ -83,7 +67,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Set Seq
      *
-     * @param seq
+     * @param seq the seq value
      */
     public void setSeq(Integer seq)
     {
@@ -93,7 +77,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Set Mid
      *
-     * @param mid
+     * @param mid the mid value
      */
     public void setMid(String mid)
     {
@@ -103,7 +87,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Check if User ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has user id
      */
     public Boolean hasUserId()
     {
@@ -113,7 +97,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Check if Page ID Exist
      *
-     * @return Boolean
+     * @return Boolean whether has page id
      */
     public Boolean hasPageId()
     {
@@ -123,7 +107,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Check if Watermark Exist
      *
-     * @return Boolean
+     * @return Boolean whether has watermark
      */
     public Boolean hasWatermark()
     {
@@ -133,7 +117,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Check if Seq Exist
      *
-     * @return Boolean
+     * @return Boolean whether has seq.
      */
     public Boolean hasSeq()
     {
@@ -143,7 +127,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Check if Mids Exist
      *
-     * @return Boolean
+     * @return Boolean whether has Mids.
      */
     public Boolean hasMids()
     {
@@ -153,7 +137,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Get User ID
      *
-     * @return String
+     * @return String the user id
      */
     public String getUserId()
     {
@@ -163,7 +147,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Get Page ID
      *
-     * @return String
+     * @return String the page id
      */
     public String getPageId()
     {
@@ -173,7 +157,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Get Watermark
      *
-     * @return Long
+     * @return Long the watermark
      */
     public Long getWatermark()
     {
@@ -183,7 +167,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Get Seq
      *
-     * @return Integer
+     * @return Integer the seq
      */
     public Integer getSeq()
     {
@@ -193,7 +177,7 @@ public class MessageDeliveredWebhook implements ReceiverTemplate {
     /**
      * Get Mids
      *
-     * @return ArrayList
+     * @return ArrayList a list of Mids.
      */
     public ArrayList<String> getMids()
     {

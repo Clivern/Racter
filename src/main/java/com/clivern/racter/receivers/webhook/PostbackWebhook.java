@@ -19,28 +19,10 @@ import java.util.Map;
 
 /**
  * Postback Webhook
+ *
+ * @since 1.0.0
  */
 public class PostbackWebhook implements ReceiverTemplate {
-
-    /*
-    {
-        "sender":{
-            "id":"USER_ID"
-        },
-        "recipient":{
-            "id":"PAGE_ID"
-        },
-        "timestamp":1458692752478,
-        "postback":{
-            "payload": USER_DEFINED_PAYLOAD,
-            "referral": {
-                "ref": USER_DEFINED_REFERRAL_PARAM,
-                "source": "SHORTLINK",
-                "type": "OPEN_THREAD",
-            }
-        }
-    }
-    */
 
     protected String user_id;
 
