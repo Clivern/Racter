@@ -3,7 +3,7 @@ Racter
 
 Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 
-*Current Version: 1.0.4*
+*Current Version: 1.0.5*
 
 [![Build Status](https://travis-ci.org/Clivern/Racter.svg?branch=master)](https://travis-ci.org/Clivern/Racter)
 ![](https://img.shields.io/maven-central/v/com.clivern/racter.svg)
@@ -18,20 +18,20 @@ To add a dependency using Maven, use the following:
 <dependency>
   <groupId>com.clivern</groupId>
   <artifactId>racter</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:racter:1.0.4'
+  compile 'com.clivern:racter:1.0.5'
 }
 ```
 
 To add a dependency using Scala SBT, use the following:
 ```java
-libraryDependencies += "com.clivern" % "racter" % "1.0.4"
+libraryDependencies += "com.clivern" % "racter" % "1.0.5"
 ```
 
 Usage
@@ -646,35 +646,35 @@ Here's some of the usage cases:
 // To send a web url button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
-button_message_tpl.setButton("web_url", "Take the Hat Quiz", "https://m.me/petershats?ref=take_quiz", "");
+button_message_tpl.setButton("web_url", "Take the Hat Quiz", "https://m.me/petershats?ref=take_quiz", "", "");
 platform.getBaseSender().send(button_message_tpl);
 
 
 // To send a postback button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
-button_message_tpl.setButton("postback", "Bookmark Item", "", "DEVELOPER_DEFINED_PAYLOAD");
+button_message_tpl.setButton("postback", "Bookmark Item", "", "DEVELOPER_DEFINED_PAYLOAD", "");
 platform.getBaseSender().send(button_message_tpl);
 
 
 // To send a phone number button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
-button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234");
+button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234", "");
 platform.getBaseSender().send(button_message_tpl);
 
 
 // To send account link button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
-button_message_tpl.setButton("account_link", "", "https://www.example.com/authorize", "");
+button_message_tpl.setButton("account_link", "", "https://www.example.com/authorize", "", "");
 platform.getBaseSender().send(button_message_tpl);
 
 
 // To send account unlink button
 button_message_tpl.setRecipientId(message.getUserId());
 button_message_tpl.setMessageText("Click Below!");
-button_message_tpl.setButton("account_unlink", "", "", "");
+button_message_tpl.setButton("account_unlink", "", "", "", "");
 platform.getBaseSender().send(button_message_tpl);
 ```
 
@@ -764,6 +764,11 @@ Also check the following tutorials:
 
 Changelog
 ---------
+Version 1.0.5:
+```
+Fix generic template.
+```
+
 Version 1.0.4:
 ```
 Logger issue fixed.
