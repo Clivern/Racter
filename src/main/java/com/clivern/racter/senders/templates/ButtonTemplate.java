@@ -63,7 +63,7 @@ public class ButtonTemplate implements SenderTemplate {
      * @param url the button url
      * @param payload the button payload
      */
-    public void setButton(String type, String title, String url, String payload,String webview_height_ratio )
+    public void setButton(String type, String title, String url, String payload, String webview_height_ratio)
     {
         HashMap<String, String> button = new HashMap<String, String>();
         button.put("type", type);

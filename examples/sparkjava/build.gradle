@@ -27,7 +27,7 @@ dependencies {
     compile 'com.sparkjava:spark-core:2.6.0'
     compile 'org.slf4j:slf4j-api:1.7.13'
     compile 'org.slf4j:slf4j-simple:1.7.13'
-    compile 'com.clivern:racter:1.0.4'
+    compile 'com.clivern:racter:1.0.5'
 }
 
 //create a single Jar with all dependencies
