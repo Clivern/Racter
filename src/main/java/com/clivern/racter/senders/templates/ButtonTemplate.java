@@ -31,7 +31,7 @@ public class ButtonTemplate implements SenderTemplate {
     protected ArrayList<HashMap<String, String>> buttons = new ArrayList<HashMap<String, String>>();
 
     protected String message_string;
-    
+
     protected String webview_height_ratio;
 
 
@@ -62,6 +62,7 @@ public class ButtonTemplate implements SenderTemplate {
      * @param title the button title
      * @param url the button url
      * @param payload the button payload
+     * @param webview_height_ratio the web view ratio
      */
     public void setButton(String type, String title, String url, String payload, String webview_height_ratio)
     {
