@@ -82,7 +82,8 @@ public class GenericTemplate implements SenderTemplate {
      * @param fallback_url the fallback url
      */
     public void setElementDefaultAction(Integer index, String type, String url, Boolean messenger_extensions, String webview_height_ratio, String fallback_url)
-    {
+    {	
+    	this.elements.get(index).put("default_action_exists", true); // Flag to check if default action is present.
         this.elements.get(index).put("default_action_type", type);
         this.elements.get(index).put("default_action_url", url);
         this.elements.get(index).put("default_action_messenger_extensions", String.valueOf(messenger_extensions));
@@ -170,7 +171,8 @@ public class GenericTemplate implements SenderTemplate {
                                 if( !element.get("subtitle").equals("") ){
                                     this.message_string += "\"subtitle\":\"" + element.get("subtitle") + "\",";
                                 }
-
+                                
+                            if(element.containsKey("default_action_exists")) {
                                 if( !element.get("default_action_type").equals("") || !element.get("default_action_url").equals("") || !element.get("default_action_messenger_extensions").equals("") || !element.get("default_action_webview_height_ratio").equals("") || !element.get("default_action_fallback_url").equals("") ){
                                     this.message_string += "\"default_action\":{";
                                         if( !element.get("default_action_type").equals("") ){
@@ -189,9 +191,9 @@ public class GenericTemplate implements SenderTemplate {
                                             this.message_string += "\"fallback_url\":\"" + element.get("default_action_fallback_url") + "\",";
                                         }
                                         this.message_string = this.message_string.replaceAll(",$", "");
-                                    this.message_string += "},";
-                                }
-
+                                        this.message_string += "},";
+                        		}
+                        	}
 
                                 if( element.containsKey("buttons") ){
                                     ArrayList<HashMap<String, String>> buttons = (ArrayList<HashMap<String, String>>) element.get("buttons");
