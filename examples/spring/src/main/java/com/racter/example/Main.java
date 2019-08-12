@@ -163,35 +163,35 @@ public class Main {
 
                 button_message_tpl.setRecipientId(message.getUserId());
                 button_message_tpl.setMessageText("Click Below!");
-                button_message_tpl.setButton("web_url", "Take the Hat Quiz", "https://m.me/petershats?ref=take_quiz", "");
+                button_message_tpl.setButton("web_url", "Take the Hat Quiz", "https://m.me/petershats?ref=take_quiz", "", "");
                 platform.getBaseSender().send(button_message_tpl);
 
             }else if( text.equals("postback_button") ){
 
                 button_message_tpl.setRecipientId(message.getUserId());
                 button_message_tpl.setMessageText("Click Below!");
-                button_message_tpl.setButton("postback", "Bookmark Item", "", "DEVELOPER_DEFINED_PAYLOAD");
+                button_message_tpl.setButton("postback", "Bookmark Item", "", "DEVELOPER_DEFINED_PAYLOAD", "");
                 platform.getBaseSender().send(button_message_tpl);
 
             }else if( text.equals("phone_number_button") ){
 
                 button_message_tpl.setRecipientId(message.getUserId());
                 button_message_tpl.setMessageText("Click Below!");
-                button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234");
+                button_message_tpl.setButton("phone_number", "Call Representative", "", "+15105551234", "");
                 platform.getBaseSender().send(button_message_tpl);
 
             }else if( text.equals("account_link_button") ){
 
                 button_message_tpl.setRecipientId(message.getUserId());
                 button_message_tpl.setMessageText("Click Below!");
-                button_message_tpl.setButton("account_link", "", "https://www.example.com/authorize", "");
+                button_message_tpl.setButton("account_link", "", "https://www.example.com/authorize", "", "");
                 platform.getBaseSender().send(button_message_tpl);
 
             }else if( text.equals("account_unlink_button") ){
 
                 button_message_tpl.setRecipientId(message.getUserId());
                 button_message_tpl.setMessageText("Click Below!");
-                button_message_tpl.setButton("account_unlink", "", "", "");
+                button_message_tpl.setButton("account_unlink", "", "", "", "");
                 platform.getBaseSender().send(button_message_tpl);
 
             }else if( text.equals("list_template") ){
@@ -210,7 +210,7 @@ public class Main {
                 list_message_tpl.setElementButton(element_index, "Shop Now", "web_url", "https://peterssendreceiveapp.ngrok.io/shop?item=102", true, "tall", "https://peterssendreceiveapp.ngrok.io/");
 
                 // Set Button
-                list_message_tpl.setButton("postback", "View More", "", "payload");
+                list_message_tpl.setButton("postback", "View More", "", "payload", "");
                 platform.getBaseSender().send(list_message_tpl);
 
             }else if( text.equals("generic_template") ){

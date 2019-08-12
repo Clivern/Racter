@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web:1.5.7.RELEASE'
-    compile 'com.clivern:racter:1.0.4'
+    compile 'com.clivern:racter:1.0.5'
 }
 
 //create a single Jar with all dependencies
