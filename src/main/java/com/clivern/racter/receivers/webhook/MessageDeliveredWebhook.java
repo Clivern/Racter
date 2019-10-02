@@ -23,164 +23,148 @@ import java.util.ArrayList;
  */
 public class MessageDeliveredWebhook implements ReceiverTemplate {
 
-    protected String user_id;
+  protected String user_id;
 
-    protected String page_id;
+  protected String page_id;
 
-    protected Long watermark;
+  protected Long watermark;
 
-    protected Integer seq;
+  protected Integer seq;
 
-    protected ArrayList<String> mids = new ArrayList<String>();
+  protected ArrayList<String> mids = new ArrayList<String>();
 
+  /**
+   * Set User ID
+   *
+   * @param user_id the user id
+   */
+  public void setUserId(String user_id) {
+    this.user_id = user_id;
+  }
 
-    /**
-     * Set User ID
-     *
-     * @param user_id the user id
-     */
-    public void setUserId(String user_id)
-    {
-        this.user_id = user_id;
-    }
+  /**
+   * Set Page ID or Receiver ID
+   *
+   * @param page_id the page id
+   */
+  public void setPageId(String page_id) {
+    this.page_id = page_id;
+  }
 
-    /**
-     * Set Page ID or Receiver ID
-     *
-     * @param page_id the page id
-     */
-    public void setPageId(String page_id)
-    {
-        this.page_id = page_id;
-    }
+  /**
+   * Set Watermark
+   *
+   * @param watermark the watermark
+   */
+  public void setWatermark(Long watermark) {
+    this.watermark = watermark;
+  }
 
-    /**
-     * Set Watermark
-     *
-     * @param watermark the watermark
-     */
-    public void setWatermark(Long watermark)
-    {
-        this.watermark = watermark;
-    }
+  /**
+   * Set Seq
+   *
+   * @param seq the seq value
+   */
+  public void setSeq(Integer seq) {
+    this.seq = seq;
+  }
 
-    /**
-     * Set Seq
-     *
-     * @param seq the seq value
-     */
-    public void setSeq(Integer seq)
-    {
-        this.seq = seq;
-    }
+  /**
+   * Set Mid
+   *
+   * @param mid the mid value
+   */
+  public void setMid(String mid) {
+    this.mids.add(mid);
+  }
 
-    /**
-     * Set Mid
-     *
-     * @param mid the mid value
-     */
-    public void setMid(String mid)
-    {
-        this.mids.add(mid);
-    }
+  /**
+   * Check if User ID Exist
+   *
+   * @return Boolean whether has user id
+   */
+  public Boolean hasUserId() {
+    return (this.user_id != null);
+  }
 
-    /**
-     * Check if User ID Exist
-     *
-     * @return Boolean whether has user id
-     */
-    public Boolean hasUserId()
-    {
-        return (this.user_id != null);
-    }
+  /**
+   * Check if Page ID Exist
+   *
+   * @return Boolean whether has page id
+   */
+  public Boolean hasPageId() {
+    return (this.page_id != null);
+  }
 
-    /**
-     * Check if Page ID Exist
-     *
-     * @return Boolean whether has page id
-     */
-    public Boolean hasPageId()
-    {
-        return (this.page_id != null);
-    }
+  /**
+   * Check if Watermark Exist
+   *
+   * @return Boolean whether has watermark
+   */
+  public Boolean hasWatermark() {
+    return (this.watermark != null);
+  }
 
-    /**
-     * Check if Watermark Exist
-     *
-     * @return Boolean whether has watermark
-     */
-    public Boolean hasWatermark()
-    {
-        return (this.watermark != null);
-    }
+  /**
+   * Check if Seq Exist
+   *
+   * @return Boolean whether has seq.
+   */
+  public Boolean hasSeq() {
+    return (this.seq != null);
+  }
 
-    /**
-     * Check if Seq Exist
-     *
-     * @return Boolean whether has seq.
-     */
-    public Boolean hasSeq()
-    {
-        return (this.seq != null);
-    }
+  /**
+   * Check if Mids Exist
+   *
+   * @return Boolean whether has Mids.
+   */
+  public Boolean hasMids() {
+    return (this.mids.size() > 0);
+  }
 
-    /**
-     * Check if Mids Exist
-     *
-     * @return Boolean whether has Mids.
-     */
-    public Boolean hasMids()
-    {
-        return (this.mids.size() > 0);
-    }
+  /**
+   * Get User ID
+   *
+   * @return String the user id
+   */
+  public String getUserId() {
+    return this.user_id;
+  }
 
-    /**
-     * Get User ID
-     *
-     * @return String the user id
-     */
-    public String getUserId()
-    {
-        return this.user_id;
-    }
+  /**
+   * Get Page ID
+   *
+   * @return String the page id
+   */
+  public String getPageId() {
+    return this.page_id;
+  }
 
-    /**
-     * Get Page ID
-     *
-     * @return String the page id
-     */
-    public String getPageId()
-    {
-        return this.page_id;
-    }
+  /**
+   * Get Watermark
+   *
+   * @return Long the watermark
+   */
+  public Long getWatermark() {
+    return this.watermark;
+  }
 
-    /**
-     * Get Watermark
-     *
-     * @return Long the watermark
-     */
-    public Long getWatermark()
-    {
-        return this.watermark;
-    }
+  /**
+   * Get Seq
+   *
+   * @return Integer the seq
+   */
+  public Integer getSeq() {
+    return this.seq;
+  }
 
-    /**
-     * Get Seq
-     *
-     * @return Integer the seq
-     */
-    public Integer getSeq()
-    {
-        return this.seq;
-    }
-
-    /**
-     * Get Mids
-     *
-     * @return ArrayList a list of Mids.
-     */
-    public ArrayList<String> getMids()
-    {
-        return this.mids;
-    }
+  /**
+   * Get Mids
+   *
+   * @return ArrayList a list of Mids.
+   */
+  public ArrayList<String> getMids() {
+    return this.mids;
+  }
 }

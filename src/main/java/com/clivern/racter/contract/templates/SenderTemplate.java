@@ -20,38 +20,38 @@ package com.clivern.racter.contract.templates;
  */
 public interface SenderTemplate {
 
-    /**
-     * Set Recipient ID
-     *
-     * @param recipient_id the recipient id
-     */
-    public void setRecipientId(String recipient_id);
+  /**
+   * Set Recipient ID
+   *
+   * @param recipient_id the recipient id
+   */
+  public void setRecipientId(String recipient_id);
 
-    /**
-     * Get Recipient ID
-     *
-     * @return String the recipient id
-     */
-    public String getRecipientId();
+  /**
+   * Get Recipient ID
+   *
+   * @return String the recipient id
+   */
+  public String getRecipientId();
 
-    /**
-     * Build and get message as a string
-     *
-     * @return String the final message
-     */
-    public String build();
+  /**
+   * Build and get message as a string
+   *
+   * @return String the final message
+   */
+  public String build();
 
-    /**
-     * Set or override message
-     *
-     * @param message_string the final message
-     */
-    public void setMessageString(String message_string);
+  /**
+   * Set or override message
+   *
+   * @param message_string the final message
+   */
+  public void setMessageString(String message_string);
 
-    /**
-     * Get message as a string
-     *
-     * @return String the final message
-     */
-    public String getMessageString();
+  /**
+   * Get message as a string
+   *
+   * @return String the final message
+   */
+  public String getMessageString();
 }
