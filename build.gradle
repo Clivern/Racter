@@ -78,6 +78,9 @@ test {
     }
 }
 
+googleJavaFormat {
+    exclude 'examples/play/.g8/form'
+}
 dependencies {
     testImplementation 'junit:junit:4.12'
     compile 'com.mashape.unirest:unirest-java:1.4.9'
