@@ -12,6 +12,10 @@
  * the License.
  */
 
+plugins {
+    id 'com.github.sherter.google-java-format' version '0.8'
+}
+
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
 apply plugin: 'maven'
@@ -74,6 +78,9 @@ test {
     }
 }
 
+googleJavaFormat {
+    exclude 'examples/play/.g8/form'
+}
 dependencies {
     testImplementation 'junit:junit:4.12'
     compile 'com.mashape.unirest:unirest-java:1.4.9'

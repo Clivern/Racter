@@ -21,3 +21,4 @@ gradle.properties
 .settings
 .vscode
 bin
+.idea
