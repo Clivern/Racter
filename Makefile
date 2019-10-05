@@ -101,7 +101,7 @@ coverage:
 
 
 ## ci: Run all CI tests.
-ci: check
+ci: verify check
 	@echo "\n==> All quality checks passed"
 
 

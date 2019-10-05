@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Clivern <http://clivern.com>
+ * Copyright (C) 2019 Clivern <http://clivern.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -22,148 +22,148 @@ import com.clivern.racter.contract.templates.ReceiverTemplate;
  */
 public class MessageReadWebhook implements ReceiverTemplate {
 
-  protected String user_id;
+    protected String user_id;
 
-  protected String page_id;
+    protected String page_id;
 
-  protected Long watermark;
+    protected Long watermark;
 
-  protected Integer seq;
+    protected Integer seq;
 
-  protected Long timestamp;
+    protected Long timestamp;
 
-  /**
-   * Set User ID
-   *
-   * @param user_id the user id
-   */
-  public void setUserId(String user_id) {
-    this.user_id = user_id;
-  }
+    /**
+     * Set User ID
+     *
+     * @param user_id the user id
+     */
+    public void setUserId(String user_id) {
+        this.user_id = user_id;
+    }
 
-  /**
-   * Set Page ID or Receiver ID
-   *
-   * @param page_id the page id
-   */
-  public void setPageId(String page_id) {
-    this.page_id = page_id;
-  }
+    /**
+     * Set Page ID or Receiver ID
+     *
+     * @param page_id the page id
+     */
+    public void setPageId(String page_id) {
+        this.page_id = page_id;
+    }
 
-  /**
-   * Set Watermark
-   *
-   * @param watermark the watermark
-   */
-  public void setWatermark(Long watermark) {
-    this.watermark = watermark;
-  }
+    /**
+     * Set Watermark
+     *
+     * @param watermark the watermark
+     */
+    public void setWatermark(Long watermark) {
+        this.watermark = watermark;
+    }
 
-  /**
-   * Set Seq
-   *
-   * @param seq the seq
-   */
-  public void setSeq(Integer seq) {
-    this.seq = seq;
-  }
+    /**
+     * Set Seq
+     *
+     * @param seq the seq
+     */
+    public void setSeq(Integer seq) {
+        this.seq = seq;
+    }
 
-  /**
-   * Set Timestamp
-   *
-   * @param timestamp the timestamp
-   */
-  public void setTimestamp(Long timestamp) {
-    this.timestamp = timestamp;
-  }
+    /**
+     * Set Timestamp
+     *
+     * @param timestamp the timestamp
+     */
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
 
-  /**
-   * Check if User ID Exist
-   *
-   * @return Boolean whether has a user id
-   */
-  public Boolean hasUserId() {
-    return (this.user_id != null);
-  }
+    /**
+     * Check if User ID Exist
+     *
+     * @return Boolean whether has a user id
+     */
+    public Boolean hasUserId() {
+        return (this.user_id != null);
+    }
 
-  /**
-   * Check if Page ID Exist
-   *
-   * @return Boolean whether has a page id
-   */
-  public Boolean hasPageId() {
-    return (this.page_id != null);
-  }
+    /**
+     * Check if Page ID Exist
+     *
+     * @return Boolean whether has a page id
+     */
+    public Boolean hasPageId() {
+        return (this.page_id != null);
+    }
 
-  /**
-   * Check if Watermark Exist
-   *
-   * @return Boolean whether has a watermark
-   */
-  public Boolean hasWatermark() {
-    return (this.watermark != null);
-  }
+    /**
+     * Check if Watermark Exist
+     *
+     * @return Boolean whether has a watermark
+     */
+    public Boolean hasWatermark() {
+        return (this.watermark != null);
+    }
 
-  /**
-   * Check if Seq Exist
-   *
-   * @return Boolean whether has a seq
-   */
-  public Boolean hasSeq() {
-    return (this.seq != null);
-  }
+    /**
+     * Check if Seq Exist
+     *
+     * @return Boolean whether has a seq
+     */
+    public Boolean hasSeq() {
+        return (this.seq != null);
+    }
 
-  /**
-   * Check if Timestamp Exist
-   *
-   * @return Boolean whether has a timestamp
-   */
-  public Boolean hasTimestamp() {
-    return (this.timestamp != null);
-  }
+    /**
+     * Check if Timestamp Exist
+     *
+     * @return Boolean whether has a timestamp
+     */
+    public Boolean hasTimestamp() {
+        return (this.timestamp != null);
+    }
 
-  /**
-   * Get User ID
-   *
-   * @return String the user id
-   */
-  public String getUserId() {
-    return this.user_id;
-  }
+    /**
+     * Get User ID
+     *
+     * @return String the user id
+     */
+    public String getUserId() {
+        return this.user_id;
+    }
 
-  /**
-   * Get Page ID
-   *
-   * @return String the page id
-   */
-  public String getPageId() {
-    return this.page_id;
-  }
+    /**
+     * Get Page ID
+     *
+     * @return String the page id
+     */
+    public String getPageId() {
+        return this.page_id;
+    }
 
-  /**
-   * Get Watermark
-   *
-   * @return Long the watermark
-   */
-  public Long getWatermark() {
-    return this.watermark;
-  }
+    /**
+     * Get Watermark
+     *
+     * @return Long the watermark
+     */
+    public Long getWatermark() {
+        return this.watermark;
+    }
 
-  /**
-   * Get Seq
-   *
-   * @return Integer the seq
-   */
-  public Integer getSeq() {
-    return this.seq;
-  }
+    /**
+     * Get Seq
+     *
+     * @return Integer the seq
+     */
+    public Integer getSeq() {
+        return this.seq;
+    }
 
-  /**
-   * Get Timestamp
-   *
-   * @return Long the timestamp
-   */
-  public Long getTimestamp() {
-    return this.timestamp;
-  }
+    /**
+     * Get Timestamp
+     *
+     * @return Long the timestamp
+     */
+    public Long getTimestamp() {
+        return this.timestamp;
+    }
 }

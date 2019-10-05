@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Clivern <http://clivern.com>
+ * Copyright (C) 2019 Clivern <http://clivern.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -20,45 +20,45 @@ package com.clivern.racter.contract.templates;
  */
 public interface ReceiverTemplate {
 
-  /**
-   * Set User ID
-   *
-   * @param user_id the user id
-   */
-  public void setUserId(String user_id);
+    /**
+     * Set User ID
+     *
+     * @param user_id the user id
+     */
+    public void setUserId(String user_id);
 
-  /**
-   * Set Page ID or Receiver ID
-   *
-   * @param page_id the page id
-   */
-  public void setPageId(String page_id);
+    /**
+     * Set Page ID or Receiver ID
+     *
+     * @param page_id the page id
+     */
+    public void setPageId(String page_id);
 
-  /**
-   * Check if User ID Exist
-   *
-   * @return Boolean whether has user id
-   */
-  public Boolean hasUserId();
+    /**
+     * Check if User ID Exist
+     *
+     * @return Boolean whether has user id
+     */
+    public Boolean hasUserId();
 
-  /**
-   * Check if Page ID Exist
-   *
-   * @return Boolean whether has page id
-   */
-  public Boolean hasPageId();
+    /**
+     * Check if Page ID Exist
+     *
+     * @return Boolean whether has page id
+     */
+    public Boolean hasPageId();
 
-  /**
-   * Get User ID
-   *
-   * @return String the user id
-   */
-  public String getUserId();
+    /**
+     * Get User ID
+     *
+     * @return String the user id
+     */
+    public String getUserId();
 
-  /**
-   * Get Page ID
-   *
-   * @return String the page id
-   */
-  public String getPageId();
+    /**
+     * Get Page ID
+     *
+     * @return String the page id
+     */
+    public String getPageId();
 }
