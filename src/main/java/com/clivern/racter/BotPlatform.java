@@ -17,6 +17,8 @@ import com.clivern.racter.receivers.BaseReceiver;
 import com.clivern.racter.receivers.VerifyWebhook;
 import com.clivern.racter.senders.BaseSender;
 import com.clivern.racter.utils.Config;
+import okhttp3.OkHttpClient;
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -46,7 +48,7 @@ public class BotPlatform {
         this.configs.loadPropertiesFile(poperties_file_path);
         configs.configLogger();
         this.base_receiver = new BaseReceiver(this.configs);
-        this.base_sender = new BaseSender(this.configs);
+        this.base_sender = new BaseSender(this.configs, new OkHttpClient());
         this.verify_webhook = new VerifyWebhook(this.configs);
     }
 
@@ -63,7 +65,7 @@ public class BotPlatform {
         }
         configs.configLogger();
         this.base_receiver = new BaseReceiver(this.configs);
-        this.base_sender = new BaseSender(this.configs);
+        this.base_sender = new BaseSender(this.configs, new OkHttpClient());
         this.verify_webhook = new VerifyWebhook(this.configs);
     }
 

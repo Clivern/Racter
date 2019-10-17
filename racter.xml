@@ -17,12 +17,12 @@
   </licenses>
   <developers>
     <developer>
-      <id>clivern</id>
-      <name>AF</name>
+      <id>Clivern</id>
+      <name>Ahmed</name>
       <email>hello@clivern.com</email>
       <url>http://clivern.com</url>
       <roles>
-        <role>Software Developer</role>
+        <role>Software Engineer</role>
       </roles>
     </developer>
   </developers>
@@ -33,9 +33,9 @@
   </scm>
   <dependencies>
     <dependency>
-      <groupId>com.mashape.unirest</groupId>
-      <artifactId>unirest-java</artifactId>
-      <version>1.4.9</version>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>4.2.2</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
