@@ -15,13 +15,12 @@ package com.clivern.racter.senders;
 
 import com.clivern.racter.senders.templates.*;
 import com.clivern.racter.utils.Config;
+import java.io.IOException;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import org.pmw.tinylog.Logger;
-
-import java.io.IOException;
 
 /**
  * Base Sender Class

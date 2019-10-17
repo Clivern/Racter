@@ -17,10 +17,9 @@ import com.clivern.racter.receivers.BaseReceiver;
 import com.clivern.racter.receivers.VerifyWebhook;
 import com.clivern.racter.senders.BaseSender;
 import com.clivern.racter.utils.Config;
-import okhttp3.OkHttpClient;
-
 import java.io.IOException;
 import java.util.Map;
+import okhttp3.OkHttpClient;
 
 /**
  * Bot Platform Base Class
