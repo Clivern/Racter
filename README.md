@@ -1,31 +1,33 @@
-Racter
-=========
+<p align="center">
+    <img alt="Racter Logo" src="https://raw.githubusercontent.com/Clivern/Racter/master/images/logo.png" height="80" />
+    <h3 align="center">Racter</h3>
+    <p align="center">A Java Framework for Building Bots on Facebook's Messenger Platform.</p>
+    <p align="center">
+        <a href="http://www.javadoc.io/doc/com.clivern/racter"><img src="http://www.javadoc.io/badge/com.clivern/racter.svg"></a>
+        <a href="https://travis-ci.org/Clivern/Racter"><img src="https://travis-ci.org/Clivern/Racter.svg?branch=master"></a>
+        <a href="https://mvnrepository.com/artifact/com.clivern/racter/1.0.5"><img src="https://img.shields.io/maven-central/v/com.clivern/racter.svg"></a>
+        <a href="https://github.com/Clivern/Racter/blob/master/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache_2.0-orange.svg"></a>
+    </p>
+</p>
 
-Racter is A Java Framework for Building Bots on Facebook's Messenger Platform.
 
-*Current Version: 1.0.5*
+## Documentation
 
-[![Build Status](https://travis-ci.org/Clivern/Racter.svg?branch=master)](https://travis-ci.org/Clivern/Racter)
-![](https://img.shields.io/maven-central/v/com.clivern/racter.svg)
-[![Javadocs](http://www.javadoc.io/badge/com.clivern/racter.svg)](http://www.javadoc.io/doc/com.clivern/racter)
-![](https://img.shields.io/github/license/clivern/racter.svg)
+### Installation
 
-
-Installation
-------------
 To add a dependency using Maven, use the following:
 ```xml
 <dependency>
-  <groupId>com.clivern</groupId>
-  <artifactId>racter</artifactId>
-  <version>1.0.5</version>
+    <groupId>com.clivern</groupId>
+    <artifactId>racter</artifactId>
+    <version>1.0.5</version>
 </dependency>
 ```
 
 To add a dependency using Gradle, use the following:
 ```java
 dependencies {
-  compile 'com.clivern:racter:1.0.5'
+    compile 'com.clivern:racter:1.0.5'
 }
 ```
 
@@ -34,11 +36,11 @@ To add a dependency using Scala SBT, use the following:
 libraryDependencies += "com.clivern" % "racter" % "1.0.5"
 ```
 
-Usage
------
+### Usage
+
 After adding the package as a dependency, Please read the following steps:
 
-### Basic Configurations
+#### Basic Configurations
 In order to cofigure the package create `config.properties` file with the following data
 
 ```java
@@ -95,8 +97,8 @@ options.put("logging_buffered", "true or false");
 BotPlatform platform = new BotPlatform(options);
 ```
 
-Setup Webhook
--------------
+### Setup Webhook
+
 Create a route to verify your verify token, Facebook will perform a GET request to this route URL with some URL parameters to make sure that verify token is correct.
 
 ```java
@@ -246,8 +248,8 @@ public class HomeController extends Controller {
 }
 ```
 
-Message Received
-----------------
+### Message Received
+
 In order to receive and parse messages, You will need to create another route that receives post requests from Facebook. Our Route should contain a code look like the following:
 
 ```java
@@ -502,10 +504,10 @@ public class HomeController extends Controller {
 }
 ```
 
-Send API
---------
+### Send API
 
-### Sending Message
+
+#### Sending Message
 
 Let's create an empty message first and fill it with the required data. We can get a new message container from Bot Platform Instance:
 
@@ -626,7 +628,7 @@ if( quick_reply_payload.equals("text_reply_red_click") ){
 }
 ```
 
-### Sending Button Message
+#### Sending Button Message
 
 Let's create an empty message first and fill it with the required data. We can get a new message container from Bot Platform Instance:
 
@@ -678,7 +680,7 @@ button_message_tpl.setButton("account_unlink", "", "", "", "");
 platform.getBaseSender().send(button_message_tpl);
 ```
 
-### Sending List Message
+#### Sending List Message
 
 Let's create an empty list message first and fill it with the required data. We can get a new list message container from Bot Platform Instance:
 
@@ -689,7 +691,7 @@ ListTemplate list_message_tpl = platform.getBaseSender().getListTemplate();
 // ..
 ```
 
-### Sending Generic Message
+#### Sending Generic Message
 
 Let's create an empty generic message first and fill it with the required data. We can get a new generic message container from Bot Platform Instance:
 
@@ -700,7 +702,7 @@ GenericTemplate generic_message_tpl = platform.getBaseSender().getGenericTemplat
 // ..
 ```
 
-### Sending Receipt Message
+#### Sending Receipt Message
 
 Let's create an empty receipt message first and fill it with the required data. We can get a new receipt message container from Bot Platform Instance:
 
@@ -734,26 +736,7 @@ platform.getBaseSender().send(receipt_message_tpl);
 ```
 
 
-Misc
-====
-
-Contributing
-------------
-In case you want to share some love or show your awesomeness:
-
-- Check the [Messenger Platform Documentations](https://developers.facebook.com/docs/messenger-platform/).
-- Fork the master branch or latest version branch.
-- Create a feature branch `git branch my-feature`.
-- Move to your branch `git checkout my-feature`.
-- Do Your Changes.
-- It will be great if you write some tests to your feature and check `./gradlew test` but not required ;).
-- Track the changes `git add --all`.
-- Commit your changes `git commit -m 'new awesome feature'`.
-- Push to your newly created branch `git push origin my-feature`.
-- Create a new Pull Request.
-
-Tutorials & Examples
---------------------
+### Tutorials & Examples
 
 > For almost all supported features you can take a look at [`examples/`](https://github.com/Clivern/Racter/tree/master/examples) folder for working examples.
 
@@ -762,44 +745,30 @@ Also check the following tutorials:
 1. [Building Your Messenger Chat Bot with Racter & SparkJava Framework.](http://clivern.com/how-to-create-a-facebook-messenger-bot-with-java/)
 
 
-Changelog
----------
-Version 1.0.5:
-```
-Fix generic template.
-```
+## Versioning
 
-Version 1.0.4:
-```
-Logger issue fixed.
-```
+For transparency into our release cycle and in striving to maintain backward compatibility, Racter is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
 
-Version 1.0.3:
-```
-Update logging package.
-Update Configurations.
-```
+See the [Releases section of our GitHub project](https://github.com/clivern/racter/releases) for changelogs for each release version of Racter. It contains summaries of the most noteworthy changes made in each release.
 
-Version 1.0.2:
-```
-Some Issues Fixed.
-PlayFramework Integration.
-```
 
-Version 1.0.1:
-```
-Major enhancements in documentations.
-Some classes refactored.
-```
+## Bug tracker
 
-Version 1.0.0:
-```
-Initial Release
-```
+If you have any suggestions, bug reports, or annoyances please report them to our issue tracker at https://github.com/clivern/racter/issues
 
-Acknowledgements
-----------------
 
-© 2017, Clivern. Released under [The Apache Software License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
+## Security Issues
 
-**Racter** is authored and maintained by [@clivern](http://github.com/clivern).
+If you discover a security vulnerability within Racter, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
+
+
+## Contributing
+
+We are an open source, community-driven project so please feel free to join us. see the [contributing guidelines](CONTRIBUTING.md) for more details.
+
+
+## License
+
+© 2019, Clivern. Released under [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+**Racter** is authored and maintained by [@Clivern](http://github.com/clivern).
