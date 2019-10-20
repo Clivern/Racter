@@ -15,8 +15,11 @@ package com.clivern.racter.senders;
 
 import com.clivern.racter.senders.templates.*;
 import com.clivern.racter.utils.Config;
-import com.mashape.unirest.http.*;
-import com.mashape.unirest.http.exceptions.UnirestException;
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import org.pmw.tinylog.Logger;
 
 /**
@@ -40,17 +43,23 @@ public class BaseSender {
     public static final String ATTACHMENT_TYPE_FILE = "file";
     public static final String ATTACHMENT_TYPE_TEMPLATE = "template";
 
+    private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+
     protected String remote_url = "https://graph.facebook.com/v2.6/me/messages?access_token=";
 
     protected Config configs;
+
+    private OkHttpClient client;
 
     /**
      * Class Constructor
      *
      * @param configs an instance of configs class
+     * @param httpClient
      */
-    public BaseSender(Config configs) {
+    public BaseSender(Config configs, OkHttpClient httpClient) {
         this.configs = configs;
+        this.client = httpClient;
     }
 
     /**
@@ -103,9 +112,9 @@ public class BaseSender {
      *
      * @param template an instance of message template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException Throws exception in case it fails to perform the request
+     * @throws IOException Throws exception in case it fails to perform the request
      */
-    public Boolean send(MessageTemplate template) throws UnirestException {
+    public Boolean send(MessageTemplate template) throws IOException {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
         Logger.info(
@@ -114,8 +123,8 @@ public class BaseSender {
                         + "' \""
                         + url
                         + "\"");
-        HttpResponse<String> response =
-                Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+
+        post(url, body);
 
         return true;
     }
@@ -125,9 +134,9 @@ public class BaseSender {
      *
      * @param template an instance of button template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException Throws exception in case it fails to perform the request
+     * @throws IOException Throws exception in case it fails to perform the request
      */
-    public Boolean send(ButtonTemplate template) throws UnirestException {
+    public Boolean send(ButtonTemplate template) throws IOException {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
         Logger.info(
@@ -136,8 +145,8 @@ public class BaseSender {
                         + "' \""
                         + url
                         + "\"");
-        HttpResponse<String> response =
-                Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+
+        post(url, body);
 
         return true;
     }
@@ -147,9 +156,9 @@ public class BaseSender {
      *
      * @param template an instance of list template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException Throws exception in case it fails to perform the request
+     * @throws IOException Throws exception in case it fails to perform the request
      */
-    public Boolean send(ListTemplate template) throws UnirestException {
+    public Boolean send(ListTemplate template) throws IOException {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
         Logger.info(
@@ -158,8 +167,8 @@ public class BaseSender {
                         + "' \""
                         + url
                         + "\"");
-        HttpResponse<String> response =
-                Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+
+        post(url, body);
 
         return true;
     }
@@ -169,9 +178,9 @@ public class BaseSender {
      *
      * @param template an instance of generic template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException Throws exception in case it fails to perform the request
+     * @throws IOException Throws exception in case it fails to perform the request
      */
-    public Boolean send(GenericTemplate template) throws UnirestException {
+    public Boolean send(GenericTemplate template) throws IOException {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
         Logger.info(
@@ -180,8 +189,8 @@ public class BaseSender {
                         + "' \""
                         + url
                         + "\"");
-        HttpResponse<String> response =
-                Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+
+        post(url, body);
 
         return true;
     }
@@ -191,9 +200,9 @@ public class BaseSender {
      *
      * @param template an instance of receipt template
      * @return Boolean whether the message sent or not
-     * @throws UnirestException Throws exception in case it fails to perform the request
+     * @throws IOException Throws exception in case it fails to perform the request
      */
-    public Boolean send(ReceiptTemplate template) throws UnirestException {
+    public Boolean send(ReceiptTemplate template) throws IOException {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         String body = template.build();
         Logger.info(
@@ -202,8 +211,8 @@ public class BaseSender {
                         + "' \""
                         + url
                         + "\"");
-        HttpResponse<String> response =
-                Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+
+        post(url, body);
 
         return true;
     }
@@ -213,9 +222,9 @@ public class BaseSender {
      *
      * @param body the message body
      * @return Boolean whether the message sent or not
-     * @throws UnirestException Throws exception in case it fails to perform the request
+     * @throws IOException Throws exception in case it fails to perform the request
      */
-    public Boolean send(String body) throws UnirestException {
+    public Boolean send(String body) throws IOException {
         String url = this.remote_url + this.configs.get("page_access_token", "");
         Logger.info(
                 "curl -X POST -H \"Content-Type: application/json\" -d '"
@@ -223,9 +232,16 @@ public class BaseSender {
                         + "' \""
                         + url
                         + "\"");
-        HttpResponse<String> response =
-                Unirest.post(url).header("Content-Type", "application/json").body(body).asString();
+
+        post(url, body);
 
         return true;
+    }
+
+    private void post(String url, String body) throws IOException {
+        Request request =
+                new Request.Builder().url(url).post(RequestBody.create(body, JSON)).build();
+
+        client.newCall(request).execute();
     }
 }
