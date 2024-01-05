@@ -2,7 +2,7 @@ repo_name: Clivern/Racter
 report_id: '02408b5dfbda28552a4d021f73bb9bf1'
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-21T15:21:53+00:00'
+timestamp: '2024-01-05T08:18:14+00:00'
 requested_by: renovate[bot]
 provider: github
 branch: master
@@ -17,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/995/K85ZWV2F.png
+  detection_source_url: https://github.com/Clivern/Racter
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -26,6 +27,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/Clivern/Racter
   detection_source: Repo Metadata
 - name: GitHub Actions
   description: Automate your workflow from idea to production
@@ -35,6 +37,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source_url: https://github.com/Clivern/Racter/blob/master/.github/workflows/ci.yml
   detection_source: ".github/workflows/ci.yml"
   last_updated_by: Clivern
   last_updated_on: 2019-09-30 10:37:20.000000000 Z
@@ -47,6 +50,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Java Build Tools
   image_url: https://img.stackshare.io/service/975/gradlephant-social-black-bg.png
+  detection_source_url: https://github.com/Clivern/Racter/blob/master/build.gradle
   detection_source: build.gradle
   last_updated_by: renovate[bot]
   last_updated_on: 2020-07-05 19:35:05.000000000 Z
@@ -58,6 +62,7 @@ tools:
   category: Monitoring
   sub_category: Log Management
   image_url: https://img.stackshare.io/service/2923/05518ecaa42841e834421e9d6987b04f_400x400.png
+  detection_source_url: https://github.com/Clivern/Racter/blob/master/examples/play/conf/logback.xml
   detection_source: examples/play/conf/logback.xml
   last_updated_by: Clivern
   last_updated_on: 2017-10-18 13:48:01.000000000 Z
@@ -69,6 +74,7 @@ tools:
   category: Monitoring
   sub_category: Log Management
   image_url: https://img.stackshare.io/service/2805/05518ecaa42841e834421e9d6987b04f_400x400.png
+  detection_source_url: https://github.com/Clivern/Racter/blob/master/examples/sparkjava/build.gradle
   detection_source: examples/sparkjava/build.gradle
   last_updated_by: Clivern
   last_updated_on: 2017-07-22 12:38:08.000000000 Z
@@ -81,6 +87,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/460/Lu6cGu0z_400x400.png
+  detection_source_url: https://github.com/Clivern/Racter/blob/master/.travis.yml
   detection_source: ".travis.yml"
   last_updated_by: A. F
   last_updated_on: 2017-07-16 22:46:52.000000000 Z
@@ -138,6 +145,7 @@ tools:
   category: Libraries
   sub_category: Maven Packages
   image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/Clivern/Racter/blob/master/build.gradle
   detection_source: build.gradle
   last_updated_by: renovate[bot]
   last_updated_on: 2022-06-06 21:06:32.000000000 Z
@@ -176,6 +184,7 @@ tools:
   category: Libraries
   sub_category: Maven Packages
   image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/Clivern/Racter/blob/master/examples/spring/build.gradle
   detection_source: examples/spring/build.gradle
   last_updated_by: Clivern
   last_updated_on: 2017-10-15 14:41:05.000000000 Z
